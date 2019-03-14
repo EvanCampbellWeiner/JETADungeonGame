@@ -12,7 +12,7 @@ public abstract class Entity {
         this.y =y;
         this.z =z;
     }
-    public abstract boolean interact(Charator Attacker);
+    public abstract boolean interact(Character Attacker);
     public abstract void print();
 
     public int getX() {

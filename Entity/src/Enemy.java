@@ -1,4 +1,4 @@
-public class Enemy extends Charator{
+public class Enemy extends Character{
 
     Enemy(String Name,int x,int y,int z,int health,Weapon Sword){
         super(Name,x,y,z,health,Sword);
@@ -10,7 +10,7 @@ public class Enemy extends Charator{
     }
 
     @Override
-    public void startTurn() {
+    public void startTurn(Floor Map) {
         //should be automated
     }
 }

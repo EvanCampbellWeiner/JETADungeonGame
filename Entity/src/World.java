@@ -17,4 +17,8 @@ public class World {
     public void customFloor(Floor Floor,int placement) {
         Level[placement] = Floor;
     }
+
+    public Floor[] getLevel() {
+        return Level;
+    }
 }

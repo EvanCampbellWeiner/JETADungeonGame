@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Player extends Charator{
+public class Player extends Character{
     Scanner scanner = new Scanner(System.in);
 
     Player(String Name, int x, int y, int z){
@@ -14,7 +14,7 @@ public class Player extends Charator{
     }
 
     @Override
-    public void startTurn() {
+    public void startTurn(Floor Map) {
         int pick;
         boolean madeMove;
         do{
@@ -25,12 +25,8 @@ public class Player extends Charator{
 
             }
 
-            if(pick>=4||pick<=0){
-                madeMove = Move(pick);
-            }
-            if(pick<=5||pick>=7){
-                getConsumiblePocket(pick-5).use();
-                madeMove = true;
+            if(pick<=4&&pick>=1){
+                madeMove = Move(Map,pick);
             }
         }while(!madeMove);
 

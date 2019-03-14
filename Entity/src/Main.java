@@ -3,12 +3,23 @@ public class Main {
     public static void main(String[] args) {
         Manager GameManger = new Manager(new Player("Test Subject",2,2,0));
         Weapon fireDeathAxe = new Weapon(true,6,"Death Axe");
+        Weapon Slap = new Weapon(false,4,"Hand of Pain");
         Enemy Hunter = new Enemy("Hunter",2,3,2,12,fireDeathAxe);
+        Consumable Heal = new Consumable(10,"Greater Healing");
+        Hunter.pickUpNewWeapon(Slap);
+        Hunter.pickUpNewWeapon(fireDeathAxe);
+        //Hunter.removeWeapon(1);//used to remove a weapon
+        Hunter.pickUpNewConsumible(Heal);
+        Hunter.pickUpNewConsumible(Heal);
+        Hunter.removeConsumible(0);//used to remove a consumible
         GameManger.addEnemy(Hunter);
+
+
         World Tunnel = new World(1);
         Floor Path = new Floor(12,12);
         Path.buildRectangle(3,3,1,1);
         Path.buildRectangle(3,3,8,8);
+        Path.buildTunnel(2,2,10,10);
         Tunnel.customFloor(Path,0);
         GameManger.addWorld(Tunnel);
         GameManger.PrintFull();

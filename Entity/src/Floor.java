@@ -37,7 +37,6 @@ public class Floor{
     //print's the floor as a binary map (*use for testing replace with visual effects later)
     public void printFloor(){
         //this needs to be replaced with a visual system but for now i'm testing with it
-
         for(int y =Map[0].length-1 ;y>=0;y--){
             //System.out.print(x);
             for (int x=0;x<=Map.length-1;x++){
@@ -61,20 +60,21 @@ public class Floor{
         }
 
     }
+    public int getTileEnemy(int x,int y){
+        return(Map[x][y].enemyLocation);
+    }
 
     //Tile class is a single point on the map you should't touch this ideally
     private class Tile{
         private boolean wall;
+        private int enemyLocation;
         //Add tile info here
 
         Tile(boolean wall){
-            this.wall=wall;
+            this.wall=wall;this.enemyLocation=0;
         }
         Tile(){
-            this.wall=true;
-        }
-        public boolean empty(){
-            return wall;
+            this.wall=true;this.enemyLocation=0;
         }
 
         public void setWall(boolean wall) {
@@ -87,8 +87,6 @@ public class Floor{
 
     //builds a path from point A to B
     public void buildTunnel(int xPointA,int yPointA,int xPointB,int yPointB){
-        //this should cut a 1 wide path between two point's using build rectangle
-
         /*
             A
             0
@@ -97,8 +95,28 @@ public class Floor{
             0
             0
             00000B
-                turning all the into a hallway in other's words a path.
+                works in one case hopefull in all might need to edit a bit more?
          */
+        int xPointC=xPointA;
+        int yPointC=yPointB;
+
+        int xPointD= xPointC-xPointB;
+        if(xPointD<0){
+            xPointD=xPointD-xPointD-xPointD;
+        }
+        int yPointD= yPointA-yPointC;
+        if(yPointD<0){
+            yPointD=yPointD-yPointD-yPointD;
+        }
+
+        if(xPointA>xPointB) {
+            buildRectangle(1, yPointD, xPointB, yPointB);
+            buildRectangle(xPointD, 1, xPointC, yPointC);
+        }
+        else{
+            buildRectangle(1, yPointD, xPointA, yPointA);
+            buildRectangle(xPointD, 1, xPointC, yPointC);
+        }
     }
 
     //Randomly generate a floor

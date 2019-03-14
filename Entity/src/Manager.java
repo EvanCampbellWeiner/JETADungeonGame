@@ -19,6 +19,12 @@ public class Manager {
         GameWorld[0].customFloor(RoomOne,0);
         GameWorld[0].customFloor(RoomTwo,1);
     }
+    Manager(Player Neo, World[] Maps,Entity[]PlayerLoop){
+        this.GameWorld=Maps;
+        this.GameLoop = new Entity[PlayerLoop.length+1];
+        GameLoop[0]=Neo;
+        System.arraycopy(GameLoop,0,PlayerLoop,0,PlayerLoop.length+1);
+    }
 
 
 
@@ -51,6 +57,13 @@ public class Manager {
 
     }
 
+    public World[] getGameWorld() {
+        return GameWorld;
+    }
+
+    public Entity[] getGameLoop() {
+        return GameLoop;
+    }
 
     public boolean requestMove(Character Moving){
         return true;

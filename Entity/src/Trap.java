@@ -5,7 +5,7 @@ public class Trap extends Entity{
     }
 
     @Override
-    public boolean interact(Charator Attacker) {
+    public boolean interact(Character Attacker) {
         Attacker.defence(damage,false);
         return false;
     }

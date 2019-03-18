@@ -1,3 +1,4 @@
+
 import java.io.FileInputStream;
 
 import javafx.application.Application;
@@ -24,13 +25,15 @@ import javafx.scene.image.ImageView;
 //Driver for the GUI elements of the game
 public class GUIDriver extends Application{
 
-   // Rectangle tile = new Rectangle(5, 5, 80, 80);
-// Array of rectangle objects to be mapped into GUI
+
 
 
 
     public static void main(String[] args) {
             launch(args);
+
+
+
     }
 
     @Override
@@ -40,5 +43,8 @@ public class GUIDriver extends Application{
         GridPane layout = new GridPane();
         primaryStage.setScene(new Scene (root, 400, 400));
         primaryStage.show();
+
+
+
     }
 }

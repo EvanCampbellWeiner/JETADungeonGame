@@ -59,8 +59,13 @@ public class GUIController {
    //future method that will get passes an array and will update board tile colours accordingly
   /*  public static void updateBoard( "array of some kind"){
         for(int i = 0; i<arr.length; i++){
+            for(int t = 0; t<arr.length; t++){
+            if (array[i][t] == whatever){
+                   tilewhatever.setColour whatever colour
 
-        }
+                   }
+                   }
+                   }
    */
 
 

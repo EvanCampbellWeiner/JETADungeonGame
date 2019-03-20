@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4161f775-1a18-4e47-b419-78673e4561d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUIDriver/GUIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUIDriver/GUIController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUIDriver/GUIDriver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUIDriver/GUIDriver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUIDriver/SceneBuilderGUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUIDriver/SceneBuilderGUI.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUIDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUIDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SceneBuilderGUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/SceneBuilderGUI.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Mapping/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Mapping/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Mapping/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Mapping/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -22,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GUIController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-13">
-              <caret line="45" column="35" lean-forward="true" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+            <state relative-caret-position="79">
+              <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -34,23 +28,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUIDriver.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SceneBuilderGUI.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
           <provider editor-type-id="text-editor">
             <state relative-caret-position="32">
               <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
             </state>
           </provider>
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
     </leaf>
@@ -71,16 +65,16 @@
         <option value="$PROJECT_DIR$/src/SceneBuilderGUI.fxml" />
         <option value="$PROJECT_DIR$/src/gui/GUIDriver.java" />
         <option value="$PROJECT_DIR$/src/gui/GUIController.java" />
-        <option value="$PROJECT_DIR$/src/GUIController.java" />
         <option value="$PROJECT_DIR$/src/GUIDriver.java" />
+        <option value="$PROJECT_DIR$/src/GUIController.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-15" />
-    <option name="y" value="-15" />
-    <option name="width" value="1620" />
-    <option name="height" value="882" />
+    <option name="x" value="-18" />
+    <option name="y" value="-18" />
+    <option name="width" value="1623" />
+    <option name="height" value="885" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -88,6 +82,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -105,7 +100,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -157,7 +151,7 @@
     <frame x="-7" y="-7" width="1431" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26768783" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27498177" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -186,40 +180,32 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/gui/GUIController.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/GUIDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/GUIController.java" />
+    <entry file="file://$PROJECT_DIR$/src/gui/GUIDriver.java" />
     <entry file="file://$PROJECT_DIR$/src/GUIController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
-          <caret line="45" column="35" lean-forward="true" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+        <state relative-caret-position="79">
+          <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUIDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/SceneBuilderGUI.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="32">
           <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUIDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
   </component>
 </project>

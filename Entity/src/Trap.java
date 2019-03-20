@@ -1,17 +1,36 @@
 public class Trap extends Entity{
-    private int damage;
-    Trap(int damage,int x,int y, int z){
-        super(x,y,z);
+    private Weapon Spike;
+
+    Trap(Weapon Stick, int x, int y, int z, Manager Management){
+        super(x,y,z,Management);
+        this.Spike=Stick;
+    }
+
+
+    public void interact(Entity Attacker) {
+        System.out.print("Nah Tomorrow");
+        //this should never happen since entitys can't move
     }
 
     @Override
-    public boolean interact(Character Attacker) {
-        Attacker.defence(damage,false);
-        return false;
+    public void gameOver() {
+        //can't kill a trap leave this blank
+    }
+    @Override
+    public void startTurn() {
+        getMyManager().stillHere(getZ(),getX(),getY());
+        //traps don't take turns
+    }
+
+    @Override
+    public void interact(Character Attacker) {
+        System.out.print("Now");
+        getMyManager().combat(Attacker, Spike);
     }
 
     @Override
     public void print() {
-        System.out.print("Trap ("+getX()+","+getY()+","+getZ()+") "+damage+" damage");
+        System.out.print("Trap ("+getX()+","+getY()+","+getZ()+") with");
+        Spike.printWeapon();
     }
 }

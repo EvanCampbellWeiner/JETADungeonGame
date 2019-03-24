@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.input.KeyEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
@@ -22,9 +23,11 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-//Driver for the GUI elements of the game
-public class GUIDriver extends Application{
 
+//Driver for the GUI elements of the game
+public class GUIDriver extends Application implements EventHandler<KeyEvent>{
+//string variable that holds a representation of the last key pressed
+    public static   String keyPress = new String();
 
 
 
@@ -41,10 +44,20 @@ public class GUIDriver extends Application{
         Parent root = FXMLLoader.load(getClass().getResource("SceneBuilderGUI.fxml"));
         primaryStage.setTitle("Map display");
         GridPane layout = new GridPane();
-        primaryStage.setScene(new Scene (root, 400, 400));
+        Scene scene = new Scene (root, 400, 400);
+        scene.setOnKeyPressed(this);
+        primaryStage.setScene(scene);
         primaryStage.show();
 
 
 
+    }
+
+    @Override
+    //Event handler that sets the variable keyPress to the string value of the last key pressed by the user
+    public void handle(KeyEvent event){
+        keyPress = ((event.getCode()).toString());
+        //Test line to test functionality
+       // System.out.println(keyPress);
     }
 }

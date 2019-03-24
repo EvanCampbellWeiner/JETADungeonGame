@@ -49,12 +49,14 @@ public class GUIController {
     public static Rectangle tile24;
     public static Rectangle tile25;
 
+
+
 //Method that changes the colour of a given rectangle
     public static void setColour (Rectangle tile, String colourCode){
         tile.setFill(Paint.valueOf(colourCode));
     }
 
-    //in future add key listener event handler to register keyboard input?
+
 
    //future method that will get passes an array and will update board tile colours accordingly
   /*  public static void updateBoard( "array of some kind"){
@@ -67,6 +69,17 @@ public class GUIController {
                    }
                    }
    */
+//Start menu button methods
+public void pressNewGameButton(ActionEvent event){
+
+    }
+    public void pressLoadGameButton(ActionEvent event){
+
+    }
+    public void pressExitButton(ActionEvent event){
+
+    }
+
 
 
 }

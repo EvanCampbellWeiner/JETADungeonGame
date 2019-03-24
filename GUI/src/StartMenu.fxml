@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="608.0" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#598ebf" height="410.0" stroke="BLACK" strokeType="INSIDE" width="608.0" />
+      <Button fx:id="newGameButton" layoutX="254.0" layoutY="105.0" mnemonicParsing="false" onAction="#pressNewGameButton" text="New Game" textAlignment="CENTER">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="loadGameButton" layoutX="253.0" layoutY="160.0" mnemonicParsing="false" onAction="#pressLoadGameButton" text="Load Game">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="exitButton" layoutX="282.0" layoutY="232.0" mnemonicParsing="false" onAction="#pressExitButton" text="Exit">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="16.0" />
+         </font>
+      </Button>
+      <Text layoutX="204.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JETA GAME" textAlignment="CENTER" wrappingWidth="208.5078125">
+         <font>
+            <Font name="Baskerville Old Face" size="34.0" />
+         </font>
+      </Text>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</fx:root>

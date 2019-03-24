@@ -44,7 +44,11 @@ public class Floor{
                 if(Map[x][y].getWall()){
                     System.out.print(0);
                 }else{
-                    System.out.print(" ");
+                    if(Map[x][y].getEnemyLocation()!=0){
+                        System.out.print("X");
+                    }else {
+                        System.out.print(" ");
+                    }
                 }
             }
             System.out.print("\n");
@@ -52,38 +56,21 @@ public class Floor{
         System.out.print("\n");
     }
 
-    public boolean GetTile(int x,int y){
-        if(x<0||x>Map.length-1||y<0||y<Map[0].length-1){
-            return true;
+    public Tile GetTile(int x,int y){
+        if(x<0||x>Map.length-1||y<0||y>Map[0].length-1){
+            System.out.print("Fake Tilt grab / Out of range Error");
+            return new Tile(true,0);
         }else{
-            return Map[x][y].getWall();
+            return Map[x][y];
         }
 
     }
     public int getTileEnemy(int x,int y){
-        return(Map[x][y].enemyLocation);
+        return(Map[x][y].getEnemyLocation());
     }
 
     //Tile class is a single point on the map you should't touch this ideally
-    private class Tile{
-        private boolean wall;
-        private int enemyLocation;
-        //Add tile info here
 
-        Tile(boolean wall){
-            this.wall=wall;this.enemyLocation=0;
-        }
-        Tile(){
-            this.wall=true;this.enemyLocation=0;
-        }
-
-        public void setWall(boolean wall) {
-            this.wall = wall;
-        }
-        public boolean getWall() {
-            return wall;
-        }
-    }
 
     //builds a path from point A to B
     public void buildTunnel(int xPointA,int yPointA,int xPointB,int yPointB){
@@ -151,4 +138,7 @@ public class Floor{
         }
     }
 
+    public Tile[][] getFloor(){
+        return Map;
+    }
 }

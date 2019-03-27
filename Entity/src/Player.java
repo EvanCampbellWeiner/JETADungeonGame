@@ -4,6 +4,7 @@ public class Player extends Character{
     Scanner scanner = new Scanner(System.in);
     private int level;
     private int experance;
+    private final int infintorySize =4;
 
     Player(String Name, int x, int y, int z, Manager Management){
         super(Name,x,y,z,Management,10,1);
@@ -12,6 +13,11 @@ public class Player extends Character{
         super(Name,x,y,z,Management,(10+(level*2)),armor,Swords,Potions);
         this.experance=exp;
         this.level=level;
+    }
+    Player(String Name, int x, int y, int z,Manager Management, Weapon Sword){
+        super(Name,x,y,z,Management,10,Sword,1);
+        this.level=0;
+        this.experance=0;
     }
 
     private void levelUp(){
@@ -35,12 +41,37 @@ public class Player extends Character{
     }
 
     @Override
+    public void takeLoot(Weapon Looted) {
+        int pick;
+        Looted.printWeapon();
+        System.out.print("\nWould you like to take this Weapon?'\n0: No\n1: Yes");
+        pick = scanner.nextInt();
+
+        if(pick==1){
+            if(getSheath().length<infintorySize){
+                pickUpNewWeapon(Looted);
+            }else{
+                System.out.print("Discard a Weapon\n");
+                printWeapon();
+                System.out.print(getSheath().length+" ");
+                Looted.printWeapon();
+                pick = scanner.nextInt();
+                if(pick>0&&pick>getSheath().length){
+                    if(pick!=getSheath().length)
+                        removeWeapon(pick);
+                        pickUpNewWeapon(Looted);
+                    }
+            }
+        }
+    }
+
+    @Override
     public Weapon pickWeapon() {
         printWeapon();
         int pick;
         do{
             pick = scanner.nextInt();
-        }while(!(pick<=0&&pick>=this.getSheath().length-1));
+        }while(!(pick>=0&&pick<=this.getSheath().length-1));
         return getWeaponBackpack(pick);
     }
 

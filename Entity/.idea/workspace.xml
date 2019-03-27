@@ -24,15 +24,17 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-253">
-              <caret line="57" column="41" lean-forward="true" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
+            <state relative-caret-position="242">
+              <caret line="73" column="60" lean-forward="true" selection-start-line="73" selection-start-column="60" selection-end-line="73" selection-end-column="60" />
               <folding>
                 <element signature="method#Player#1;class#Player#0" />
                 <element signature="method#Player#2;class#Player#0" />
                 <element signature="method#levelUp#0;class#Player#0" />
+                <element signature="method#startTurn#0;class#Player#0" />
+                <element signature="e#1394#1428#1" />
               </folding>
             </state>
           </provider>
@@ -65,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Character.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1185">
-              <caret line="159" column="5" selection-start-line="159" selection-start-column="5" selection-end-line="159" selection-end-column="5" />
+            <state relative-caret-position="150">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="method#Character#0;class#Character#0" />
                 <element signature="method#Character#1;class#Character#0" />
@@ -94,7 +96,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Manager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13">
+            <state relative-caret-position="322">
               <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
               <folding>
                 <element signature="method#Manager#1;class#Manager#0" />
@@ -175,10 +177,10 @@
         <option value="$PROJECT_DIR$/src/Trap.java" />
         <option value="$PROJECT_DIR$/src/Character.java" />
         <option value="$PROJECT_DIR$/src/Stairs.java" />
-        <option value="$PROJECT_DIR$/src/Player.java" />
         <option value="$PROJECT_DIR$/src/Enemy.java" />
         <option value="$PROJECT_DIR$/src/Manager.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Player.java" />
       </list>
     </option>
   </component>
@@ -199,7 +201,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553712630850" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553714202826" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/2240H/JUnitDemoTestingExceptions" />
   </component>
   <component name="RunDashboard">
@@ -396,35 +398,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-253">
-          <caret line="57" column="41" lean-forward="true" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
-          <folding>
-            <element signature="method#Player#1;class#Player#0" />
-            <element signature="method#Player#2;class#Player#0" />
-            <element signature="method#levelUp#0;class#Player#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Manager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-          <folding>
-            <element signature="method#Manager#1;class#Manager#0" />
-            <element signature="method#addEntity#0;class#Manager#0" />
-            <element signature="method#PrintFull#0;class#Manager#0" />
-            <element signature="method#RunGame#0;class#Manager#0" />
-            <element signature="method#iterateTurn#0;class#Manager#0" />
-            <element signature="method#teleport#0;class#Manager#0" />
-            <element signature="method#stillHere#0;class#Manager#0" />
-            <element signature="method#combat#0;class#Manager#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13">
@@ -448,8 +421,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Character.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
-          <caret line="159" column="5" selection-start-line="159" selection-start-column="5" selection-end-line="159" selection-end-column="5" />
+        <state relative-caret-position="150">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="method#Character#0;class#Character#0" />
             <element signature="method#Character#1;class#Character#0" />
@@ -466,6 +439,37 @@
             <element signature="method#pickUpNewConsumible#0;class#Character#0" />
             <element signature="method#removeWeapon#0;class#Character#0" />
             <element signature="method#removeConsumible#0;class#Character#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Manager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <folding>
+            <element signature="method#Manager#1;class#Manager#0" />
+            <element signature="method#addEntity#0;class#Manager#0" />
+            <element signature="method#PrintFull#0;class#Manager#0" />
+            <element signature="method#RunGame#0;class#Manager#0" />
+            <element signature="method#iterateTurn#0;class#Manager#0" />
+            <element signature="method#teleport#0;class#Manager#0" />
+            <element signature="method#stillHere#0;class#Manager#0" />
+            <element signature="method#combat#0;class#Manager#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="73" column="60" lean-forward="true" selection-start-line="73" selection-start-column="60" selection-end-line="73" selection-end-column="60" />
+          <folding>
+            <element signature="method#Player#1;class#Player#0" />
+            <element signature="method#Player#2;class#Player#0" />
+            <element signature="method#levelUp#0;class#Player#0" />
+            <element signature="method#startTurn#0;class#Player#0" />
+            <element signature="e#1394#1428#1" />
           </folding>
         </state>
       </provider>

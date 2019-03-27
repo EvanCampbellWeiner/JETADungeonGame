@@ -71,7 +71,7 @@ public class Player extends Character{
         int pick;
         do{
             pick = scanner.nextInt();
-        }while(!(pick<=0&&pick>=this.getSheath().length-1));
+        }while(!(pick>=0&&pick<=this.getSheath().length-1));
         return getWeaponBackpack(pick);
     }
 

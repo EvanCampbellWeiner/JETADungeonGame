@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.GridPane;
@@ -50,6 +51,9 @@ public class GUIController {
     public static Rectangle tile25;
 
 
+    private int[][] tiles=new int[5][5];
+    private Rectangle[][]grid=new Rectangle[5][5];
+
 
 //Method that changes the colour of a given rectangle
     public static void setColour (Rectangle tile, String colourCode){
@@ -57,6 +61,36 @@ public class GUIController {
     }
 
 
+    //future method that will get passes an array and will update board tile colours accordingly
+    public static void updateBoard(int[][]array,Rectangle[][]tile){
+        for(int i=0; i<5; i++){
+            for(int t=0; t<5; t++){
+                if(array[i][t]==0){setColour(tile[i][t],"#000000");}
+                else if(array[i][t]==1){setColour(tile[i][t],"#FFFFFF");}
+                else  if(array[i][t]==-1){setColour(tile[i][t],"#AAAAAA");}
+            }
+        }
+    }
+
+    //When key is pressed, do something.
+    public void keyPressed(KeyEvent event) {
+        setArray();
+        if(grid[0][0]==null){
+            grid[0][0]=tile1;grid[0][1]=tile1;grid[0][2]=tile1;grid[0][3]=tile1;grid[0][4]=tile1;
+            grid[1][0]=tile1;grid[1][1]=tile1;grid[1][2]=tile1;grid[1][3]=tile1;grid[1][4]=tile1;
+            grid[2][0]=tile1;grid[2][1]=tile1;grid[2][2]=tile1;grid[2][3]=tile1;grid[2][4]=tile1;
+            grid[3][0]=tile1;grid[3][1]=tile1;grid[3][2]=tile1;grid[3][3]=tile1;grid[3][4]=tile1;
+            grid[4][0]=tile1;grid[4][1]=tile1;grid[4][2]=tile1;grid[4][3]=tile1;grid[4][4]=tile1;
+        }
+        updateBoard(tiles,grid);
+    }
+    public void setArray(){
+        for(int i=0; i<tiles.length;i++){
+            for (int t=0; t<tiles.length;t++){
+                tiles[i][t]=0;
+            }
+        }
+    }
 
    //future method that will get passes an array and will update board tile colours accordingly
   /*  public static void updateBoard( "array of some kind"){

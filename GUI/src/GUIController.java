@@ -6,10 +6,9 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
-import javafx.scene.control.RadioButton;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.*;
@@ -17,8 +16,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -49,6 +46,15 @@ public class GUIController {
     public static Rectangle tile23;
     public static Rectangle tile24;
     public static Rectangle tile25;
+    //Labels for displaying player attributes and inventory
+    public static Label name;
+    public static Label health;
+    public static Label weapon1;
+    public static Label weapon2;
+    public static Label item1;
+    public static Label item2;
+    public static Label item3;
+
 
 
     private int[][] tiles=new int[5][5];
@@ -63,6 +69,7 @@ public class GUIController {
 
     //future method that will get passes an array and will update board tile colours accordingly
     public static void updateBoard(int[][]array,Rectangle[][]tile){
+        setColour(tile13, "#0ef402");
         for(int i=0; i<5; i++){
             for(int t=0; t<5; t++){
                 if(array[i][t]==0){setColour(tile[i][t],"#000000");}
@@ -76,11 +83,11 @@ public class GUIController {
     public void keyPressed(KeyEvent event) {
         setArray();
         if(grid[0][0]==null){
-            grid[0][0]=tile1;grid[0][1]=tile1;grid[0][2]=tile1;grid[0][3]=tile1;grid[0][4]=tile1;
-            grid[1][0]=tile1;grid[1][1]=tile1;grid[1][2]=tile1;grid[1][3]=tile1;grid[1][4]=tile1;
-            grid[2][0]=tile1;grid[2][1]=tile1;grid[2][2]=tile1;grid[2][3]=tile1;grid[2][4]=tile1;
-            grid[3][0]=tile1;grid[3][1]=tile1;grid[3][2]=tile1;grid[3][3]=tile1;grid[3][4]=tile1;
-            grid[4][0]=tile1;grid[4][1]=tile1;grid[4][2]=tile1;grid[4][3]=tile1;grid[4][4]=tile1;
+            grid[0][0]=tile1;grid[0][1]=tile2;grid[0][2]=tile3;grid[0][3]=tile4;grid[0][4]=tile5;
+            grid[1][0]=tile6;grid[1][1]=tile7;grid[1][2]=tile8;grid[1][3]=tile9;grid[1][4]=tile10;
+            grid[2][0]=tile11;grid[2][1]=tile12;grid[2][2]=tile13;grid[2][3]=tile14;grid[2][4]=tile15;
+            grid[3][0]=tile16;grid[3][1]=tile17;grid[3][2]=tile18;grid[3][3]=tile19;grid[3][4]=tile20;
+            grid[4][0]=tile21;grid[4][1]=tile22;grid[4][2]=tile23;grid[4][3]=tile24;grid[4][4]=tile25;
         }
         updateBoard(tiles,grid);
     }

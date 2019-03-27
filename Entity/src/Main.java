@@ -17,11 +17,15 @@ public class Main {
         //Enemy Hunter = new Enemy("Hunter",5,5,0,GameManger,12,1,Slap);
         Enemy Slime = new Enemy("Green Slime",1,4,0,GameManger,2,0,Smite);
         Enemy AnotherSlime = new Enemy("Blue Slime",7,4,0,GameManger,2,0,Smite);
+
         Player Neo = new Player("Hero",4,1,0,GameManger,fireDeathAxe);
 
 
         GameManger.addEntity(Neo);
         //GameManger.addEntity(Hunter);
+        Enemy Demon = GameManger.generateEnemy(10);
+        Demon.teleport(7,7,1);
+        GameManger.addEntity(Demon);
         GameManger.addEntity(Slime);
         GameManger.addEntity(AnotherSlime);
         GameManger.generateStairs(4,7,0,8,1,1);

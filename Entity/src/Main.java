@@ -3,26 +3,41 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+
+        //Scanner scanner = new Scanner(System.in);
+
         Manager GameManger = new Manager();
-        Player TestSubject = new Player("Test Subject",2,2,0,GameManger);
-
-        Weapon Spike = new Weapon(false,8,"Spike");
-        Trap SpikeTrap = new Trap(Spike,3,3,0,GameManger);
 
 
-        Weapon fireDeathAxe = new Weapon(true,2,"Death Axe");
+        Weapon fireDeathAxe = new Weapon(true,10,"Death Axe");
         Weapon Slap = new Weapon(false,4,"Hand of Pain");
-        Enemy Hunter = new Enemy("Hunter",5,5,0,GameManger,12,1,fireDeathAxe);
+        Weapon Smite = new Weapon(true,1,"Spit");
         Consumable Heal = new Consumable(10,"Greater Healing");
-        Hunter.pickUpNewWeapon(Slap);
-        Hunter.pickUpNewWeapon(fireDeathAxe);
+
+        //Enemy Hunter = new Enemy("Hunter",5,5,0,GameManger,12,1,Slap);
+        Enemy Slime = new Enemy("Green Slime",1,4,0,GameManger,2,0,Smite);
+        Enemy AnotherSlime = new Enemy("Blue Slime",7,4,0,GameManger,2,0,Smite);
+        Player Neo = new Player("Hero",4,1,0,GameManger,fireDeathAxe);
+
+
+        GameManger.addEntity(Neo);
+        //GameManger.addEntity(Hunter);
+        GameManger.addEntity(Slime);
+        GameManger.addEntity(AnotherSlime);
+        GameManger.generateStairs(4,7,0,8,1,1);
+
+        //GameManger.PrintFull();
+        GameManger.RunGame();
+
+        //Hunter.pickUpNewWeapon(Slap);
+        //Hunter.pickUpNewWeapon(fireDeathAxe);
         //Hunter.removeWeapon(1);//used to remove a weapon
         //Hunter.pickUpNewConsumible(Heal);
         //Hunter.removeConsumible(0);//used to remove a consumible
         //GameManger.combat(TestSubject,Spike);
-        GameManger.addEntity(TestSubject);
-        GameManger.addEntity(Hunter);
+
+        //GameManger.addEntity(FloorOneToTwo);
+        //GameManger.addEntity(FloorTwoToOne);
         //GameManger.addEntity(SpikeTrap);
 
         /*
@@ -33,8 +48,7 @@ public class Main {
         //Path.getTile(3,3).setEnemyLocation(0);
         GameManger.getGameWorld().addFloor(Path);
         */
-        GameManger.PrintFull();
-        GameManger.RunGame();
+
 
 
 

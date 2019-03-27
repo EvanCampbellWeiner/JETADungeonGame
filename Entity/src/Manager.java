@@ -10,8 +10,8 @@ public class Manager {
         continueGame=true;
         this.GameLoop = new Character[0];
         this.GameWorld = new World(3);
-        Floor RoomOne= new Floor(8,8);
-        RoomOne.autoFillFloor(1);
+        Floor RoomOne= new Floor(9,9);
+        RoomOne.buildRectangle(7,7,1,1);
         Floor RoomTwo=new Floor(12,12);
         RoomTwo.buildRectangle(10,4,1,1);
         RoomTwo.buildRectangle(10,4,1,7);
@@ -98,7 +98,6 @@ public class Manager {
 
    // public void reMove Character(Character killed){
     public boolean combat(Character Attacker,Character Defender){//return true is attacker wins
-        boolean bothalive=true;
         do{
             if(Attacker.getAlive()){
                 Attacker.attack(Attacker.pickWeapon(),Defender);
@@ -106,10 +105,23 @@ public class Manager {
             if(Defender.getAlive()){
                 Defender.attack(Defender.pickWeapon(),Attacker);
             }
-
         }while(Attacker.getAlive()&&Defender.getAlive());
 
+        if(!Defender.getAlive()){
+            Attacker.takeLoot(Defender.getWeaponBackpack(0));
+        }
+        if(!Attacker.getAlive()){
+            Defender.takeLoot(Attacker.getWeaponBackpack(0));
+        }
         return true;
+    }
+
+    public void generateStairs(int x, int y, int z, int x2, int y2, int z2){
+        Stairs Down = new Stairs(x,y,z,x2,y2,z2,this);
+        Stairs Up = new Stairs(x2,y2,z2,x,y,z,this);
+        addEntity(Down);
+        addEntity(Up);
+
     }
 
     public boolean combat(Character Attacker,Weapon Spike){

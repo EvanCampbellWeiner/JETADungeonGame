@@ -8,6 +8,11 @@ public class Enemy extends Character{
     }
 
     @Override
+    public void takeLoot(Weapon Looted) {
+        //enemy's don't loot
+    }
+
+    @Override
     public void gameOver() {
         setAlive(false);
         //call game manager to kill
@@ -25,7 +30,7 @@ public class Enemy extends Character{
         boolean validator;
         do {
             validator=true;
-            pick = random(1,4);
+            pick = random(1,5);
             switch (pick) {
                 case 1:
                     validator = Move(getX(), (getY() + 1));

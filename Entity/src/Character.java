@@ -7,6 +7,7 @@ public abstract class Character extends Entity {
     private int maxHealth;
     private int currentHealth;
     private int armor;
+    private boolean unmoved;
 
 
     @Override
@@ -48,10 +49,13 @@ public abstract class Character extends Entity {
         this.currentHealth=health;
     }
     public boolean Move(int toX,int toY) {
-        //System()
+        unmoved=true;
         if((getMyManager().teleport(getZ(),toX,toY,getZ(),getX(),getY()))){
-            setX(toX);
-            setY(toY);
+            if(unmoved) {
+                setX(toX);
+                setY(toY);
+            }
+
             return true;
         }else{
             return false;
@@ -82,6 +86,8 @@ public abstract class Character extends Entity {
     }
 
     public abstract Weapon pickWeapon();
+
+    public abstract void takeLoot(Weapon Looted);
 
     private void upCurrentHealth(int update) {
         currentHealth += update;
@@ -198,7 +204,9 @@ public abstract class Character extends Entity {
        }
         this.potionSlot=newPoshionSlot;
     }
-
+    public void setUnmoved(boolean unmoved){
+        this.unmoved=unmoved;
+    }
 
     public int getMaxHealth() {
         return maxHealth;

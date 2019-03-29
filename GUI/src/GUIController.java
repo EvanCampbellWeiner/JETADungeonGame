@@ -54,6 +54,24 @@ public class GUIController {
     public static Label item1;
     public static Label item2;
     public static Label item3;
+    //buttons for inventory management
+    public static Button button1;
+    public static Button button2;
+    public static Button button3;
+    public static Button button4;
+    public static Button button5;
+    public static Button button6;
+    public static Button button7;
+    //buttons for character selection
+    public static Button save1Button;
+    public static Button save2Button;
+    public static Button save3Button;
+    public static Button backButton1;
+    //buttons for start menu
+    public static Button newGameButton;
+    public static Button loadGameButton;
+    public static Button exitButton;
+
 
 
 
@@ -118,6 +136,44 @@ public void pressNewGameButton(ActionEvent event){
 
     }
     public void pressExitButton(ActionEvent event){
+
+    }
+
+    //Character selection button methods
+
+    public void pressSave1Button(ActionEvent event){
+
+    }
+    public void pressSave2Button(ActionEvent event){
+
+    }
+    public void pressSave3Button(ActionEvent event){
+
+    }
+    public void pressBackButton1(ActionEvent event){
+
+    }
+    //GUI main screen button methods
+    public void pressButton1(ActionEvent event){
+
+    }
+
+    public void pressButton2(ActionEvent event){
+
+    }
+    public void pressButton3(ActionEvent event){
+
+    }
+    public void pressButton4(ActionEvent event){
+
+    }
+    public void pressButton5(ActionEvent event){
+
+    }
+    public void pressButton6(ActionEvent event){
+
+    }
+    public void pressButton7(ActionEvent event){
 
     }
 

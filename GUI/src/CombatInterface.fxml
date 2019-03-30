@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
+   <children>
+      <ImageView fx:id="enemyImage" fitHeight="300.0" fitWidth="300.0" layoutX="150.0" pickOnBounds="true" preserveRatio="true" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="600.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="300.0" layoutY="300.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a4a2a2" height="300.0" layoutX="400.0" layoutY="300.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Button fx:id="combatWeapon1Button" layoutX="38.0" layoutY="315.0" mnemonicParsing="false" onAction="#pressCombatWeapon1Button" text="Use Weapon 1" />
+      <Button fx:id="combatWeapon2Button" layoutX="65.0" layoutY="369.0" mnemonicParsing="false" onAction="#pressCombatWeapon2Button" text="Button" />
+      <Button fx:id="combatItem1Button" layoutX="65.0" layoutY="419.0" mnemonicParsing="false" onAction="#pressCombatItem1Button" text="Button" />
+      <Button fx:id="combatItem2Button" layoutX="65.0" layoutY="472.0" mnemonicParsing="false" onAction="#pressCombatItem2Button" text="Button" />
+      <Button fx:id="combatItem3Button" layoutX="65.0" layoutY="525.0" mnemonicParsing="false" onAction="#pressCombatItem3Button" text="Button" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="300.0" layoutX="200.0" layoutY="300.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Label layoutX="253.0" layoutY="315.0" text="Player Health:" textFill="WHITE" />
+      <Label layoutX="253.0" layoutY="407.0" text="Enemy Health:" textFill="WHITE" />
+      <Label fx:id="playerHealthValueDisplay" layoutX="252.0" layoutY="357.0" text="Player Health:" textFill="WHITE" />
+      <Label fx:id="enemyHealthValueDisplay" layoutX="255.0" layoutY="444.0" text="Player Health:" textFill="WHITE" />
+      <Text fx:id="combatText" layoutX="423.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="154.515625" />
+   </children>
+</Pane>

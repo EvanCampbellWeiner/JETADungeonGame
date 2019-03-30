@@ -44,7 +44,7 @@ public class GUIDriver extends Application implements EventHandler<KeyEvent>{
         Parent root = FXMLLoader.load(getClass().getResource("SceneBuilderGUI.fxml"));
         primaryStage.setTitle("Map display");
         GridPane layout = new GridPane();
-        Scene scene = new Scene (root, 400, 400);
+        Scene scene = new Scene (root, 400, 600);
         scene.setOnKeyPressed(this);
         primaryStage.setScene(scene);
         primaryStage.show();

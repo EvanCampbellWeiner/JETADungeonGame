@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="400.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Label layoutX="169.0" layoutY="23.0" text="World Selection">
+         <font>
+            <Font name="Baskerville Old Face" size="40.0" />
+         </font>
+      </Label>
+      <Button fx:id="world1Button" layoutX="265.0" layoutY="91.0" mnemonicParsing="false" onAction="#pressWorld1Button" text="World 1" />
+      <Button fx:id="newWorldButton" layoutX="253.0" layoutY="163.0" mnemonicParsing="false" onAction="#pressNewWorldButton" text="New World" />
+   </children>
+</Pane>

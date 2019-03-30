@@ -51,9 +51,9 @@ public class GUIController {
     public static Label health;
     public static Label weapon1;
     public static Label weapon2;
-    public static Label item1;
-    public static Label item2;
-    public static Label item3;
+    public static Button item1Button;
+    public static Button item2Button;
+    public static Button item3Button;
     //buttons for inventory management
     public static Button button1;
     public static Button button2;
@@ -71,6 +71,21 @@ public class GUIController {
     public static Button newGameButton;
     public static Button loadGameButton;
     public static Button exitButton;
+    //buttons for world selection menu
+    public static Button world1Button;
+    public static Button newWorldButton;
+    //buttons, image,  text and labels for CombatInterface
+    public static Button combatWeapon1Button;
+    public static Button combatWeapon2Button;
+    public static Button combatItem1Button;
+    public static Button combatItem2Button;
+    public static Button combatItem3Button;
+    public static Label playerHealthValueDisplay;
+    public static Label enemyHealthValueDisplay;
+    public static Text combatText;
+    public static ImageView enemyImage;
+
+
 
 
 
@@ -174,6 +189,40 @@ public void pressNewGameButton(ActionEvent event){
 
     }
     public void pressButton7(ActionEvent event){
+
+    }
+    public void pressItem1Button(ActionEvent event){
+
+    }
+    public void pressItem2Button(ActionEvent event){
+
+    }
+    public void pressItem3Button(ActionEvent event){
+
+    }
+
+    //World selection screen button methods
+    public void pressWorld1Button(ActionEvent event){
+
+    }
+    public void pressNewWorldButton(ActionEvent event){
+
+    }
+
+    //Combat interface button methods
+    public void pressCombatWeapon1Button(ActionEvent event){
+
+    }
+    public void pressCombatWeapon2Button(ActionEvent event){
+
+    }
+    public void pressCombatItem1Button(ActionEvent event){
+
+    }
+    public void pressCombatItem2Button(ActionEvent event){
+
+    }
+    public void pressCombatItem3Button(ActionEvent event){
 
     }
 

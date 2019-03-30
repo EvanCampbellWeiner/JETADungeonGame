@@ -1,3 +1,5 @@
+import java.sql.*;
+
 public class Manager {
 
     private Character[] GameLoop;
@@ -67,6 +69,18 @@ public class Manager {
                 return new Consumable(0,"Error potion");
         }
     }
+    public int selectedConsumable(Consumable selected){
+        switch (selected.getName()){
+            case ("Band_Aid"):
+                return 0;
+            case ("Gauze's"):
+                return 1;
+            case ("Healing_Potion"):
+                return 2;
+            default:
+                return -1;
+        }
+    }
     public Weapon generateWeapon(int selected){
         switch(selected){
             case 0:
@@ -91,6 +105,32 @@ public class Manager {
                 return new Weapon(true, 100, "The_Haxe");//debug weapon
             default:
                 return new Weapon(false,0,"Error Weapon Failed to find Weapon");
+        }
+    }
+    public int selectedWeapon(Weapon selected){
+        switch(selected.getName()){
+            case "Bite" :
+                return 0;//low tier (Bat,Spider)
+            case "Spit":
+                return 1;//low tier (Slime)
+            case "Smite":
+                return 2;//low tier (ghost)
+            case "Club":
+                return 3;// easy (Goblin)
+            case "HardBite":
+                return 4;// standard Zombie + high Bear
+            case "Sword":
+                return 5;// standard tier Skillington's
+            case "Book_of_Lightning":
+                return 6;// high tier whitch
+            case "LifeSteal":
+                return 7;// difficult tier Vampier
+            case "Spell_Bone_to_Ashe":
+                return 8;// Demon
+            case "The_Haxe":
+                return 9;//debug weapon
+            default:
+                return -1;
         }
     }
     public void addEntity(Character Neo){
@@ -131,7 +171,37 @@ public class Manager {
     public Entity[] getGameLoop() {
         return GameLoop;
     }
-    public void exitGame(){
+    public void exitGame(Player person){
+        try{
+
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:save1.db");
+            Statement statement = conn.createStatement();
+            statement.execute("CREATE TABLE IF NOT EXISTS \"Character\" (\n" +
+                    "\t\"Name\"\tTEXT UNIQUE,\n" +
+                    "\t\"Health\"\tINTEGER,\n" +
+                    "\t\"Armour\"\tINTEGER,\n" +
+                    "\t\"Weapon1\"\tINTEGER,\n" +
+                    "\t\"Weapon2\"\tINTEGER,\n" +
+                    "\t\"Consumable1\"\tINTEGER,\n" +
+                    "\t\"Consumable2\"\tINTEGER,\n" +
+                    "\t\"Consumable3\"\tINTEGER,\n" +
+                    "\t\"Exp\"\tINTEGER,\n" +
+                    "\t\"Level\"\tINTEGER\n" +
+                    ")");
+           statement.execute( "CREATE UNIQUE INDEX IF NOT EXISTS idx_Character_Name ON Character (Name)");
+            statement.execute("INSERT OR REPLACE INTO Character (Name, Health, Weapon1, Weapon2, Consumable1, Consumable2, Consumable3, Exp, Level) " +
+                    "VALUES ('"+person.getName()+"','"+person.getCurrentHealth()+"','"+ selectedWeapon(person.getWeaponBackpack(0))+"','"+ selectedWeapon(person.getWeaponBackpack(1))+
+                    "','"+selectedConsumable(person.getConsumiblePocket(0))+"','"+ selectedConsumable(person.getConsumiblePocket(1))+"','"+selectedConsumable(person.getConsumiblePocket(2))+
+                    "','"+person.getExperance()+"','"+person.getLevel()+"')");
+
+            statement.close();
+            conn.close();
+
+        }catch (SQLException e){
+
+            System.out.println("Something went wrong: " + e.getMessage());
+        }//end catch bracket
+
         continueGame=false;
     }
     public boolean teleport(int newZ, int newX, int newY, int currentZ,int currentX,int currentY){

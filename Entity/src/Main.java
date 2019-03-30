@@ -1,3 +1,4 @@
+import java.sql.*;
 import java.util.Scanner;
 
 public class Main {
@@ -18,7 +19,8 @@ public class Main {
         Enemy Slime = new Enemy("Green Slime",1,4,0,GameManger,2,0,Smite);
         Enemy AnotherSlime = new Enemy("Blue Slime",7,4,0,GameManger,2,0,Smite);
 
-        Player Neo = new Player("Hero",4,1,0,GameManger,fireDeathAxe);
+
+        Player Neo = selectStart(GameManger);
 
 
         GameManger.addEntity(Neo);
@@ -71,4 +73,80 @@ public class Main {
 */
 
     }
-}
+    public static Player selectStart(Manager gameManager) {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+        String name = "Neo";
+        int health = 100;
+        int armour = 0;
+        int weapon1 = 1;
+        int weapon2 =-1;
+        int consumable1 = -1;
+        int consumable2 = -1;
+        int consumable3 = -1;
+        int exp = 0;
+        int level =0;
+        Weapon[] swords = new Weapon[2];
+        Consumable[] potions = new Consumable[3];
+        do {
+            System.out.println("Would you like to load game (0) or start a new game (1)?");
+            choice = scanner.nextInt();
+        } while ((choice != 0) && (choice != 1));
+
+        if (choice == 0) {
+            try {
+
+                Connection conn = DriverManager.getConnection("jdbc:sqlite:save1.db");
+                Statement statement = conn.createStatement();
+               /* statement.execute("CREATE TABLE IF NOT EXISTS \"Character\" (\n" +
+                        "\t\"Name\"\tTEXT,\n" +
+                        "\t\"Health\"\tINTEGER,\n" +
+                        "\t\"Armour\"\tINTEGER,\n" +
+                        "\t\"Weapon1\"\tINTEGER,\n" +
+                        "\t\"Weapon2\"\tINTEGER,\n" +
+                        "\t\"Consumable1\"\tINTEGER,\n" +
+                        "\t\"Consumable2\"\tINTEGER,\n" +
+                        "\t\"Consumable3\"\tINTEGER,\n" +
+                        "\t\"Exp\"\tINTEGER,\n" +
+                        "\t\"Level\"\tINTEGER\n" +
+                        ")");*/
+
+                ResultSet rs = statement.executeQuery("SELECT * FROM Character");
+                //while the result set has a next row set values equal to the variables below and print
+                while (rs.next()) {
+                    name = rs.getString("Name");
+                    health = rs.getInt("Health");
+                    armour = rs.getInt("Armour");
+                    weapon1 = rs.getInt("Weapon1");
+                    weapon2 = rs.getInt("Weapon2");
+                    consumable1 = rs.getInt("Consumable1");
+                    consumable2 = rs.getInt("Consumable2");
+                    consumable3 = rs.getInt("Consumable3");
+                    exp = rs.getInt("Exp");
+                    level = rs.getInt("Level");
+                }
+
+            /* we must close the statement and the connection as well. Does anyone know why we do that?
+                If you close the connection first you will get an error.
+             */
+                statement.close();
+                conn.close();
+
+            } catch (SQLException e) {
+
+                System.out.println("Something went wrong: " + e.getMessage());
+                System.out.println("Will use default character.");
+
+            }//end catch bracket
+        }
+
+        swords[0] = gameManager.generateWeapon(weapon1);
+        swords[1] = gameManager.generateWeapon(weapon2);
+        potions[0] = gameManager.generateConsumable(consumable1);
+        potions[1] = gameManager.generateConsumable(consumable2);
+        potions[2] = gameManager.generateConsumable(consumable3);
+        Player neo = new Player(name, 4, 1, 0, gameManager,health, armour, swords, potions, exp, level);
+            return(neo);
+        }
+
+    }

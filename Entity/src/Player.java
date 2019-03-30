@@ -9,15 +9,25 @@ public class Player extends Character{
     Player(String Name, int x, int y, int z, Manager Management){
         super(Name,x,y,z,Management,10,1);
     }
-    Player(String Name,int x,int y,int z, Manager Management,int armor, Weapon[] Swords, Consumable[] Potions, int exp, int level){
-        super(Name,x,y,z,Management,(10+(level*2)),armor,Swords,Potions);
+    Player(String Name,int x,int y,int z, Manager Management,int health,int armor, Weapon[] Swords, Consumable[] Potions, int exp, int level){
+        super(Name,x,y,z,Management,health,armor,Swords,Potions);
         this.experance=exp;
         this.level=level;
     }
-    Player(String Name, int x, int y, int z,Manager Management, Weapon Sword){
-        super(Name,x,y,z,Management,10,Sword,1);
+
+
+    Player(String Name, int x, int y, int z, Manager Management, Weapon Sword){
+        super(Name,x,y,z,Management,10,1);
         this.level=0;
         this.experance=0;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public int getExperance() {
+        return experance;
     }
 
     private void levelUp(){
@@ -30,7 +40,7 @@ public class Player extends Character{
     public void gameOver() {
         System.out.print("You Were killed");
         setAlive(false);
-        getMyManager().exitGame();
+        getMyManager().exitGame(Player.this);
         //calls game manager to kill this case or respawn
     }
 
@@ -80,7 +90,7 @@ public class Player extends Character{
         int pick;
         boolean validator = true;
 
-        if(experance<Math.pow(level,2)){
+        if(experance>Math.pow(level,2)){
             levelUp();
         }
         do {
@@ -91,7 +101,7 @@ public class Player extends Character{
             validator = true;
             switch (pick) {
                 case 0:
-                    getMyManager().exitGame();
+                    getMyManager().exitGame(Player.this);
                     break;
                 case 1:
                     validator = Move(getX(), (getY() + 1));

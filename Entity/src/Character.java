@@ -29,7 +29,7 @@ public abstract class Character extends Entity {
         this.currentHealth = health;
         this.armor=armor;
     }
-    Character(String Name, int x, int y, int z, Manager Management,int health, Weapon Sword, int armor) {
+    Character(String Name, int x, int y, int z, Manager Management,int health,int armor, Weapon Sword, Consumable Potion) {
         super(x, y, z, Management);
         this.Sheath = new Weapon[0];
         pickUpNewWeapon(Sword);
@@ -47,6 +47,7 @@ public abstract class Character extends Entity {
         this.armor=armor;
         this.maxHealth=health;
         this.currentHealth=health;
+        this.Name=Name;
     }
     public boolean Move(int toX,int toY) {
         unmoved=true;
@@ -211,6 +212,11 @@ public abstract class Character extends Entity {
     public int getMaxHealth() {
         return maxHealth;
     }
+
+    public int getCurrentHealth() {
+        return currentHealth;
+    }
+
     public void setMaxHealth(int maxHealth) {
         this.maxHealth = maxHealth;
     }

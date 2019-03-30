@@ -4,7 +4,7 @@ public class Enemy extends Character{
     private Random random=new Random();
 
     Enemy(String Name,int x,int y,int z,Manager Management,int health,int armor,Weapon Sword){
-        super(Name,x,y,z,Management,health,Sword,armor);
+        super(Name,x,y,z,Management,health,armor);
     }
 
     @Override

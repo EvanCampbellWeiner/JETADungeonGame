@@ -84,6 +84,11 @@ public class GUIController {
     public static Label enemyHealthValueDisplay;
     public static Text combatText;
     public static ImageView enemyImage;
+    //Buttons and TextField for Character creation page
+    public static Button enterNameButton;
+    public static Button characterCreationBackButton;
+    public static TextField enterNameField;
+
 
 
 
@@ -226,6 +231,12 @@ public void pressNewGameButton(ActionEvent event){
 
     }
 
+    //Character creation interface button methods
+    public void pressCharacterCreationBackButton(ActionEvent event){
 
+    }
+    public void pressEnterNameButton(ActionEvent event){
+
+    }
 
 }

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="400.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
       <Button fx:id="save1Button" layoutX="268.0" layoutY="110.0" mnemonicParsing="false" onAction="#pressSave1Button" text="Save 1" />
@@ -20,4 +20,4 @@
       </Label>
       <Button fx:id="backButton1" layoutX="274.0" layoutY="294.0" mnemonicParsing="false" onAction="#pressBackButton1" text="Back" />
    </children>
-</fx:root>
+</Pane>

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Rectangle?>
 
-<VBox minHeight="-Infinity" minWidth="-Infinity" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
    <children>
       <GridPane fx:id="tileLayout" alignment="CENTER" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0">
         <columnConstraints>
@@ -60,9 +60,6 @@
             <Label fx:id="health" layoutX="7.0" layoutY="35.0" prefHeight="28.0" prefWidth="127.0" text="Label" />
             <Label fx:id="weapon1" layoutX="7.0" layoutY="63.0" prefHeight="28.0" prefWidth="127.0" text="Label" />
             <Label fx:id="weapon2" layoutX="7.0" layoutY="91.0" prefHeight="28.0" prefWidth="127.0" text="Label" />
-            <Label fx:id="item1" layoutX="7.0" layoutY="119.0" prefHeight="28.0" prefWidth="127.0" text="Label" />
-            <Label fx:id="item2" layoutX="161.0" layoutY="14.0" prefHeight="28.0" prefWidth="127.0" text="Label" />
-            <Label fx:id="item3" layoutX="161.0" layoutY="35.0" prefHeight="28.0" prefWidth="127.0" text="Label" />
             <Button fx:id="button3" layoutX="316.0" layoutY="105.0" mnemonicParsing="false" onAction="#pressButton3" text="Button" visible="false" />
             <Button fx:id="button2" layoutX="316.0" layoutY="63.0" mnemonicParsing="false" onAction="#pressButton2" text="Button" visible="false" />
             <Button fx:id="button4" layoutX="316.0" layoutY="147.0" mnemonicParsing="false" onAction="#pressButton4" text="Button" visible="false" />
@@ -70,6 +67,10 @@
             <Button fx:id="button5" layoutX="218.0" layoutY="101.0" mnemonicParsing="false" onAction="#pressButton5" text="Button" visible="false" />
             <Button fx:id="button6" layoutX="211.0" layoutY="11.0" mnemonicParsing="false" onAction="#pressButton6" text="B" visible="false" />
             <Button fx:id="button7" layoutX="207.0" layoutY="59.0" mnemonicParsing="false" onAction="#pressButton7" text="Button" visible="false" />
+            <Button fx:id="item1Button" layoutX="7.0" layoutY="120.0" mnemonicParsing="false" onAction="#pressItem1Button" prefHeight="13.0" prefWidth="22.0" />
+            <Button fx:id="item2Button" layoutX="68.0" layoutY="18.0" mnemonicParsing="false" onAction="#pressItem2Button" text="Button" />
+            <Button fx:id="item3Button" layoutX="68.0" layoutY="63.0" mnemonicParsing="false" onAction="#pressItem3Button" text="Button" />
+            <Button fx:id="backButton2" layoutX="68.0" layoutY="110.0" mnemonicParsing="false" onAction="#pressBackButton2" text="Button" />
          </children>
       </Pane>
    </children>

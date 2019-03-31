@@ -11,6 +11,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.GridPane;
@@ -29,6 +30,7 @@ public class GUIDriver extends Application implements EventHandler<KeyEvent>{
 //string variable that holds a representation of the last key pressed
     public static   String keyPress = new String();
 
+    public Parent root;
 
 
 
@@ -41,17 +43,17 @@ public class GUIDriver extends Application implements EventHandler<KeyEvent>{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("SceneBuilderGUI.fxml"));
+
+        root = FXMLLoader.load(getClass().getResource("StartMenu.fxml"));
         primaryStage.setTitle("Map display");
-        GridPane layout = new GridPane();
-        Scene scene = new Scene (root, 400, 600);
-        scene.setOnKeyPressed(this);
+        Scene scene = new Scene (root, 600, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
 
 
 
     }
+
 
     @Override
     //Event handler that sets the variable keyPress to the string value of the last key pressed by the user

@@ -1,10 +1,14 @@
 
 import java.io.FileInputStream;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
@@ -54,6 +58,7 @@ public class GUIController {
     public static Button item1Button;
     public static Button item2Button;
     public static Button item3Button;
+    public static Button backButton2;
     //buttons for inventory management
     public static Button button1;
     public static Button button2;
@@ -74,6 +79,7 @@ public class GUIController {
     //buttons for world selection menu
     public static Button world1Button;
     public static Button newWorldButton;
+    public static Button worldSelectionBackButton;
     //buttons, image,  text and labels for CombatInterface
     public static Button combatWeapon1Button;
     public static Button combatWeapon2Button;
@@ -150,13 +156,13 @@ public class GUIController {
    */
 //Start menu button methods
 public void pressNewGameButton(ActionEvent event){
-
+        loadScene(event, "CharacterCreation.fxml");
     }
     public void pressLoadGameButton(ActionEvent event){
-
+        loadScene(event, "CharacterSelection.fxml");
     }
     public void pressExitButton(ActionEvent event){
-
+        Platform.exit();
     }
 
     //Character selection button methods
@@ -171,7 +177,7 @@ public void pressNewGameButton(ActionEvent event){
 
     }
     public void pressBackButton1(ActionEvent event){
-
+        loadScene(event, "StartMenu.fxml");
     }
     //GUI main screen button methods
     public void pressButton1(ActionEvent event){
@@ -205,12 +211,19 @@ public void pressNewGameButton(ActionEvent event){
     public void pressItem3Button(ActionEvent event){
 
     }
+    public void pressBackButton2(ActionEvent event){
+            //Have it save the game here
+        loadScene(event, "StartMenu.fxml");
+    }
 
     //World selection screen button methods
     public void pressWorld1Button(ActionEvent event){
 
     }
     public void pressNewWorldButton(ActionEvent event){
+
+    }
+    public void pressWorldSelectionBackButton(ActionEvent event){
 
     }
 
@@ -233,10 +246,29 @@ public void pressNewGameButton(ActionEvent event){
 
     //Character creation interface button methods
     public void pressCharacterCreationBackButton(ActionEvent event){
-
+        loadScene(event, "StartMenu.fxml");
     }
     public void pressEnterNameButton(ActionEvent event){
 
     }
+
+
+    //Scene switching methods
+    private void loadScene(ActionEvent event, String FXMLName){
+        try {
+            Parent cCParent = FXMLLoader.load(getClass().getResource(FXMLName));
+            Scene cCScene = new Scene(cCParent);
+
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+            window.setScene(cCScene);
+            window.show();
+        }
+        catch(Exception e){
+
+        }
+
+    }
+
 
 }

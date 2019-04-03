@@ -50,8 +50,15 @@ public abstract class Character extends Entity {
         this.type=type;
     }
 
+    public int getArmor() {
+        return armor;
+    }
 
-    Character(String Name, int x, int y, int z, int type ,Manager Management, int health, int armor, Weapon[] Swords, Consumable[] Potions){
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
+
+    Character(String Name, int x, int y, int z, int type , Manager Management, int health, int armor, Weapon[] Swords, Consumable[] Potions){
         super(x,y,z,Management);
         this.armor=armor;
         this.maxHealth=health;

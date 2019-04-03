@@ -150,7 +150,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="9" />
-    <option name="y" value="19" />
+    <option name="y" value="18" />
     <option name="width" value="1284" />
     <option name="height" value="729" />
   </component>
@@ -181,7 +181,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554321062111" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554322274567" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../sqlite-jdbc-3.27.2.1.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />

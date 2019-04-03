@@ -1,5 +1,6 @@
 import java.sql.*;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Manager {
 
@@ -93,18 +94,18 @@ public class Manager {
             if(loop+1<GameWorld.getLevel().length) {
                 bail=0;
                 sheaching=true;
-                //System.out.print("Stairs ,("+loop+","+(loop+1)+")\n");
+                System.out.print("Stairs ,("+loop+","+(loop+1)+")\n");
                 do {
                     bail++;
                     pickXOne = random(0,GameWorld.getFloor(loop).getFloor().length-1);
                     pickYOne = random(0,GameWorld.getFloor(loop).getFloor()[0].length-1);
                     if(!GameWorld.getFloor(loop).getFloor()[pickXOne][pickYOne].getWall()&&GameWorld.getFloor(loop).getFloor()[pickXOne][pickYOne].getEnemyLocation()==0){
-                        //System.out.print("Stair's A ("+pickXOne+","+pickYOne+","+loop+")\n");
+                        System.out.print("Stair's A ("+pickXOne+","+pickYOne+","+loop+")\n");
                         sheaching=false;
                     }
                 }while(sheaching&&bail<1000);
                 if(bail>=1000){
-                    System.out.print("Error Can't place Stairs - A");
+                    System.out.print("Error Can't place Stairs");
                 }
                 //System.out.print("placement try's ="+bail);
 
@@ -115,12 +116,12 @@ public class Manager {
                     pickXTwo = random(0,GameWorld.getFloor((loop+1)).getFloor().length-1);
                     pickYTwo = random(0,GameWorld.getFloor((loop+1)).getFloor()[0].length-1);
                     if(!GameWorld.getFloor((loop+1)).getFloor()[pickXTwo][pickYTwo].getWall()&&GameWorld.getFloor((loop+1)).getFloor()[pickXTwo][pickYTwo].getEnemyLocation()==0){
-                        //System.out.print("Stair's B ("+pickXTwo+","+pickYTwo+","+(loop+1)+")\n");
+                        System.out.print("Stair's B ("+pickXTwo+","+pickYTwo+","+(loop+1)+")\n");
                         sheaching=false;
                     }
                 }while(sheaching&&bail<1000);
                 if(bail>=1000){
-                    System.out.print("Error Can't place Stairs - B");
+                    System.out.print("Error Can't place Stairs");
                 }
                 //System.out.print("placement try's ="+bail);
                 this.generateStairs(pickXOne,pickYOne,loop,pickXTwo,pickYTwo,(loop+1));
@@ -153,27 +154,23 @@ public class Manager {
 
     public int[][] buildMap(int size){
 
-        int Map[][] = new int[((size*2)+1)][((size*2)+1)];
+        int Map[][] = new int[size+1][size+1];
 
         for(int loopY=(size*2);loopY>=0;loopY--){
             System.out.print("\n");
             for(int loopX=0;loopX<((size*2)+1);loopX++){
                 if(GameWorld.getTile(playerZ,playerX-size+loopX,playerY-size+loopY).getWall()) {
-                    //System.out.print("0");
-                    System.out.print("("+loopX+","+loopY+")");
+                    System.out.print("0");
                     Map[loopY][loopX]=0;
 
                 }else{
                     if(GameWorld.getTile(playerZ, playerX-size+loopX, playerY-size+loopY).getEnemyLocation()==0){
-                        //System.out.print("1");
-                        System.out.print("("+loopX+","+loopY+")");
+                        System.out.print("1");
                         Map[loopY][loopX]=1;
                     }else{
                         //System.out.print(GameWorld.getTile(playerZ, loopX, loopY).getEnemyLocation());
-                        System.out.print("("+loopX+","+loopY+")");
                         Map[loopY][loopX]=GameLoop[GameWorld.getTile(playerZ,playerX-size+loopX,playerY-size+loopY).getEnemyLocation()-1].getType();
-
-                        //System.out.print(GameLoop[GameWorld.getTile(playerZ,playerX-size+loopX,playerY-size+loopY).getEnemyLocation()-1].getType());
+                        System.out.print(GameLoop[GameWorld.getTile(playerZ,playerX-size+loopX,playerY-size+loopY).getEnemyLocation()-1].getType());
                     }
                 }
             }
@@ -282,7 +279,7 @@ public class Manager {
     public Enemy generateEnemy(int selected){
         switch (selected){
             case 0:
-                return new Slime("Slime", 0,0 ,0 ,this, 2,0,generateWeapon(1));
+                return new Enemy("Slime", 0,0 ,0 ,3,this, 2,0,generateWeapon(1));
             case 1:
                 return new Enemy("Spider",0,0,0,4,this,3,1,generateWeapon(0));
             case 2:
@@ -429,10 +426,17 @@ public class Manager {
     }
     public void exitGame(Player person){
         try{
+            Scanner sc = new Scanner(System.in);
+            int check=0;
+            System.out.println("Please enter what save file you wish to save to: (1,2,3)");
+            while((check!=1)&&(check!=2)&&(check!=3)) {
+                check = sc.nextInt();
+            }
 
             Connection conn = DriverManager.getConnection("jdbc:sqlite:save1.db");
             Statement statement = conn.createStatement();
             statement.execute("CREATE TABLE IF NOT EXISTS \"Character\" (\n" +
+                    "\t\"IDNumber\"\tINTEGER,\n" +
                     "\t\"Name\"\tTEXT UNIQUE,\n" +
                     "\t\"Health\"\tINTEGER,\n" +
                     "\t\"Armour\"\tINTEGER,\n" +
@@ -444,9 +448,9 @@ public class Manager {
                     "\t\"Exp\"\tINTEGER,\n" +
                     "\t\"Level\"\tINTEGER\n" +
                     ")");
-           statement.execute( "CREATE UNIQUE INDEX IF NOT EXISTS idx_Character_Name ON Character (Name)");
-            statement.execute("INSERT OR REPLACE INTO Character (Name, Health, Weapon1, Weapon2, Consumable1, Consumable2, Consumable3, Exp, Level) " +
-                    "VALUES ('"+person.getName()+"','"+person.getCurrentHealth()+"','"+ selectedWeapon(person.getWeaponBackpack(0))+"','"+ selectedWeapon(person.getWeaponBackpack(1))+
+           statement.execute( "CREATE UNIQUE INDEX IF NOT EXISTS idx_Character_IDNumber ON Character (IDNumber)");
+            statement.execute("INSERT OR REPLACE INTO Character (IDNumber,Name, Health, Weapon1, Weapon2, Consumable1, Consumable2, Consumable3, Exp, Level) " +
+                    "VALUES ('"+check+"','"+person.getName()+"','"+person.getCurrentHealth()+"','"+ selectedWeapon(person.getWeaponBackpack(0))+"','"+ selectedWeapon(person.getWeaponBackpack(1))+
                     "','"+selectedConsumable(person.getConsumiblePocket(0))+"','"+ selectedConsumable(person.getConsumiblePocket(1))+"','"+selectedConsumable(person.getConsumiblePocket(2))+
                     "','"+person.getExperance()+"','"+person.getLevel()+"')");
 

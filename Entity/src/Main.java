@@ -111,6 +111,8 @@ public class Main {
             choice = scanner.nextInt();
         } while ((choice != 0) && (choice != 1));
         if(choice==0) {
+            System.out.println("What save file do you want to load from (1,2,3)?\n:");
+            choice=scanner.nextInt();
             try {
 
                 Connection conn = DriverManager.getConnection("jdbc:sqlite:save1.db");
@@ -128,7 +130,7 @@ public class Main {
                         "\t\"Level\"\tINTEGER\n" +
                         ")");*/
 
-                ResultSet rs = statement.executeQuery("SELECT * FROM Character");
+                ResultSet rs = statement.executeQuery("SELECT * FROM Character WHERE IDNumber="+choice+";");
                 //while the result set has a next row set values equal to the variables below and print
                 while (rs.next()) {
                     name = rs.getString("Name");

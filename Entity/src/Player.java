@@ -33,9 +33,6 @@ public class Player extends Character {
     private void levelUp() {
         this.experance = 0;
         level++;
-        if(level%2==0){
-            this.setArmor(getArmor()+1);
-        }
         setMaxHealth(getMaxHealth() + 2);
     }
 

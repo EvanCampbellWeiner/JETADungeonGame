@@ -2,9 +2,14 @@ import java.util.Random;
 
 public class Enemy extends Character{
     private Random random=new Random();
+    private int lastSeen;
+    private int memoryDecay;
 
-    Enemy(String Name,int x,int y,int z,Manager Management,int health,int armor,Weapon Sword){
-        super(Name,x,y,z,Management,health,armor);
+    Enemy(String Name,int x,int y,int z,int type,Manager Management,int health,int armor,Weapon Sword){
+        super(Name,x,y,z,type,Management,health,armor,Sword);
+        this.setfriendly(true);
+        this.setplayer(false);
+        getMyManager().addEntity(this);
     }
 
     @Override
@@ -25,30 +30,112 @@ public class Enemy extends Character{
 
     @Override
     public void startTurn() {
-        //System.out.print("My Turn");
+        boolean hasMoved=false;
+        final int memoryLength = 5;
         int pick;
-        boolean validator;
-        do {
-            validator=true;
-            pick = random(1,5);
-            switch (pick) {
-                case 1:
-                    validator = Move(getX(), (getY() + 1));
-                    break;
-                case 2:
-                    validator = Move((getX() + 1), getY());
-                    break;
-                case 3:
-                    validator = Move(getX(), (getY() - 1));
-                    break;
-                case 4:
-                    validator = Move((getX() - 1), getY());
-                    break;
-                default:
-                    validator = false;
-            }
-        }while(!validator);
+        int attemptedMoves=0;
 
+        if(memoryDecay<=0){
+            lastSeen=0;
+        }else{
+            memoryDecay--;
+        }
+
+        do{
+            attemptedMoves++;
+            System.out.print("Move "+getName()+", "+attemptedMoves);
+            if(lookStraight(1,0)){
+                hasMoved =Move(getX()+1,getY());
+                lastSeen=1;
+                memoryDecay=memoryLength;
+            }else if(lookStraight(0,1)){
+                hasMoved =Move(getX(),getY()+1);
+                lastSeen=2;
+                memoryDecay=memoryLength;
+
+            }else if(lookStraight(-1,0)){
+                hasMoved =Move(getX()-1,getY());
+                lastSeen=3;
+                memoryDecay=memoryLength;
+
+            }else if(lookStraight(0,-1)) {
+                hasMoved = Move(getX(), getY() - 1);
+                lastSeen = 4;
+                memoryDecay = memoryLength;
+
+            }else if(lastSeen!=0){
+                switch (lastSeen){
+                    case 1:
+                        hasMoved =Move(getX()+1,getY());
+                        break;
+                    case 2:
+                        hasMoved =Move(getX(),getY()+1);
+                        break;
+                    case 3:
+                        hasMoved =Move(getX()-1,getY());
+                        break;
+                    case 4:
+                        hasMoved = Move(getX(), getY() - 1);
+                        break;
+                        default:
+                            System.out.print("Path Finding Error ="+lastSeen);
+                }
+            }else{
+                pick = random(1,5);
+                switch (pick) {
+                    case 1:
+                        hasMoved = Move(getX(), (getY() + 1));
+                        break;
+                    case 2:
+                        hasMoved = Move((getX() + 1), getY());
+                        break;
+                    case 3:
+                        hasMoved = Move(getX(), (getY() - 1));
+                        break;
+                    case 4:
+                        hasMoved = Move((getX() - 1), getY());
+                        break;
+                    default:
+                        hasMoved = false;
+                }
+            }
+            if(attemptedMoves>5){
+                hasMoved=true;
+            }
+
+
+        }while(!hasMoved);
+
+        if(lookStraight(1,0)){
+            lastSeen=1;
+            memoryDecay = memoryLength;
+        }else if(lookStraight(0,1)){
+            lastSeen=2;
+            memoryDecay = memoryLength;
+        }else if(lookStraight(-1,0)){
+            lastSeen =3;
+            memoryDecay=memoryLength;
+
+        }else if(lookStraight(0,-1)) {
+            lastSeen = 4;
+            memoryDecay = memoryLength;
+        }
+    }
+
+    private boolean lookStraight(int xChange, int yChange){
+        boolean searching=false;
+        int xCheak=0,yCheak=0;
+        final int viewDistance=5;
+        int loop=0;
+        do{
+            loop++;
+            xCheak+=xChange;
+            yCheak+=yChange;
+            if(getMyManager().playerLocation(getX()+xCheak,getY()+yCheak,getZ())){
+                searching=true;
+            }
+        }while(loop<=viewDistance);
+        return searching;
     }
 
     private int random(int low,int high){

@@ -4,11 +4,12 @@ public class Stairs extends Character{
     private int teleportZ;
 
 
-    Stairs(int x, int y, int z, int teleportX, int teleportY, int teleportZ, Manager Management ){
-        super("Stairs",x,y,z,Management,1000,0);
+    Stairs(int x, int y, int z, int teleportX, int teleportY, int teleportZ, Manager Management ,int type){
+        super("Stairs",x,y,z,type,Management,1000,0);
         this.teleportX = teleportX;
         this.teleportY = teleportY;
         this.teleportZ=teleportZ;
+        setfriendly(false);
     }
 
     @Override

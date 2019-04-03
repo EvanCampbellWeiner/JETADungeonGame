@@ -7,6 +7,9 @@ public class World {
             this.Level[loop]=new Floor(8,8);
         }
     }
+    World(Floor[] Level){
+        this.Level=Level;
+    }
 
     public void printWorld(){
         for(int loop=0;loop<=Level.length-1;loop++){
@@ -14,6 +17,10 @@ public class World {
             Level[loop].printFloor();
         }
     }
+    public Floor getFloor(int z){
+        return Level[z];
+    }
+
     public void printFloor(int z){
         Level[z].printFloor();
     }
@@ -37,5 +44,12 @@ public class World {
     public Tile getTile(int z,int x,int y){
         return (Level[z].GetTile(x,y));
 
+    }
+
+    public Floor[] getLevel() {
+        return Level;
+    }
+    public void setLevel(Floor[] level) {
+        Level = level;
     }
 }

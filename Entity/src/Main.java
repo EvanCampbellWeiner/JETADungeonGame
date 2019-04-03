@@ -4,36 +4,56 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
-        //Scanner scanner = new Scanner(System.in);
-
+        Scanner scanner = new Scanner(System.in);
         Manager GameManger = new Manager();
-
-
-        Weapon fireDeathAxe = new Weapon(true,10,"Death Axe");
-        Weapon Slap = new Weapon(false,4,"Hand of Pain");
-        Weapon Smite = new Weapon(true,1,"Spit");
-        Consumable Heal = new Consumable(10,"Greater Healing");
-
-        //Enemy Hunter = new Enemy("Hunter",5,5,0,GameManger,12,1,Slap);
-        Enemy Slime = new Enemy("Green Slime",1,4,0,GameManger,2,0,Smite);
-        Enemy AnotherSlime = new Enemy("Blue Slime",7,4,0,GameManger,2,0,Smite);
+        int choice;
 
 
         Player Neo = selectStart(GameManger);
 
+        do {
+            System.out.println("Load preCreated World (0) load the wild west (1)?\n:");
+            choice = scanner.nextInt();
+        } while ((choice != 0) && (choice != 1));
 
+        if(choice==1){
+            GameManger.generateRandomWorld();
+            GameManger.findValidPlacement(0,Neo);
+
+        }else{
+            GameManger.generatePreCreatedWorld();
+            Neo.teleport(4,1,0);
+        }
         GameManger.addEntity(Neo);
-        //GameManger.addEntity(Hunter);
-        Enemy Demon = GameManger.generateEnemy(10);
-        Demon.teleport(7,7,1);
-        GameManger.addEntity(Demon);
-        GameManger.addEntity(Slime);
-        GameManger.addEntity(AnotherSlime);
-        GameManger.generateStairs(4,7,0,8,1,1);
+        //GameManger.printFull();
+        GameManger.RunGame();
+
+        //System.out.println("What's your userName\n:");
+        //String name = Scanner.nextLine();
+        //Floor Maze = new Floor(140,35);
+        //Maze.autoFillFloor(15);
+        //Maze.printFloor();
+
+        //Weapon fireDeathAxe = new Weapon(true,10,"Death Axe");
+        //Weapon Slap = new Weapon(false,4,"Hand of Pain");
+        //Weapon Smite = new Weapon(true,1,"Spit");
+        //Consumable Heal = new Consumable(10,"Greater Healing");
+
+        //Enemy Hunter = new Enemy("Hunter",5,5,0,GameManger,12,1,Slap);
+        //Enemy Slime = new Enemy("Green Slime",1,4,0,GameManger,2,0,Smite);
+        //Enemy AnotherSlime = new Enemy("Blue Slime",7,4,0,GameManger,2,0,Smite);
+
+
+        //Player Neo = selectStart(GameManger);
+        //GameManger.findValidPlacement(0,Neo);
+        //
+
+
+        //GameManger.addEntity(Neo);
 
         //GameManger.PrintFull();
-        GameManger.RunGame();
+        //GameManger.PrintFull();
+
 
         //Hunter.pickUpNewWeapon(Slap);
         //Hunter.pickUpNewWeapon(fireDeathAxe);
@@ -56,10 +76,6 @@ public class Main {
         */
 
 
-
-
-
-
         //Hunter.print();
         //TestSubject.attack(TestSubject.getWeaponBackpack(0),Hunter);
         //Hunter.attack(Hunter.getWeaponBackpack(0),TestSubject);
@@ -77,11 +93,13 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int choice;
         String name = "Neo";
-        int health = 100;
-        int armour = 0;
-        int weapon1 = 1;
+        //System.out.println("What's your userName\n:");
+        //String name = Scanner.nextLine();
+        int health = 10;
+        int armour = 1;
+        int weapon1 = 5;
         int weapon2 =-1;
-        int consumable1 = -1;
+        int consumable1 = 2;
         int consumable2 = -1;
         int consumable3 = -1;
         int exp = 0;
@@ -89,11 +107,10 @@ public class Main {
         Weapon[] swords = new Weapon[2];
         Consumable[] potions = new Consumable[3];
         do {
-            System.out.println("Would you like to load game (0) or start a new game (1)?");
+            System.out.println("Would you like to load game (0) or start a new game (1)?\n:");
             choice = scanner.nextInt();
         } while ((choice != 0) && (choice != 1));
-
-        if (choice == 0) {
+        if(choice==0) {
             try {
 
                 Connection conn = DriverManager.getConnection("jdbc:sqlite:save1.db");
@@ -140,13 +157,16 @@ public class Main {
             }//end catch bracket
         }
 
+
         swords[0] = gameManager.generateWeapon(weapon1);
         swords[1] = gameManager.generateWeapon(weapon2);
         potions[0] = gameManager.generateConsumable(consumable1);
         potions[1] = gameManager.generateConsumable(consumable2);
         potions[2] = gameManager.generateConsumable(consumable3);
-        Player neo = new Player(name, 4, 1, 0, gameManager,health, armour, swords, potions, exp, level);
+        Player neo = new Player(name, 0, 0, 0, gameManager,health, armour, swords, potions, exp, level);
             return(neo);
         }
 
     }
+
+

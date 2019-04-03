@@ -18,8 +18,6 @@ public class Floor{
 
     }
 
-
-
     //build's a room by setting all tilts to empty
     public void buildRectangle(int xSize,int ySize, int xDistance,int yDistance){
 
@@ -57,12 +55,21 @@ public class Floor{
     }
 
     public Tile GetTile(int x,int y){
-        if(x<0||x>Map.length-1||y<0||y>Map[0].length-1){
+        if(x>=0&&x<Map.length&&y>=0&&y<Map[0].length){
+            return Map[x][y];
+        }else{
+            //System.out.print("Fake Tilt grab / Out of range Error ("+x+","+y+") Map: ("+(Map.length)+","+(Map[0].length)+")");
+            return new Tile(true,0);
+        }
+
+/*
+        if(x>0||x<Map.length-1||y>0||y<Map[0].length-1){
+            return Map[x][y];
+        }else{
             System.out.print("Fake Tilt grab / Out of range Error");
             return new Tile(true,0);
-        }else{
-            return Map[x][y];
         }
+        */
 
     }
     public int getTileEnemy(int x,int y){
@@ -86,23 +93,47 @@ public class Floor{
          */
         int xPointC=xPointA;
         int yPointC=yPointB;
+        int xPointD=0;
+        int yPointD=0;
+        //If to figure out if xy are bigger on one or if they have x/y as +/-
+        if(((xPointA>xPointB)&&(yPointA>yPointB))||((xPointB>xPointA)&&(yPointB>yPointA))){
+            if (xPointA>xPointB){
+                xPointC=xPointA-xPointB;
+                yPointC=yPointA-yPointB;
+                xPointD=xPointB;
+                yPointD=yPointB;
+                buildRectangle(1, yPointC, xPointD, yPointD);
+                yPointD=yPointA;
+                buildRectangle(xPointC, 1, xPointD, yPointD);
+            }
+            else{
+                xPointC=xPointB-xPointA;
+                yPointC=yPointB-yPointA;
+                xPointD=xPointA;
+                yPointD=yPointA;
+                buildRectangle(1, yPointC, xPointD, yPointD);
+                yPointD=yPointB;
+                buildRectangle(xPointC, 1, xPointD, yPointD);
 
-        int xPointD= xPointC-xPointB;
-        if(xPointD<0){
-            xPointD=xPointD-xPointD-xPointD;
-        }
-        int yPointD= yPointA-yPointC;
-        if(yPointD<0){
-            yPointD=yPointD-yPointD-yPointD;
-        }
+            }
 
-        if(xPointA>xPointB) {
-            buildRectangle(1, yPointD, xPointB, yPointB);
-            buildRectangle(xPointD, 1, xPointC, yPointC);
         }
         else{
-            buildRectangle(1, yPointD, xPointA, yPointA);
-            buildRectangle(xPointD, 1, xPointC, yPointC);
+            if(xPointA>xPointB){
+                xPointC=xPointA-xPointB;
+                yPointC=yPointB-yPointA;
+                xPointD=xPointB;
+                yPointD=yPointA;
+            }
+            else{
+                xPointC=xPointB-xPointA;
+                yPointC=yPointA-yPointB;
+                xPointD=xPointA;
+                yPointD=yPointB;
+            }
+
+            buildRectangle(1, yPointC, xPointD, yPointD);
+            buildRectangle(xPointC, 1, xPointD, yPointD);
         }
     }
 
@@ -112,21 +143,28 @@ public class Floor{
         if(Map.length<12||Map[0].length<12){
             buildRectangle(Map.length-2,Map[0].length-2,1,1);
         }else{
-            int x, y ,spaceX, spaceY; //place space x joke here
+            int x, y ,spaceX, spaceY;
+            int spaceA = -1, spaceB = -1; //place space x joke here
 
             for(int loop=0;loop<=rectangles;loop++){
                 spaceX = random(1,Map.length-8);
                 spaceY = random(1,Map[0].length-8);
+                if(spaceA!=-1&&spaceB!=-1) {
+                    buildTunnel(spaceX,spaceY,spaceA,spaceB);
+                    spaceA = spaceX;
+                    spaceB = spaceY;
+                }else{
+                    spaceA = spaceX;
+                    spaceB = spaceY;
+                }
                 x = random(4,8);
                 y =random(4,8);
+
                 //System.out.print("("+x+","+y+")");
                 buildRectangle(x,y,spaceX,spaceY);
+
             }
         }
-
-
-
-
     }
 
     //spits out random numbers

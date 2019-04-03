@@ -22,6 +22,13 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.application.Application;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.geometry.Insets;
+
 
 public class GUIController {
 //Rectangle objects serving as tiles in map gui
@@ -50,6 +57,23 @@ public class GUIController {
     public static Rectangle tile23;
     public static Rectangle tile24;
     public static Rectangle tile25;
+    public static Rectangle tile26;
+    public static Rectangle tile27;
+    public static Rectangle tile28;
+    public static Rectangle tile29;
+    public static Rectangle tile30;
+    public static Rectangle tile31;
+    public static Rectangle tile32;
+    public static Rectangle tile33;
+    public static Rectangle tile34;
+    public static Rectangle tile35;
+    public static Rectangle tile36;
+    public static Rectangle tile37;
+    public static Rectangle tile38;
+    public static Rectangle tile39;
+    public static Rectangle tile40;
+    public static Rectangle tile41;
+    public static Rectangle tile42;
     //Labels for displaying player attributes and inventory
     public static Label name;
     public static Label health;
@@ -80,6 +104,8 @@ public class GUIController {
     public static Button world1Button;
     public static Button newWorldButton;
     public static Button worldSelectionBackButton;
+    //Images
+    Image bear = new Image ("Images/Bear-1.png.png");
     //buttons, image,  text and labels for CombatInterface
     public static Button combatWeapon1Button;
     public static Button combatWeapon2Button;
@@ -94,6 +120,7 @@ public class GUIController {
     public static Button enterNameButton;
     public static Button characterCreationBackButton;
     public static TextField enterNameField;
+
 
 
 
@@ -154,6 +181,11 @@ public class GUIController {
                    }
                    }
    */
+
+  //Method to set an Tile (rectangle) on the map to an image
+    public void setTileImage(Rectangle tile, Image image){
+                tile.setFill(new ImagePattern(image));
+    }
 //Start menu button methods
 public void pressNewGameButton(ActionEvent event){
         loadScene(event, "CharacterCreation.fxml");

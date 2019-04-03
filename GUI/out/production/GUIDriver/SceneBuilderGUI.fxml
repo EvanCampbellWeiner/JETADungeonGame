@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -60,17 +61,51 @@
             <Label fx:id="health" layoutX="7.0" layoutY="35.0" prefHeight="28.0" prefWidth="127.0" text="Label" />
             <Label fx:id="weapon1" layoutX="7.0" layoutY="63.0" prefHeight="28.0" prefWidth="127.0" text="Label" />
             <Label fx:id="weapon2" layoutX="7.0" layoutY="91.0" prefHeight="28.0" prefWidth="127.0" text="Label" />
-            <Button fx:id="button3" layoutX="316.0" layoutY="105.0" mnemonicParsing="false" onAction="#pressButton3" text="Button" visible="false" />
-            <Button fx:id="button2" layoutX="316.0" layoutY="63.0" mnemonicParsing="false" onAction="#pressButton2" text="Button" visible="false" />
-            <Button fx:id="button4" layoutX="316.0" layoutY="147.0" mnemonicParsing="false" onAction="#pressButton4" text="Button" visible="false" />
-            <Button fx:id="button1" layoutX="316.0" layoutY="17.0" mnemonicParsing="false" onAction="#pressButton1" text="Button" visible="false" />
-            <Button fx:id="button5" layoutX="218.0" layoutY="101.0" mnemonicParsing="false" onAction="#pressButton5" text="Button" visible="false" />
-            <Button fx:id="button6" layoutX="211.0" layoutY="11.0" mnemonicParsing="false" onAction="#pressButton6" text="B" visible="false" />
-            <Button fx:id="button7" layoutX="207.0" layoutY="59.0" mnemonicParsing="false" onAction="#pressButton7" text="Button" visible="false" />
-            <Button fx:id="item1Button" layoutX="7.0" layoutY="120.0" mnemonicParsing="false" onAction="#pressItem1Button" prefHeight="13.0" prefWidth="22.0" />
-            <Button fx:id="item2Button" layoutX="68.0" layoutY="18.0" mnemonicParsing="false" onAction="#pressItem2Button" text="Button" />
-            <Button fx:id="item3Button" layoutX="68.0" layoutY="63.0" mnemonicParsing="false" onAction="#pressItem3Button" text="Button" />
-            <Button fx:id="backButton2" layoutX="68.0" layoutY="110.0" mnemonicParsing="false" onAction="#pressBackButton2" text="Button" />
+            <Button fx:id="button3" layoutX="316.0" layoutY="105.0" mnemonicParsing="false" onAction="#pressButton3" text="Button" visible="false">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
+            <Button fx:id="button2" layoutX="316.0" layoutY="63.0" mnemonicParsing="false" onAction="#pressButton2" text="Button" visible="false">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
+            <Button fx:id="button4" layoutX="316.0" layoutY="147.0" mnemonicParsing="false" onAction="#pressButton4" text="Button" visible="false">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
+            <Button fx:id="button1" layoutX="316.0" layoutY="17.0" mnemonicParsing="false" onAction="#pressButton1" text="Button" visible="false">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
+            <Button fx:id="button5" layoutX="218.0" layoutY="101.0" mnemonicParsing="false" onAction="#pressButton5" text="Button" visible="false">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
+            <Button fx:id="button6" layoutX="211.0" layoutY="11.0" mnemonicParsing="false" onAction="#pressButton6" text="B" visible="false">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
+            <Button fx:id="button7" layoutX="207.0" layoutY="59.0" mnemonicParsing="false" onAction="#pressButton7" text="Button" visible="false">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
+            <Button fx:id="item1Button" layoutX="7.0" layoutY="120.0" mnemonicParsing="false" onAction="#pressItem1Button" prefHeight="13.0" prefWidth="22.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
+            <Button fx:id="item2Button" layoutX="68.0" layoutY="18.0" mnemonicParsing="false" onAction="#pressItem2Button" text="Button">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
+            <Button fx:id="item3Button" layoutX="68.0" layoutY="63.0" mnemonicParsing="false" onAction="#pressItem3Button" text="Button">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
+            <Button fx:id="backButton2" layoutX="68.0" layoutY="110.0" mnemonicParsing="false" onAction="#pressBackButton2" text="Button">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>

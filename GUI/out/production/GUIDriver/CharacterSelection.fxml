@@ -6,18 +6,29 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="400.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Button fx:id="save1Button" layoutX="268.0" layoutY="110.0" mnemonicParsing="false" onAction="#pressSave1Button" text="Save 1" />
-      <Button fx:id="save2Button" layoutX="268.0" layoutY="169.0" mnemonicParsing="false" onAction="#pressSave2Button" text="Save 2" />
-      <Button fx:id="save3Button" layoutX="268.0" layoutY="231.0" mnemonicParsing="false" onAction="#pressSave3Button" text="Save 3" />
-      <Label layoutX="162.0" layoutY="29.0" text="Character Selection">
+      <Button fx:id="save1Button" layoutX="268.0" layoutY="110.0" mnemonicParsing="false" onAction="#pressSave1Button" text="Save 1">
          <font>
-            <Font name="Baskerville Old Face" size="36.0" />
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
+      <Button fx:id="save2Button" layoutX="268.0" layoutY="169.0" mnemonicParsing="false" onAction="#pressSave2Button" text="Save 2">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
+      <Button fx:id="save3Button" layoutX="268.0" layoutY="231.0" mnemonicParsing="false" onAction="#pressSave3Button" text="Save 3">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
+      <Label layoutX="147.0" layoutY="29.0" text="Character Selection">
+         <font>
+            <Font name="Baskerville Old Face" size="40.0" />
          </font>
       </Label>
-      <Button fx:id="backButton1" layoutX="274.0" layoutY="294.0" mnemonicParsing="false" onAction="#pressBackButton1" text="Back" />
+      <Button fx:id="backButton1" layoutX="274.0" layoutY="294.0" mnemonicParsing="false" onAction="#pressBackButton1" text="Back">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
    </children>
 </Pane>

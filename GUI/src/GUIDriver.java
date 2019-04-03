@@ -44,7 +44,7 @@ public class GUIDriver extends Application implements EventHandler<KeyEvent>{
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        root = FXMLLoader.load(getClass().getResource("StartMenu.fxml"));
+        root = FXMLLoader.load(getClass().getResource("SceneBuilderGUI.fxml"));
         primaryStage.setTitle("Map display");
         Scene scene = new Scene (root, 600, 600);
         primaryStage.setScene(scene);

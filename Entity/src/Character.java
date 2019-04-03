@@ -267,4 +267,12 @@ public abstract class Character extends Entity {
     }
     public boolean getplayer(){return player;}
     public void setplayer(boolean player){this.player=player;}
+
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
+
+    public int getArmor() {
+        return armor;
+    }
 }

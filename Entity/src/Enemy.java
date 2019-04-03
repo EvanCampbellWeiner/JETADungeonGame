@@ -43,7 +43,7 @@ public class Enemy extends Character{
 
         do{
             attemptedMoves++;
-            System.out.print("Move "+getName()+", "+attemptedMoves);
+            //System.out.print("Move "+getName()+", "+attemptedMoves);
             if(lookStraight(1,0)){
                 hasMoved =Move(getX()+1,getY());
                 lastSeen=1;

@@ -93,18 +93,18 @@ public class Manager {
             if(loop+1<GameWorld.getLevel().length) {
                 bail=0;
                 sheaching=true;
-                System.out.print("Stairs ,("+loop+","+(loop+1)+")\n");
+                //System.out.print("Stairs ,("+loop+","+(loop+1)+")\n");
                 do {
                     bail++;
                     pickXOne = random(0,GameWorld.getFloor(loop).getFloor().length-1);
                     pickYOne = random(0,GameWorld.getFloor(loop).getFloor()[0].length-1);
                     if(!GameWorld.getFloor(loop).getFloor()[pickXOne][pickYOne].getWall()&&GameWorld.getFloor(loop).getFloor()[pickXOne][pickYOne].getEnemyLocation()==0){
-                        System.out.print("Stair's A ("+pickXOne+","+pickYOne+","+loop+")\n");
+                        //System.out.print("Stair's A ("+pickXOne+","+pickYOne+","+loop+")\n");
                         sheaching=false;
                     }
                 }while(sheaching&&bail<1000);
                 if(bail>=1000){
-                    System.out.print("Error Can't place Stairs");
+                    System.out.print("Error Can't place Stairs - A");
                 }
                 //System.out.print("placement try's ="+bail);
 
@@ -115,12 +115,12 @@ public class Manager {
                     pickXTwo = random(0,GameWorld.getFloor((loop+1)).getFloor().length-1);
                     pickYTwo = random(0,GameWorld.getFloor((loop+1)).getFloor()[0].length-1);
                     if(!GameWorld.getFloor((loop+1)).getFloor()[pickXTwo][pickYTwo].getWall()&&GameWorld.getFloor((loop+1)).getFloor()[pickXTwo][pickYTwo].getEnemyLocation()==0){
-                        System.out.print("Stair's B ("+pickXTwo+","+pickYTwo+","+(loop+1)+")\n");
+                        //System.out.print("Stair's B ("+pickXTwo+","+pickYTwo+","+(loop+1)+")\n");
                         sheaching=false;
                     }
                 }while(sheaching&&bail<1000);
                 if(bail>=1000){
-                    System.out.print("Error Can't place Stairs");
+                    System.out.print("Error Can't place Stairs - B");
                 }
                 //System.out.print("placement try's ="+bail);
                 this.generateStairs(pickXOne,pickYOne,loop,pickXTwo,pickYTwo,(loop+1));
@@ -153,23 +153,27 @@ public class Manager {
 
     public int[][] buildMap(int size){
 
-        int Map[][] = new int[size+1][size+1];
+        int Map[][] = new int[((size*2)+1)][((size*2)+1)];
 
         for(int loopY=(size*2);loopY>=0;loopY--){
             System.out.print("\n");
             for(int loopX=0;loopX<((size*2)+1);loopX++){
                 if(GameWorld.getTile(playerZ,playerX-size+loopX,playerY-size+loopY).getWall()) {
-                    System.out.print("0");
+                    //System.out.print("0");
+                    System.out.print("("+loopX+","+loopY+")");
                     Map[loopY][loopX]=0;
 
                 }else{
                     if(GameWorld.getTile(playerZ, playerX-size+loopX, playerY-size+loopY).getEnemyLocation()==0){
-                        System.out.print("1");
+                        //System.out.print("1");
+                        System.out.print("("+loopX+","+loopY+")");
                         Map[loopY][loopX]=1;
                     }else{
                         //System.out.print(GameWorld.getTile(playerZ, loopX, loopY).getEnemyLocation());
+                        System.out.print("("+loopX+","+loopY+")");
                         Map[loopY][loopX]=GameLoop[GameWorld.getTile(playerZ,playerX-size+loopX,playerY-size+loopY).getEnemyLocation()-1].getType();
-                        System.out.print(GameLoop[GameWorld.getTile(playerZ,playerX-size+loopX,playerY-size+loopY).getEnemyLocation()-1].getType());
+
+                        //System.out.print(GameLoop[GameWorld.getTile(playerZ,playerX-size+loopX,playerY-size+loopY).getEnemyLocation()-1].getType());
                     }
                 }
             }
@@ -278,7 +282,7 @@ public class Manager {
     public Enemy generateEnemy(int selected){
         switch (selected){
             case 0:
-                return new Enemy("Slime", 0,0 ,0 ,3,this, 2,0,generateWeapon(1));
+                return new Slime("Slime", 0,0 ,0 ,this, 2,0,generateWeapon(1));
             case 1:
                 return new Enemy("Spider",0,0,0,4,this,3,1,generateWeapon(0));
             case 2:

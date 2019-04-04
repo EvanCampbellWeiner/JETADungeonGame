@@ -1,11 +1,14 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Player extends Character {
+    //Declaring Integers and scanner
     Scanner scanner = new Scanner(System.in);
     private int level;
     private int experance;
     private final int infintorySize = 2;
 
+    //Declaring what parameters player needs
     Player(String Name, int x, int y, int z, Manager Management, int health, int armor, Weapon[] Swords, Consumable[] Potions, int exp, int level) {
         super(Name, x, y, z, -1, Management, health, armor, Swords, Potions);
         this.experance = exp;
@@ -13,6 +16,8 @@ public class Player extends Character {
         setfriendly(false);
         getMyManager().playerLocation(x, y, z);
     }
+
+    //Creating new characters
     Player(String Name, int x, int y, int z, Manager Management, Weapon Sword, Consumable Potion) {
         super(Name, x, y, z, -1, Management, 10, 1, Sword, Potion);
         this.level = 0;
@@ -21,14 +26,17 @@ public class Player extends Character {
         getMyManager().playerLocation(x, y, z);
     }
 
+    //Getter for level
     public int getLevel() {
         return level;
     }
 
+    //Getter for experience
     public int getExperance() {
         return experance;
     }
 
+    //method for leveling up
     private void levelUp() {
         this.experance = 0;
         level++;
@@ -36,20 +44,23 @@ public class Player extends Character {
     }
 
     @Override
+    //game over message by calling game manager to kill this case or respawn
     public void gameOver() {
         System.out.print("You Were killed");
         setAlive(false);
         getMyManager().exitGame(Player.this);
-        //calls game manager to kill this case or respawn
+
     }
 
     @Override
+    //Attack method
     public void attack(Weapon Sword, Character Target) {
         super.attack(Sword, Target);
         experance++;
     }
 
     @Override
+    //looting the enemy method
     public void takeLoot(Weapon Looted) {
         int pick;
         Looted.printWeapon();
@@ -75,6 +86,7 @@ public class Player extends Character {
     }
 
     @Override
+    //weapon to pick what weapon to use
     public Weapon pickWeapon() {
         System.out.print("\n");
         printWeapon();
@@ -86,6 +98,7 @@ public class Player extends Character {
     }
 
     @Override
+    //Method that starts the players turn allowing you to move
     public void startTurn() {
         int pick;
         boolean validator = true;
@@ -93,7 +106,7 @@ public class Player extends Character {
         getMyManager().printMapWide(false, 4);//nice mapping
 
         //int Map[][] = getMyManager().buildMap(3);
-        //System.out.print(Arrays.deepToString(Map));
+        //1System.out.print(Arrays.deepToString(Map));
 
         if (experance > Math.pow(level, 2)) {
             levelUp();
@@ -139,9 +152,9 @@ public class Player extends Character {
     }
 
     @Override
+    //Method that makes the moves of the player
     public void teleport(int x, int y, int z) {
         super.teleport(x, y, z);
         getMyManager().setPlayerLocation(getX(), getY(), getZ());
     }
 }
-

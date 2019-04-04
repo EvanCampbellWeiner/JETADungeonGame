@@ -1,14 +1,26 @@
-public class Consumable extends Item{
+public class Consumable extends Item {
+
+    // Declaring restore as integer
     private int restore;
-    Consumable(int heal,String Name){
+
+    //Creating consumable
+    Consumable(int heal, String Name) {
         super(Name);
         this.restore = heal;
     }
-    public String printString(){return (""+getName()+" heals "+restore);}
-    public void printEffect(){
-        System.out.print("  > "+getName()+" heals "+restore+"\n");
+
+    //Print Function for restoring health
+    public String printString() {
+        return ("" + getName() + " heals " + restore);
     }
-    public int use(){
+
+    //Print function for restoring health
+    public void printEffect() {
+        System.out.print("  > " + getName() + " heals " + restore + "\n");
+    }
+
+    //method used when gtting restored
+    public int use() {
         return restore;
     }
 }

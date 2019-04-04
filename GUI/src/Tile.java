@@ -1,7 +1,9 @@
 public class Tile{
+    //Declarations
     private boolean wall;
     private int enemyLocation;
-    //Add tile info here
+
+    //creating tiles
     Tile(int enemy){
         this.wall=false;
         this.enemyLocation=enemy;
@@ -19,12 +21,19 @@ public class Tile{
         this.enemyLocation=enemy;
     }
 
+    //Setter for Wall
     public void setWall(boolean wall) {
         this.wall = wall;
     }
+
+    //Getter for wall
     public boolean getWall() {
         return wall;
     }
+
+    //Setter for enemy location
     public void setEnemyLocation(int enemy){this.enemyLocation=enemy;}
+
+    //Getter for enemy location
     public int getEnemyLocation() {return enemyLocation;}
 }

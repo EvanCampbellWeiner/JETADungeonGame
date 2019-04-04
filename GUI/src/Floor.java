@@ -1,10 +1,9 @@
 import java.util.Random;
-
 public class Floor{
     private Random random=new Random();
     private Tile[][] Map;
 
-    //floors must be at least 8 by 8
+    //Floors must be at least 8 by 8
     Floor(int xSize,int ySize){
         if(xSize<8||ySize<8){
             this.Map= new Tile[8][8];
@@ -19,7 +18,7 @@ public class Floor{
 
     }
 
-    //build's a room by setting all tilts to empty
+    //THis build's a room by setting all tilts to empty
     public void buildRectangle(int xSize,int ySize, int xDistance,int yDistance){
 
         if(xSize+xDistance>=Map.length||ySize+yDistance>=Map[0].length){
@@ -55,7 +54,8 @@ public class Floor{
         System.out.print("\n");
     }
 
-    public Tile GetTile(int x, int y){
+    //Getter for Tile
+    public Tile GetTile(int x,int y){
         if(x>=0&&x<Map.length&&y>=0&&y<Map[0].length){
             return Map[x][y];
         }else{
@@ -73,14 +73,13 @@ public class Floor{
         */
 
     }
+
+    //Getter for An enemy tile
     public int getTileEnemy(int x,int y){
         return(Map[x][y].getEnemyLocation());
     }
 
-    //Tile class is a single point on the map you should't touch this ideally
-
-
-    //builds a path from point A to B
+    //Builds a path from point A to B
     public void buildTunnel(int xPointA,int yPointA,int xPointB,int yPointB){
         /*
             A
@@ -168,7 +167,7 @@ public class Floor{
         }
     }
 
-    //spits out random numbers
+    //Spits out random numbers
     private int random(int low,int high){
         if(high<low) {
             return (high + random.nextInt((low - high)));
@@ -177,6 +176,7 @@ public class Floor{
         }
     }
 
+    //Getter for the floor on the tile array
     public Tile[][] getFloor(){
         return Map;
     }

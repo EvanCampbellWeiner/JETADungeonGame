@@ -1,10 +1,12 @@
 import java.util.Random;
 
 public class Enemy extends Character {
+    //Declaring integers
     private Random random=new Random();
     private int lastSeen;
     private int memoryDecay;
 
+    //Creating the enemy parameters
     Enemy(String Name, int x, int y, int z, int type, Manager Management, int health, int armor, Weapon Sword){
         super(Name,x,y,z,type,Management,health,armor,Sword);
         this.setfriendly(true);
@@ -13,22 +15,26 @@ public class Enemy extends Character {
     }
 
     @Override
+    //Enemy's don't loot
     public void takeLoot(Weapon Looted) {
         //enemy's don't loot
     }
 
     @Override
+    //Calls the game manager to kill
     public void gameOver() {
         setAlive(false);
         //call game manager to kill
     }
 
     @Override
+    //Gives enemy their automatic weapon
     public Weapon pickWeapon() {
         return (getWeaponBackpack(0));
     }
 
     @Override
+    //Enemy turns
     public void startTurn() {
         boolean hasMoved=false;
         final int memoryLength = 5;
@@ -122,6 +128,7 @@ public class Enemy extends Character {
         }
     }
 
+    //Enemy view to check tiles ina row based on the coordinates
     private boolean lookStraight(int xChange, int yChange){
         boolean searching=false;
         int xCheak=0,yCheak=0;
@@ -138,6 +145,7 @@ public class Enemy extends Character {
         return searching;
     }
 
+    //used for random movement
     private int random(int low,int high){
         if(high<low) {
             return (high + random.nextInt((low - high)));

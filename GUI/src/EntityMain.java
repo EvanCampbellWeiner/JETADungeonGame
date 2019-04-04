@@ -2,14 +2,21 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class EntityMain {
+    //Declaring variables
     private static Scanner scanner = new Scanner(System.in);
     private static Manager GameManager = new Manager();
     private static int choice;
 
 
     private static Weapon[] swords = new Weapon[0];
+
+
     private static Consumable[] potions = new Consumable[0];
+
+
     private static Player Neo = new Player("Neo", 0,0,0,GameManager,0,0,swords,potions,0,0);
+
+    //Method to load World and start the game
     public static void loadWorld(int choice) {
 
 
@@ -26,6 +33,8 @@ public class EntityMain {
         GameManager.RunGame();
 
     }
+
+    //Method that Sets the parameters to start
     public static void selectStart(int choice, String heroName) {
         Scanner scanner = new Scanner(System.in);
 
@@ -105,7 +114,6 @@ public class EntityMain {
         Player neo = new Player(name, 0, 0, 0, GameManager,health, armour, swords, potions, exp, level);
 
         }
-
     }
 
 

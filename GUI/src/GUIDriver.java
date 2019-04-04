@@ -27,7 +27,7 @@ import javafx.scene.image.ImageView;
 
 //Driver for the GUI elements of the game
 public class GUIDriver extends Application implements EventHandler<KeyEvent>{
-//string variable that holds a representation of the last key pressed
+    //string variable that holds a representation of the last key pressed
     public static   String keyPress = new String();
 
     public Parent root;
@@ -35,7 +35,8 @@ public class GUIDriver extends Application implements EventHandler<KeyEvent>{
 
 
     public static void main(String[] args) {
-            launch(args);
+        launch(args);
+
 
 
 
@@ -50,8 +51,6 @@ public class GUIDriver extends Application implements EventHandler<KeyEvent>{
         primaryStage.setScene(scene);
         primaryStage.show();
 
-
-
     }
 
 
@@ -60,6 +59,8 @@ public class GUIDriver extends Application implements EventHandler<KeyEvent>{
     public void handle(KeyEvent event){
         keyPress = ((event.getCode()).toString());
         //Test line to test functionality
-       // System.out.println(keyPress);
+        // System.out.println(keyPress);
     }
 }
+
+

@@ -64,28 +64,28 @@
             <Rectangle fx:id="tile25" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" layoutX="10.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
             <Rectangle fx:id="tile26" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" layoutX="181.0" layoutY="182.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
             <Rectangle fx:id="tile27" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-            <Rectangle fx:id="tile28" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="6" GridPane.rowIndex="4" />
-            <Rectangle fx:id="tile29" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-            <Rectangle fx:id="tile30" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <Rectangle fx:id="tile31" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Rectangle fx:id="tile32" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Rectangle fx:id="tile33" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Rectangle fx:id="tile34" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.rowIndex="4" />
-            <Rectangle fx:id="tile35" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-            <Rectangle fx:id="tile40" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-            <Rectangle fx:id="tile39" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-            <Rectangle fx:id="tile38" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <Rectangle fx:id="tile37" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Rectangle fx:id="tile36" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.rowIndex="6" />
-            <Rectangle fx:id="tile35" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
-            <Rectangle fx:id="tile34" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-            <Rectangle fx:id="tile33" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-            <Rectangle fx:id="tile32" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <Rectangle fx:id="tile31" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <Rectangle fx:id="tile30" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Rectangle fx:id="tile29" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.rowIndex="5" />
-            <Rectangle fx:id="tile42" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="6" GridPane.rowIndex="6" />
-            <Rectangle fx:id="tile41" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <Rectangle fx:id="tile35" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <Rectangle fx:id="tile34" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <Rectangle fx:id="tile33" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Rectangle fx:id="tile32" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Rectangle fx:id="tile31" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Rectangle fx:id="tile30" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Rectangle fx:id="tile29" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.rowIndex="4" />
+            <Rectangle fx:id="tile28" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <Rectangle fx:id="tile47" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <Rectangle fx:id="tile46" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Rectangle fx:id="tile45" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Rectangle fx:id="tile44" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Rectangle fx:id="tile43" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.rowIndex="6" />
+            <Rectangle fx:id="tile42" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+            <Rectangle fx:id="tile41" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <Rectangle fx:id="tile40" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <Rectangle fx:id="tile39" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Rectangle fx:id="tile38" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Rectangle fx:id="tile37" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Rectangle fx:id="tile36" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.rowIndex="5" />
+            <Rectangle fx:id="tile49" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+            <Rectangle fx:id="tile48" arcHeight="5.0" arcWidth="5.0" fill="#85a0b9" height="57.0" stroke="BLACK" strokeType="INSIDE" width="57.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
          </children>
       </GridPane>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="400.0">
@@ -126,7 +126,7 @@
                <font>
                   <Font name="System Bold" size="16.0" />
                </font></Button>
-            <Button fx:id="item2Button" layoutX="68.0" layoutY="18.0" mnemonicParsing="false" onAction="#pressItem2Button" text="Button">
+            <Button fx:id="item2Button" layoutX="68.0" layoutY="18.0" mnemonicParsing="false" onAction="#pressItem2Button" onKeyPressed="#pressItem1Button" text="Button">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font></Button>
@@ -139,6 +139,10 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
+            <Button fx:id="btnUp" layoutX="236.0" layoutY="44.0" mnemonicParsing="false" onAction="#pressButtonUp" text="^" />
+            <Button fx:id="btnRight" layoutX="281.0" layoutY="91.0" mnemonicParsing="false" onAction="#pressButtonRight" text="&gt;" />
+            <Button fx:id="btnDown" layoutX="236.0" layoutY="138.0" mnemonicParsing="false" onAction="#pressButtonDown" prefHeight="39.0" prefWidth="36.0" text="v" />
+            <Button fx:id="btnLeft" layoutX="193.0" layoutY="91.0" mnemonicParsing="false" onAction="#pressButtonLeft" text="&lt;" />
          </children>
       </Pane>
    </children>

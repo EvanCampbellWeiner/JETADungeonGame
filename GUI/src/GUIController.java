@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.GridPane;
@@ -29,97 +30,121 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.geometry.Insets;
 
-
 public class GUIController {
-//Rectangle objects serving as tiles in map gui
-    public static Rectangle tile1;
-    public static Rectangle tile2;
-    public static Rectangle tile3;
-    public static Rectangle tile4;
-    public static Rectangle tile5;
-    public static Rectangle tile6;
-    public static Rectangle tile7;
-    public static Rectangle tile8;
-    public static Rectangle tile9;
-    public static Rectangle tile10;
-    public static Rectangle tile11;
-    public static Rectangle tile12;
-    public static Rectangle tile13;
-    public static Rectangle tile14;
-    public static Rectangle tile15;
-    public static Rectangle tile16;
-    public static Rectangle tile17;
-    public static Rectangle tile18;
-    public static Rectangle tile19;
-    public static Rectangle tile20;
-    public static Rectangle tile21;
-    public static Rectangle tile22;
-    public static Rectangle tile23;
-    public static Rectangle tile24;
-    public static Rectangle tile25;
-    public static Rectangle tile26;
-    public static Rectangle tile27;
-    public static Rectangle tile28;
-    public static Rectangle tile29;
-    public static Rectangle tile30;
-    public static Rectangle tile31;
-    public static Rectangle tile32;
-    public static Rectangle tile33;
-    public static Rectangle tile34;
-    public static Rectangle tile35;
-    public static Rectangle tile36;
-    public static Rectangle tile37;
-    public static Rectangle tile38;
-    public static Rectangle tile39;
-    public static Rectangle tile40;
-    public static Rectangle tile41;
-    public static Rectangle tile42;
+    //Rectangle objects serving as tiles in map gui
+    public Rectangle tile1;
+    public Rectangle tile2;
+    public Rectangle tile3;
+    public Rectangle tile4;
+    public Rectangle tile5;
+    public Rectangle tile6;
+    public Rectangle tile7;
+    public Rectangle tile8;
+    public Rectangle tile9;
+    public Rectangle tile10;
+    public Rectangle tile11;
+    public Rectangle tile12;
+    public Rectangle tile13;
+    public Rectangle tile14;
+    public Rectangle tile15;
+    public Rectangle tile16;
+    public  Rectangle tile17;
+    public  Rectangle tile18;
+    public Rectangle tile19;
+    public Rectangle tile20;
+    public  Rectangle tile21;
+    public Rectangle tile22;
+    public Rectangle tile23;
+    public Rectangle tile24;
+    public Rectangle tile25;
+    public Rectangle tile26;
+    public Rectangle tile27;
+    public Rectangle tile28;
+    public  Rectangle tile29;
+    public  Rectangle tile30;
+    public  Rectangle tile31;
+    public Rectangle tile32;
+    public Rectangle tile33;
+    public Rectangle tile34;
+    public Rectangle tile35;
+    public Rectangle tile36;
+    public Rectangle tile37;
+    public Rectangle tile38;
+    public Rectangle tile39;
+    public Rectangle tile40;
+    public  Rectangle tile41;
+    public  Rectangle tile42;
+    public  Rectangle tile43;
+    public Rectangle tile44;
+    public  Rectangle tile45;
+    public Rectangle tile46;
+    public Rectangle tile47;
+    public Rectangle tile48;
+    public Rectangle tile49;
     //Labels for displaying player attributes and inventory
-    public static Label name;
-    public static Label health;
-    public static Label weapon1;
-    public static Label weapon2;
-    public static Button item1Button;
-    public static Button item2Button;
-    public static Button item3Button;
-    public static Button backButton2;
+    public Label name;
+    public  Label health;
+    public Label weapon1;
+    public Label weapon2;
+    public Button item1Button;
+    public  Button item2Button;
+    public Button item3Button;
+    public Button backButton2;
     //buttons for inventory management
-    public static Button button1;
-    public static Button button2;
-    public static Button button3;
-    public static Button button4;
-    public static Button button5;
-    public static Button button6;
-    public static Button button7;
+    public Button button1;
+    public Button button2;
+    public Button button3;
+    public Button button4;
+    public Button button5;
+    public Button button6;
+    public Button button7;
     //buttons for character selection
-    public static Button save1Button;
-    public static Button save2Button;
-    public static Button save3Button;
-    public static Button backButton1;
+    public Button save1Button;
+    public Button save2Button;
+    public Button save3Button;
+    public Button backButton1;
     //buttons for start menu
-    public static Button newGameButton;
-    public static Button loadGameButton;
-    public static Button exitButton;
+    public Button newGameButton;
+    public Button loadGameButton;
+    public Button exitButton;
     //buttons for world selection menu
-    public static Button world1Button;
-    public static Button newWorldButton;
-    public static Button worldSelectionBackButton;
+    public Button world1Button;
+    public Button newWorldButton;
+    public Button worldSelectionBackButton;
     //Images
-    Image bear = new Image ("Images/Bear-1.png.png");
+    public Image bear = new Image ("/Images/Bear-1.png.png");
+    public Image bat = new Image ("/Images/Bat-1.png.png");
+    public Image demon = new Image ("/Images/Demon-1.png.png");
+    public Image dude = new Image ("/Images/Dude-1.png.png");
+    public Image goblin = new Image ("/Images/Goblin-1.png.png");
+    public Image skeleton = new Image ("/Images/Skeleton-1.png.png");
+    public Image slime= new Image ("/Images/Slime-1.png.png");
+    public Image spider= new Image ("/Images/Spider-1.png.png");
+    public Image vampire= new Image ("/Images/Vampire-1.png.png");
+    public Image wall= new Image ("/Images/wall-1.png.png");
+    public Image witch = new Image ("/Images/Witch-1.png.png");
+    public Image zombie= new Image ("/Images/Zombie-1.png.png");
+
+    public Color red=new Color(0.5,0,0,0);
     //buttons, image,  text and labels for CombatInterface
-    public static Button combatWeapon1Button;
-    public static Button combatWeapon2Button;
-    public static Button combatItem1Button;
-    public static Button combatItem2Button;
-    public static Button combatItem3Button;
-    public static Label playerHealthValueDisplay;
-    public static Label enemyHealthValueDisplay;
-    public static Text combatText;
-    public static ImageView enemyImage;
+    public Button combatWeapon1Button;
+    public Button combatWeapon2Button;
+    public Button combatItem1Button;
+    public Button combatItem2Button;
+    public Button combatItem3Button;
+    public Label playerHealthValueDisplay;
+    public Label enemyHealthValueDisplay;
+    public Text combatText;
+    public ImageView enemyImage;
     //Buttons and TextField for Character creation page
-    public static Button enterNameButton;
-    public static Button characterCreationBackButton;
-    public static TextField enterNameField;
+    public Button enterNameButton;
+    public Button characterCreationBackButton;
+    public TextField enterNameField;
+
+    public Button btnUp;
+    public Button btnDown;
+    public Button btnRight;
+    public Button btnLeft;
 
 
 
@@ -128,66 +153,90 @@ public class GUIController {
 
 
 
-    private int[][] tiles=new int[5][5];
-    private Rectangle[][]grid=new Rectangle[5][5];
+    private int[][] tiles=new int[7][7];
+    private Rectangle[][]grid=new Rectangle[7][7];
 
 
-//Method that changes the colour of a given rectangle
-    public static void setColour (Rectangle tile, String colourCode){
+    //Method that changes the colour of a given rectangle
+    public void setColour (Rectangle tile, String colourCode){
         tile.setFill(Paint.valueOf(colourCode));
     }
 
 
     //future method that will get passes an array and will update board tile colours accordingly
-    public static void updateBoard(int[][]array,Rectangle[][]tile){
-        setColour(tile13, "#0ef402");
-        for(int i=0; i<5; i++){
-            for(int t=0; t<5; t++){
-                if(array[i][t]==0){setColour(tile[i][t],"#000000");}
-                else if(array[i][t]==1){setColour(tile[i][t],"#FFFFFF");}
-                else  if(array[i][t]==-1){setColour(tile[i][t],"#AAAAAA");}
+    public void updateBoard(int[][] array,Rectangle[][] tile){
+        for(int i=0; i<7; i++){
+            for(int t=0; t<7; t++){
+                if(array[i][t]==0){setTileImage(tile[i][t],wall);}
+                else if(array[i][t]==1){setTileImage(tile[i][t], spider);}
+                else if(array[i][t]==2){setTileImage(tile[i][t], zombie);}
+                else if(array[i][t]==3){setTileImage(tile[i][t], slime);}
+                else if(array[i][t]==4){setTileImage(tile[i][t], spider);}
+                else if(array[i][t]==5){setTileImage(tile[i][t], bat);}
+                else if(array[i][t]==6){setTileImage(tile[i][t], goblin);}
+                else if(array[i][t]==1){setTileImage(tile[i][t], null);}
+                else if(array[i][t]==1){setTileImage(tile[i][t], zombie);}
+                else if(array[i][t]==1){setTileImage(tile[i][t], skeleton);}
+                else{setColour((tile[i][t]),"#F32323");}
             }
         }
     }
 
     //When key is pressed, do something.
-    public void keyPressed(KeyEvent event) {
-        setArray();
+    public void move(int number) {
+        setArray(number);
         if(grid[0][0]==null){
-            grid[0][0]=tile1;grid[0][1]=tile2;grid[0][2]=tile3;grid[0][3]=tile4;grid[0][4]=tile5;
-            grid[1][0]=tile6;grid[1][1]=tile7;grid[1][2]=tile8;grid[1][3]=tile9;grid[1][4]=tile10;
-            grid[2][0]=tile11;grid[2][1]=tile12;grid[2][2]=tile13;grid[2][3]=tile14;grid[2][4]=tile15;
-            grid[3][0]=tile16;grid[3][1]=tile17;grid[3][2]=tile18;grid[3][3]=tile19;grid[3][4]=tile20;
-            grid[4][0]=tile21;grid[4][1]=tile22;grid[4][2]=tile23;grid[4][3]=tile24;grid[4][4]=tile25;
+            grid[0][0]=tile1;grid[0][1]=tile2;grid[0][2]=tile3;grid[0][3]=tile4;grid[0][4]=tile5; grid[0][5]=tile6; grid[0][6]=tile7;
+            grid[1][0]=tile8;grid[1][1]=tile9;grid[1][2]=tile10;grid[1][3]=tile11;grid[1][4]=tile12;grid[1][5]=tile13;grid[1][6]=tile14;
+            grid[2][0]=tile15;grid[2][1]=tile16;grid[2][2]=tile17;grid[2][3]=tile18;grid[2][4]=tile19;grid[2][5]=tile20;grid[2][6]=tile21;
+            grid[3][0]=tile22;grid[3][1]=tile23;grid[3][2]=tile24;grid[3][3]=tile25;grid[3][4]=tile26;grid[3][5]=tile27;grid[3][6]=tile28;
+            grid[4][0]=tile29;grid[4][1]=tile30;grid[4][2]=tile31;grid[4][3]=tile32;grid[4][4]=tile33;grid[4][5]=tile34;grid[4][6]=tile35;
+            grid[5][0]=tile36;grid[5][1]=tile37;grid[5][2]=tile38;grid[5][3]=tile39;grid[5][4]=tile40;grid[5][5]=tile41;grid[5][6]=tile42;
+            grid[6][0]=tile43;grid[6][1]=tile44;grid[6][2]=tile45;grid[6][3]=tile46;grid[6][4]=tile47;grid[6][5]=tile48;grid[6][6]=tile49;
         }
         updateBoard(tiles,grid);
     }
-    public void setArray(){
+
+    //When button up is pressed
+    public void pressButtonUp(ActionEvent event){
+        move(1);
+    }
+    public void pressButtonRight(ActionEvent event){
+        move(2);
+    }
+    public void pressButtonLeft(ActionEvent event){
+        move(3);
+    }
+    public void pressButtonDown(ActionEvent event){
+        move(4);
+    }
+
+    public void setArray(int number){
         for(int i=0; i<tiles.length;i++){
             for (int t=0; t<tiles.length;t++){
-                tiles[i][t]=0;
+                tiles[i][t]=number;
             }
         }
     }
 
-   //future method that will get passes an array and will update board tile colours accordingly
-  /*  public static void updateBoard( "array of some kind"){
-        for(int i = 0; i<arr.length; i++){
-            for(int t = 0; t<arr.length; t++){
-            if (array[i][t] == whatever){
-                   tilewhatever.setColour whatever colour
+    //future method that will get passes an array and will update board tile colours accordingly
+ /*  public static void updateBoard( "array of some kind"){
+       for(int i = 0; i<arr.length; i++){
+           for(int t = 0; t<arr.length; t++){
+           if (array[i][t] == whatever){
+                  tilewhatever.setColour whatever colour
 
-                   }
-                   }
-                   }
-   */
+                  }
+                  }
+                  }
+  */
 
-  //Method to set an Tile (rectangle) on the map to an image
+    //Method to set an Tile (rectangle) on the map to an image
     public void setTileImage(Rectangle tile, Image image){
-                tile.setFill(new ImagePattern(image));
+        tile.setFill(new ImagePattern(image));
     }
-//Start menu button methods
-public void pressNewGameButton(ActionEvent event){
+    //Start menu button methods
+    public void pressNewGameButton(ActionEvent event){
         loadScene(event, "CharacterCreation.fxml");
     }
     public void pressLoadGameButton(ActionEvent event){
@@ -235,16 +284,16 @@ public void pressNewGameButton(ActionEvent event){
 
     }
     public void pressItem1Button(ActionEvent event){
-
+        setTileImage(tile1, bear);
     }
     public void pressItem2Button(ActionEvent event){
-
+        setColour(tile1, "#111111");
     }
     public void pressItem3Button(ActionEvent event){
 
     }
     public void pressBackButton2(ActionEvent event){
-            //Have it save the game here
+        //Have it save the game here
         loadScene(event, "StartMenu.fxml");
     }
 
@@ -261,7 +310,7 @@ public void pressNewGameButton(ActionEvent event){
 
     //Combat interface button methods
     public void pressCombatWeapon1Button(ActionEvent event){
-
+        enemyImage.setImage(bear);
     }
     public void pressCombatWeapon2Button(ActionEvent event){
 

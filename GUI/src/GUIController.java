@@ -1,5 +1,8 @@
 
 import java.io.FileInputStream;
+import java.sql.*;
+import java.util.Scanner;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -153,12 +156,6 @@ public class GUIController {
     public Button gameOverExitButton;
 
 
-
-
-
-
-
-
     private int[][] tiles=new int[7][7];
     private Rectangle[][]grid=new Rectangle[7][7];
 
@@ -250,12 +247,17 @@ public class GUIController {
     //Character selection button methods
 
     public void pressSave1Button(ActionEvent event){
-
+        EntityMain.selectStart(1,null);
+        loadScene(event, "CharacterSelection.fxml");
     }
     public void pressSave2Button(ActionEvent event){
-
+        EntityMain.selectStart(2,null);
+        loadScene(event, "WorldSelectionMenu.fxml");
     }
     public void pressSave3Button(ActionEvent event){
+        EntityMain.selectStart(3,null);
+        loadScene(event, "WorldSelectionMenu.fxml");
+
 
     }
     public void pressBackButton1(ActionEvent event){
@@ -300,13 +302,18 @@ public class GUIController {
 
     //World selection screen button methods
     public void pressWorld1Button(ActionEvent event){
+        EntityMain.loadWorld(0);
+        loadScene(event, "WorldSelectionMenu.fxml");
 
     }
     public void pressNewWorldButton(ActionEvent event){
-
+        EntityMain.loadWorld(1);
+        loadScene(event, "WorldSelectionMenu.fxml");
     }
-    public void pressWorldSelectionBackButton(ActionEvent event){
+    public void pressWorldSelectionBackButton(ActionEvent event)
+    {
 
+        loadScene(event, "StartMenu.fxml");
     }
 
     //Combat interface button methods
@@ -328,9 +335,13 @@ public class GUIController {
 
     //Character creation interface button methods
     public void pressCharacterCreationBackButton(ActionEvent event){
+
         loadScene(event, "StartMenu.fxml");
     }
     public void pressEnterNameButton(ActionEvent event){
+
+        EntityMain.selectStart(0, enterNameField.getText());
+        loadScene(event, "WorldSelectionMenu.fxml");
 
     }
     //Game over button methods

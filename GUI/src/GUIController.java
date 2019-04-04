@@ -124,6 +124,9 @@ public class GUIController {
     public Image wall= new Image ("/Images/wall-1.png.png");
     public Image witch = new Image ("/Images/Witch-1.png.png");
     public Image zombie= new Image ("/Images/Zombie-1.png.png");
+    public Image downLadder = new Image ("ladderhole-1.png (2).png");
+    public Image upLadder = new Image("New Piskel-1.png.png");
+
 
     public Color red=new Color(0.5,0,0,0);
     //buttons, image,  text and labels for CombatInterface
@@ -145,6 +148,9 @@ public class GUIController {
     public Button btnDown;
     public Button btnRight;
     public Button btnLeft;
+    //Buttons for Game Over Screen
+    public Button loadCharBtn;
+    public Button gameOverExitButton;
 
 
 
@@ -163,20 +169,27 @@ public class GUIController {
     }
 
 
-    //future method that will get passes an array and will update board tile colours accordingly
+    //Method that takes in an array and updates the board accordingly
     public void updateBoard(int[][] array,Rectangle[][] tile){
         for(int i=0; i<7; i++){
             for(int t=0; t<7; t++){
                 if(array[i][t]==0){setTileImage(tile[i][t],wall);}
-                else if(array[i][t]==1){setTileImage(tile[i][t], spider);}
-                else if(array[i][t]==2){setTileImage(tile[i][t], zombie);}
+                else if(array[i][t]==-1){setTileImage(tile[i][t], dude);}
+                else if(array[i][t]==0){setTileImage(tile[i][t], wall);}
+                else if(array[i][t]==1){setTileImage(tile[i][t], null);}
+                else if(array[i][t]==2){setTileImage(tile[i][t], downLadder);}
                 else if(array[i][t]==3){setTileImage(tile[i][t], slime);}
                 else if(array[i][t]==4){setTileImage(tile[i][t], spider);}
                 else if(array[i][t]==5){setTileImage(tile[i][t], bat);}
                 else if(array[i][t]==6){setTileImage(tile[i][t], goblin);}
-                else if(array[i][t]==1){setTileImage(tile[i][t], null);}
-                else if(array[i][t]==1){setTileImage(tile[i][t], zombie);}
-                else if(array[i][t]==1){setTileImage(tile[i][t], skeleton);}
+                else if(array[i][t]==7){setTileImage(tile[i][t], null);}
+                else if(array[i][t]==8){setTileImage(tile[i][t], zombie);}
+                else if(array[i][t]==9){setTileImage(tile[i][t], skeleton);}
+                else if(array[i][t]==10){setTileImage(tile[i][t], bear);}
+                else if(array[i][t]==11){setTileImage(tile[i][t], witch);}
+                else if(array[i][t]==12){setTileImage(tile[i][t], vampire);}
+                else if(array[i][t]==13){setTileImage(tile[i][t], demon);}
+                else if(array[i][t]==14){setTileImage(tile[i][t], upLadder);}
                 else{setColour((tile[i][t]),"#F32323");}
             }
         }
@@ -219,17 +232,7 @@ public class GUIController {
         }
     }
 
-    //future method that will get passes an array and will update board tile colours accordingly
- /*  public static void updateBoard( "array of some kind"){
-       for(int i = 0; i<arr.length; i++){
-           for(int t = 0; t<arr.length; t++){
-           if (array[i][t] == whatever){
-                  tilewhatever.setColour whatever colour
 
-                  }
-                  }
-                  }
-  */
 
     //Method to set an Tile (rectangle) on the map to an image
     public void setTileImage(Rectangle tile, Image image){
@@ -331,6 +334,13 @@ public class GUIController {
     }
     public void pressEnterNameButton(ActionEvent event){
 
+    }
+    //Game over button methods
+    public void pressLoadCharBtn(ActionEvent event){
+        loadScene(event, "WorldSelectionMenu.fxml");
+    }
+    public void pressGameOverExitButton(ActionEvent event){
+        Platform.exit();
     }
 
 

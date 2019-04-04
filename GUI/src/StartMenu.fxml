@@ -15,7 +15,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="410.0" stroke="BLACK" strokeType="INSIDE" width="608.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="600.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
       <Button fx:id="newGameButton" layoutX="254.0" layoutY="105.0" mnemonicParsing="false" onAction="#pressNewGameButton" text="New Game" textAlignment="CENTER">
          <font>
             <Font name="Arial Rounded MT Bold" size="16.0" />

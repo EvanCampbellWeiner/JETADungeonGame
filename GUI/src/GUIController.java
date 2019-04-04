@@ -304,7 +304,7 @@ public class GUIController {
     public void pressWorld1Button(ActionEvent event){
         EntityMain.loadWorld(0);
         loadScene(event, "SceneBuilderGUI.fxml");
-        //updateBoard(tiles, grid);
+        updateBoard(tiles, grid);
 
     }
     public void pressNewWorldButton(ActionEvent event){

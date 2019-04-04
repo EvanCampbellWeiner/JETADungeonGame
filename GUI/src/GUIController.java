@@ -248,7 +248,7 @@ public class GUIController {
 
     public void pressSave1Button(ActionEvent event){
         EntityMain.selectStart(1,null);
-        loadScene(event, "CharacterSelection.fxml");
+        loadScene(event, "WorldSelectionMenu.fxml");
     }
     public void pressSave2Button(ActionEvent event){
         EntityMain.selectStart(2,null);
@@ -287,10 +287,10 @@ public class GUIController {
 
     }
     public void pressItem1Button(ActionEvent event){
-        setTileImage(tile1, bear);
+
     }
     public void pressItem2Button(ActionEvent event){
-        setColour(tile1, "#111111");
+
     }
     public void pressItem3Button(ActionEvent event){
 
@@ -303,7 +303,8 @@ public class GUIController {
     //World selection screen button methods
     public void pressWorld1Button(ActionEvent event){
         EntityMain.loadWorld(0);
-        loadScene(event, "WorldSelectionMenu.fxml");
+        loadScene(event, "SceneBuilderGUI.fxml");
+        //updateBoard(tiles, grid);
 
     }
     public void pressNewWorldButton(ActionEvent event){

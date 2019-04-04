@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="600.0" layoutX="-3.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
+      <Text layoutX="205.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="YOU DIED " textAlignment="CENTER" wrappingWidth="190.28125">
+         <font>
+            <Font name="Baskerville Old Face" size="69.0" />
+         </font>
+      </Text>
+      <Button fx:id="loadCharBtn" layoutX="232.0" layoutY="272.0" mnemonicParsing="false" onAction="#pressLoadCharBtn" text="Load Character">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="gameOverExitButton" layoutX="238.0" layoutY="348.0" mnemonicParsing="false" onAction="#pressGameOverExitButton" text="Exit (Coward)">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

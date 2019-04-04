@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4161f775-1a18-4e47-b419-78673e4561d0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUIDriver/SceneBuilderGUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUIDriver/SceneBuilderGUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUIDriver/GUIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUIDriver/GUIController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUIDriver/StartMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUIDriver/StartMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StartMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/StartMenu.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,7 +19,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUIDriver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="768">
+            <state relative-caret-position="162">
               <caret line="48" column="45" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -31,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GUIController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="189" column="52" lean-forward="true" selection-start-line="189" selection-start-column="52" selection-end-line="189" selection-end-column="52" />
+            <state relative-caret-position="103">
+              <caret line="182" column="74" selection-start-line="182" selection-start-column="74" selection-end-line="182" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#7576#7577#0" expanded="true" />
@@ -196,7 +196,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554255805916" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/WorldSelectionMenu.fxml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/SceneBuilderGUI.fxml" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -261,7 +261,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.10015649" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4632238" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39786857" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -399,14 +399,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SceneBuilderGUI.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="2048">
-          <caret line="128" column="123" selection-start-line="128" selection-start-column="123" selection-end-line="128" selection-end-column="123" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/javafx-src.zip!/javafx/scene/paint/ImagePattern.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3760">
@@ -417,27 +409,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CharacterCreation.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CombatInterface.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CharacterSelection.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -457,9 +433,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/SceneBuilderGUI.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="2048">
+          <caret line="128" column="123" selection-start-line="128" selection-start-column="123" selection-end-line="128" selection-end-column="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CharacterSelection.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CharacterCreation.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUIDriver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
+        <state relative-caret-position="162">
           <caret line="48" column="45" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -469,8 +469,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUIController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="189" column="52" lean-forward="true" selection-start-line="189" selection-start-column="52" selection-end-line="189" selection-end-column="52" />
+        <state relative-caret-position="103">
+          <caret line="182" column="74" selection-start-line="182" selection-start-column="74" selection-end-line="182" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#7576#7577#0" expanded="true" />

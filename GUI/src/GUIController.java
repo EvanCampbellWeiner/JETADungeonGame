@@ -124,8 +124,8 @@ public class GUIController {
     public Image wall= new Image ("/Images/wall-1.png.png");
     public Image witch = new Image ("/Images/Witch-1.png.png");
     public Image zombie= new Image ("/Images/Zombie-1.png.png");
-    public Image downLadder = new Image ("ladderhole-1.png (2).png");
-    public Image upLadder = new Image("New Piskel-1.png.png");
+    public Image downLadder = new Image ("/Images/ladderhole-1.png (2).png");
+    public Image upLadder = new Image("/Images/New Piskel-1.png.png");
 
 
     public Color red=new Color(0.5,0,0,0);
@@ -176,13 +176,11 @@ public class GUIController {
                 if(array[i][t]==0){setTileImage(tile[i][t],wall);}
                 else if(array[i][t]==-1){setTileImage(tile[i][t], dude);}
                 else if(array[i][t]==0){setTileImage(tile[i][t], wall);}
-                else if(array[i][t]==1){setTileImage(tile[i][t], null);}
                 else if(array[i][t]==2){setTileImage(tile[i][t], downLadder);}
                 else if(array[i][t]==3){setTileImage(tile[i][t], slime);}
                 else if(array[i][t]==4){setTileImage(tile[i][t], spider);}
                 else if(array[i][t]==5){setTileImage(tile[i][t], bat);}
                 else if(array[i][t]==6){setTileImage(tile[i][t], goblin);}
-                else if(array[i][t]==7){setTileImage(tile[i][t], null);}
                 else if(array[i][t]==8){setTileImage(tile[i][t], zombie);}
                 else if(array[i][t]==9){setTileImage(tile[i][t], skeleton);}
                 else if(array[i][t]==10){setTileImage(tile[i][t], bear);}

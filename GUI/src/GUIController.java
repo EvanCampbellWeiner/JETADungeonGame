@@ -411,6 +411,9 @@ public class GUIController {
 
             loadScene(event,"SceneBuilderGUI.fxml");
         }
+        if(!Neo.getAlive()){
+            loadScene(event, "GameOver.fxml");
+        }
 
 
     }

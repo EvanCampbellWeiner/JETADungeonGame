@@ -22,13 +22,13 @@ public abstract class Character extends Entity {
                 combat=0;
             }
             else {
-                if(Attacker.getplayer()){
-                    combat = this.getType();
-                    GUIController.attacker=this;
-                }else{
-
+                if(Attacker.getfriendly()){
                     combat = Attacker.getType();
                     GUIController.attacker=Attacker;
+                }else{
+
+                    combat = this.getType();
+                    GUIController.attacker=this;
                 }
 
             }

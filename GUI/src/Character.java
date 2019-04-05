@@ -124,7 +124,8 @@ public abstract class Character extends Entity {
             }
             //System.out.print(getName());
             return true;
-        }else{
+        }
+        else{
             return false;
         }
     }

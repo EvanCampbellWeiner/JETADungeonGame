@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -9,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
    <children>
       <GridPane fx:id="tileLayout" alignment="CENTER" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0">
         <columnConstraints>
@@ -121,6 +126,7 @@
             <Button fx:id="btnRight" layoutX="286.0" layoutY="81.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#pressButtonRight" text="&gt;" />
             <Button fx:id="btnDown" layoutX="230.0" layoutY="131.0" mnemonicParsing="false" onAction="#pressButtonDown" prefHeight="50.0" prefWidth="50.0" text="v" />
             <Button fx:id="btnLeft" layoutX="175.0" layoutY="81.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#pressButtonLeft" text="&lt;" />
+            <Button fx:id="btnStart" layoutX="47.0" layoutY="40.0" mnemonicParsing="false" onAction="#pressStart" prefHeight="39.0" prefWidth="74.0" text="Start" />
          </children>
       </Pane>
    </children>

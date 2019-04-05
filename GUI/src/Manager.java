@@ -454,10 +454,12 @@ public ActionEvent event=new ActionEvent();
         //System.out.print("("+turn+"/"+getGameLoop().length+")");
         if(turn>=getGameLoop().length-1){
             turn=0;
+            continueGame=false;
             //GameWorld.printWorld();
         }else{
             turn++;
         }
+
     }
     public World getGameWorld() {
         return GameWorld;

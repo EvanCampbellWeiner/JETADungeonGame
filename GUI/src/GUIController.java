@@ -173,7 +173,7 @@ public class GUIController {
     public static Weapon enemyWeapon=new Weapon(true,5,"Bite");
     public static Consumable[] potions = new Consumable[0];
     public static Player Neo = new Player("Neo", 0,0,0,GameManager,1000,0,swords,potions,0,0);
-    public void setTiles(int [][] array){
+    public  void setTiles(int [][] array){
         this.tiles=array;
     }
     public static int combat=0;
@@ -209,7 +209,7 @@ public class GUIController {
 
     //Method that takes in an array and updates the board accordingly
     public  void updateBoard(int[][] array) {
-
+setTiles(array);
         if(grid[0][0]==null){
             grid[0][0]=tile1;grid[0][1]=tile2;grid[0][2]=tile3;grid[0][3]=tile4;grid[0][4]=tile5; grid[0][5]=tile6; grid[0][6]=tile7;
             grid[1][0]=tile8;grid[1][1]=tile9;grid[1][2]=tile10;grid[1][3]=tile11;grid[1][4]=tile12;grid[1][5]=tile13;grid[1][6]=tile14;
@@ -262,44 +262,51 @@ public class GUIController {
 
     //When button up is pressed
     public void pressButtonUp(ActionEvent event){
-        Neo.setPick(3);
-        GameManager.RunGame();
-        if(combat==0) {
-            updateBoard(GameManager.buildMap(3));
+       if(tiles[2][3]!=0) {
+            Neo.setPick(3);
+            GameManager.RunGame();
+            if (combat == 0) {
+                updateBoard(GameManager.buildMap(3));
+            } else {
+                loadScene(event, "CombatInterface.fxml");
+            }
         }
-        else{
-            loadScene(event,"CombatInterface.fxml");
-        }
-    }
-    public void pressButtonRight(ActionEvent event){
-        Neo.setPick(2);
-        GameManager.RunGame();
-        if(combat==0) {
-            updateBoard(GameManager.buildMap(3));
-        }
-        else{
-            loadScene(event,"CombatInterface.fxml");
-        }
-    }
-    public void pressButtonLeft(ActionEvent event){
-        Neo.setPick(4);
-        GameManager.RunGame();
-        if(combat==0) {
-            updateBoard(GameManager.buildMap(3));
-        }
-        else{
-            loadScene(event,"CombatInterface.fxml");
-        }   }
-    public void pressButtonDown(ActionEvent event){
-        Neo.setPick(1);
-        GameManager.RunGame();
-        if(combat==0) {
-            updateBoard(GameManager.buildMap(3));
-        }
-        else{
-            loadScene(event,"CombatInterface.fxml");
+   }
+    public void pressButtonRight(ActionEvent event) {
+        if (tiles[3][4] != 0) {
+            Neo.setPick(2);
+            GameManager.RunGame();
+            if (combat == 0) {
+                updateBoard(GameManager.buildMap(3));
+            } else {
+                loadScene(event, "CombatInterface.fxml");
+            }
         }
     }
+
+    public void pressButtonLeft(ActionEvent event) {
+        if (tiles[3][2] != 0) {
+            Neo.setPick(4);
+            GameManager.RunGame();
+            if (combat == 0) {
+                updateBoard(GameManager.buildMap(3));
+            } else {
+                loadScene(event, "CombatInterface.fxml");
+            }
+        }
+    }
+    public void pressButtonDown(ActionEvent event) {
+        if (tiles[4][3] != 0) {
+            Neo.setPick(1);
+            GameManager.RunGame();
+            if (combat == 0) {
+                updateBoard(GameManager.buildMap(3));
+            } else {
+                loadScene(event, "CombatInterface.fxml");
+            }
+        }
+    }
+
 
     public void setArray(int number){
         for(int i=0; i<tiles.length;i++){
@@ -327,7 +334,10 @@ public class GUIController {
     }
 
     //Character selection button methods
+public void pressStart(ActionEvent event){
+    updateBoard(GameManager.buildMap(3));
 
+}
     public void pressSave1Button(ActionEvent event){
         EntityMain.selectStart(1,null);
         loadScene(event, "WorldSelectionMenu.fxml");

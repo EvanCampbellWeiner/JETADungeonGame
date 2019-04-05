@@ -1,14 +1,16 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Player extends Character {
-    //Declaring Integers and scanner
     Scanner scanner = new Scanner(System.in);
     private int level;
     private int experance;
+    public static int pick;
     private final int infintorySize = 2;
 
-    //Declaring what parameters player needs
+    public static void setPick(int pick) {
+        Player.pick = pick;
+    }
+
     Player(String Name, int x, int y, int z, Manager Management, int health, int armor, Weapon[] Swords, Consumable[] Potions, int exp, int level) {
         super(Name, x, y, z, -1, Management, health, armor, Swords, Potions);
         this.experance = exp;
@@ -16,8 +18,6 @@ public class Player extends Character {
         setfriendly(false);
         getMyManager().playerLocation(x, y, z);
     }
-
-    //Creating new characters
     Player(String Name, int x, int y, int z, Manager Management, Weapon Sword, Consumable Potion) {
         super(Name, x, y, z, -1, Management, 10, 1, Sword, Potion);
         this.level = 0;
@@ -26,17 +26,14 @@ public class Player extends Character {
         getMyManager().playerLocation(x, y, z);
     }
 
-    //Getter for level
     public int getLevel() {
         return level;
     }
 
-    //Getter for experience
     public int getExperance() {
         return experance;
     }
 
-    //method for leveling up
     private void levelUp() {
         this.experance = 0;
         level++;
@@ -44,23 +41,19 @@ public class Player extends Character {
     }
 
     @Override
-    //game over message by calling game manager to kill this case or respawn
     public void gameOver() {
-        System.out.print("You Were killed");
         setAlive(false);
-        getMyManager().exitGame(Player.this);
-
+        getMyManager().exitGame(Player.this,0);
+        //calls game manager to kill this case or respawn
     }
 
     @Override
-    //Attack method
     public void attack(Weapon Sword, Character Target) {
         super.attack(Sword, Target);
         experance++;
     }
 
     @Override
-    //looting the enemy method
     public void takeLoot(Weapon Looted) {
         int pick;
         Looted.printWeapon();
@@ -86,7 +79,6 @@ public class Player extends Character {
     }
 
     @Override
-    //weapon to pick what weapon to use
     public Weapon pickWeapon() {
         System.out.print("\n");
         printWeapon();
@@ -98,15 +90,17 @@ public class Player extends Character {
     }
 
     @Override
-    //Method that starts the players turn allowing you to move
-    public void startTurn() {
-        int pick;
+    public int[][] startTurn() {
+
+        int array[][]=new int[7][7];
         boolean validator = true;
+        getMyManager().continueGame=false;
+        //getMyManager().printMapWide(false, 4);//nice mapping
 
-        getMyManager().printMapWide(false, 4);//nice mapping
+        getMyManager().buildMap(3);
 
-        //int Map[][] = getMyManager().buildMap(3);
-        //1System.out.print(Arrays.deepToString(Map));
+
+        //System.out.print(Arrays.deepToString(Map));
 
         if (experance > Math.pow(level, 2)) {
             levelUp();
@@ -121,13 +115,14 @@ public class Player extends Character {
         do {
 
 
-            System.out.print("\n " + getName() + " lv:" + level + " ep:" + experance + "\n  1  \n4-x-2\n  3  \n5: Inventory\n0: ExitGame");
+          /*  System.out.print("\n " + getName() + " lv:" + level + " ep:" + experance + "\n  1  \n4-x-2\n  3  \n5: Inventory\n0: ExitGame");
             print();
             pick = scanner.nextInt();
+            */
             validator = true;
             switch (pick) {
                 case 0:
-                    getMyManager().exitGame(Player.this);
+                    getMyManager().exitGame(Player.this,0);
                     break;
                 case 1:
                     validator = Move(getX(), (getY() + 1));
@@ -149,12 +144,13 @@ public class Player extends Character {
             }
         } while (!validator);
         getMyManager().setPlayerLocation(getX(), getY(), getZ());
+        return(array);
     }
 
     @Override
-    //Method that makes the moves of the player
     public void teleport(int x, int y, int z) {
         super.teleport(x, y, z);
         getMyManager().setPlayerLocation(getX(), getY(), getZ());
     }
 }
+

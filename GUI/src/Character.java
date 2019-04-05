@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public abstract class Character extends Entity {
-    //Declaring integers, booleans,strings for the Character class
     private String Name;
     private Weapon[] Sheath;
     private Consumable[] potionSlot;
@@ -12,20 +11,35 @@ public abstract class Character extends Entity {
     private boolean friendly;
     private boolean player=false;
     private final int type;
+    public int placement;
 
 
     @Override
-    //This override prevents enemy's from attacking each other
-    public void interact(Character Attacker) {
+    public void  interact(Character Attacker) {
+        int combat=0;
         if(!(Attacker.getfriendly()&&this.friendly)) {
-            getMyManager().combat(Attacker, this);
-        }//prevents enemy's from attacking each other
+            if(combat!=0) {
+                combat=0;
+            }
+            else {
+                if(Attacker.getplayer()){
+                    combat = this.getType();
+                    GUIController.attacker=this;
+                }else{
+
+                    combat = Attacker.getType();
+                    GUIController.attacker=Attacker;
+                }
+
+            }
+            //getMyManager().combat(Attacker, this);
+        }
+        GUIController.combat=combat;
     }
 
-    //Declaring the scanner to use throughout class
     Scanner scanner = new Scanner(System.in);
 
-    //This method is meant to create stairs and objects
+
     Character(String Name, int x, int y, int z, int type,Manager Management,int health, int armor) {
         super(x, y, z, Management);
         this.Sheath=new Weapon[0];
@@ -39,7 +53,7 @@ public abstract class Character extends Entity {
         this.type=type;
     }
 
-    //This method is meant to create enemies
+
     Character(String Name, int x, int y, int z, int type, Manager Management,int health,int armor, Weapon Sword) {
         super(x, y, z, Management);
         this.Sheath = new Weapon[0];
@@ -53,17 +67,14 @@ public abstract class Character extends Entity {
         this.type=type;
     }
 
-    //Getter for armor
     public int getArmor() {
         return armor;
     }
 
-    //Setter for armor
     public void setArmor(int armor) {
         this.armor = armor;
     }
 
-    //This method takes your pre loaded character
     Character(String Name, int x, int y, int z, int type , Manager Management, int health, int armor, Weapon[] Swords, Consumable[] Potions){
         super(x,y,z,Management);
         this.armor=armor;
@@ -90,7 +101,7 @@ public abstract class Character extends Entity {
 
     }
 
-    //Method that creates new player
+
     Character(String Name, int x, int y, int z, int type, Manager Management, int health, int armor, Weapon Sword, Consumable Potion){
         super(x,y,z,Management);
         this.armor=armor;
@@ -104,8 +115,6 @@ public abstract class Character extends Entity {
         this.pickUpNewWeapon(Sword);
         this.pickUpNewConsumible(Potion);
     }
-
-    //Method used to stop you from going into walls
     public boolean Move(int toX,int toY) {
         unmoved=true;
         if((getMyManager().teleport(getZ(),toX,toY,getZ(),getX(),getY()))){
@@ -119,8 +128,7 @@ public abstract class Character extends Entity {
             return false;
         }
     }
-
-    //Method used when consuming potions
+    //}//move might work "untested" // can't find enemy to attack it's a scoping problem */
     public void Consume(int potion) {
         if (potion <= 0 || potion >= potionSlot.length) {
             upCurrentHealth(potionSlot[potion].use());
@@ -128,9 +136,9 @@ public abstract class Character extends Entity {
         }else{
             System.out.print("Error no potion found // can't be used");
         }
-    }
 
-    //Method when defending and death
+    }//also untested but with will most likely work
+
     public void defence(int damage, boolean type) {
         if (type) {
             upCurrentHealth(damage * -1);
@@ -142,18 +150,14 @@ public abstract class Character extends Entity {
         if(currentHealth<=0){gameOver();}
     }
 
-    //Method used when attacking
     public void attack(Weapon Sword, Character Target) {
         Target.defence((Sword.getDamage()), (Sword.getDamageType()));
     }
 
-    //Abstract to pick a weapon
     public abstract Weapon pickWeapon();
 
-    //Abstract to take loot
     public abstract void takeLoot(Weapon Looted);
 
-    //Method to automatically update health each turn
     public void upCurrentHealth(int update) {
         currentHealth += update;
         if (currentHealth <= 0) {
@@ -161,14 +165,11 @@ public abstract class Character extends Entity {
         }
     }
 
-    //Function that prints During Combat
     public void printSimpleCombat(){
         System.out.print(Name+" ("+currentHealth+"/"+maxHealth+")\n");
         Sheath[0].printWeapon();
     }
-
     @Override
-    //Function to print Current player information
     public void print() {
         System.out.print(" " + Name + " ("+getX()+","+getY()+","+getZ()+")\n Hp(" + currentHealth + "\\" + maxHealth + ")\n");
         for (int loop = 0; loop <= Sheath.length - 1; loop++) {
@@ -185,8 +186,6 @@ public abstract class Character extends Entity {
         }
         System.out.print("\n");
     }
-
-    //Function to print Weapons you have
     public void printWeapon(){
         for (int loop = 0; loop <= Sheath.length - 1; loop++) {
             //System.out.print(loop);
@@ -195,7 +194,6 @@ public abstract class Character extends Entity {
         }
     }
 
-    //Method to use potions
     public boolean openInfintoryUsePotion(){
         int select;
         System.out.print("0: Exit Inventory\n");
@@ -213,11 +211,7 @@ public abstract class Character extends Entity {
             return false;
         }
     }
-
-    //Getter for name
     public String getName() { return Name; }
-
-    //Getter for Weapon backpack
     public Weapon getWeaponBackpack(int selected) {
         if(selected>=0&&selected<=Sheath.length-1){
             return Sheath[selected];
@@ -226,11 +220,7 @@ public abstract class Character extends Entity {
             return new Weapon(true,1,"Error Weapon Error //Failed to pick item");
         }
     }
-
-    //Getter for Sheath
     public Weapon[] getSheath(){return Sheath;}
-
-    //Getter for Consumable
     public Consumable getConsumiblePocket(int selected){
         if(selected>=0&&selected<=potionSlot.length-1){
             return potionSlot[selected];
@@ -238,24 +228,18 @@ public abstract class Character extends Entity {
             return new Consumable(0,"Error Consumible Error// Failed to pick item");
         }
     }
-
-    //Method to pick up new weapons
     public void pickUpNewWeapon(Weapon Sword){
         Weapon[] NewWeaponArray = new Weapon[Sheath.length+1];
         System.arraycopy(Sheath,0,NewWeaponArray,0,Sheath.length);
         NewWeaponArray[NewWeaponArray.length-1]=Sword;
         this.Sheath=NewWeaponArray;
     }
-
-    //Method to pick up new Consumables
     public void pickUpNewConsumible(Consumable Postion){
         Consumable[] NewConsumible = new Consumable[potionSlot.length+1];
         System.arraycopy(potionSlot,0,NewConsumible,0,potionSlot.length);
         NewConsumible[NewConsumible.length-1]=Postion;
         this.potionSlot=NewConsumible;
     }
-
-    //Method to remove Weapons from Sheath
     public void removeWeapon(int toRemove){
         //System.out.print("="+Sheath.length+"\n\n");
         Weapon[] newWeaponArray = new Weapon[Sheath.length-1];
@@ -271,8 +255,6 @@ public abstract class Character extends Entity {
 
 
     }
-
-    //Method to remove consumables
     public void removeConsumible(int toRemove){
        Consumable[] newPoshionSlot = new Consumable[potionSlot.length-1];
        for(int loop=0;loop<=newPoshionSlot.length-1;loop++){
@@ -284,44 +266,29 @@ public abstract class Character extends Entity {
        }
         this.potionSlot=newPoshionSlot;
     }
-
-    //Setter for Unmoved objects
     public void setUnmoved(boolean unmoved){
         this.unmoved=unmoved;
     }
-
-    //Getter for type
     public int getType(){
         return type;
     }
 
-    //Getter for Maximum Health
     public int getMaxHealth() {
         return maxHealth;
     }
 
-    //Getter for Current health
     public int getCurrentHealth() {
         return currentHealth;
     }
 
-    //Setter for health
     public void setMaxHealth(int maxHealth) {
         this.maxHealth = maxHealth;
     }
 
-    //Getter for friendly
     public boolean getfriendly(){return friendly;}
-
-    //Setter for friendly
     public void setfriendly(boolean friendly){
         this.friendly = friendly;
     }
-
-    //Getter for player
     public boolean getplayer(){return player;}
-
-    //Setter for player
     public void setplayer(boolean player){this.player=player;}
-
 }

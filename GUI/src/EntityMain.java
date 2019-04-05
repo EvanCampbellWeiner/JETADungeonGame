@@ -2,46 +2,35 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class EntityMain {
-    //Declaring variables
     private static Scanner scanner = new Scanner(System.in);
-    private static Manager GameManager = new Manager();
+
+    //public GUIController ScreenController;
     private static int choice;
 
 
-    private static Weapon[] swords = new Weapon[0];
-
-
-    private static Consumable[] potions = new Consumable[0];
-
-
-    private static Player Neo = new Player("Neo", 0,0,0,GameManager,0,0,swords,potions,0,0);
-
-    //Method to load World and start the game
     public static void loadWorld(int choice) {
 
 
         if(choice==1){
-            GameManager.generateRandomWorld();
-            GameManager.findValidPlacement(0,Neo);
+            GUIController.GameManager.generateRandomWorld();
+            GUIController.GameManager.findValidPlacement(0, GUIController.Neo);
 
         }else{
-            GameManager.generatePreCreatedWorld();
-            Neo.teleport(4,1,0);
+            GUIController.GameManager.generatePreCreatedWorld();
+           GUIController.Neo.teleport(4,1,0);
         }
-        GameManager.addEntity(Neo);
+        GUIController.GameManager.addEntity(GUIController.Neo);
         //GameManger.printFull();
-        GameManager.RunGame();
+       // GameManager.RunGame();
 
     }
-
-    //Method that Sets the parameters to start
     public static void selectStart(int choice, String heroName) {
         Scanner scanner = new Scanner(System.in);
 
         String name = "Neo";
         //System.out.println("What's your userName\n:");
         //String name = Scanner.nextLine();
-        int health = 10;
+        int health = 1000;
         int armour = 1;
         int weapon1 = 5;
         int weapon2 =-1;
@@ -54,8 +43,7 @@ public class EntityMain {
         Consumable[] potions = new Consumable[3];
 
         if((choice==1)||(choice==2)||(choice==3)) {
-            System.out.println("What save file do you want to load from (1,2,3)?\n:");
-            choice=scanner.nextInt();
+
             try {
 
                 Connection conn = DriverManager.getConnection("jdbc:sqlite:save1.db");
@@ -106,14 +94,15 @@ public class EntityMain {
         else{
             name=heroName;
         }
-        swords[0] = GameManager.generateWeapon(weapon1);
-        swords[1] = GameManager.generateWeapon(weapon2);
-        potions[0] = GameManager.generateConsumable(consumable1);
-        potions[1] = GameManager.generateConsumable(consumable2);
-        potions[2] = GameManager.generateConsumable(consumable3);
-        Player neo = new Player(name, 0, 0, 0, GameManager,health, armour, swords, potions, exp, level);
+        swords[0] = GUIController.GameManager.generateWeapon(weapon1);
+        swords[1] = GUIController.GameManager.generateWeapon(weapon2);
+        potions[0] = GUIController.GameManager.generateConsumable(consumable1);
+        potions[1] = GUIController.GameManager.generateConsumable(consumable2);
+        potions[2] = GUIController.GameManager.generateConsumable(consumable3);
+        Player neo = new Player(name, 0, 0, 0, GUIController.GameManager,health, armour, swords, potions, exp, level);
 
         }
+
     }
 
 

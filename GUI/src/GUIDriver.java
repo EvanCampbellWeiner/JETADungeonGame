@@ -19,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
@@ -30,11 +31,11 @@ public class GUIDriver extends Application implements EventHandler<KeyEvent>{
     //string variable that holds a representation of the last key pressed
     public static   String keyPress = new String();
 
-    public Parent root;
-
+    public static Parent root;
 
 
     public static void main(String[] args) {
+        //new Manager();
 
         launch(args);
 

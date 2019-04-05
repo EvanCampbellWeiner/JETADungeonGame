@@ -1,26 +1,32 @@
-import java.sql.*;
+import javafx.fxml.FXMLLoader;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Random;
 import java.util.Scanner;
+import javafx.event.ActionEvent;
 
 public class Manager {
-    //Declaring Variables
-    private Character[] GameLoop;
+
+    public Character[] GameLoop;
     private int turn;
-    private boolean continueGame;
+    public boolean continueGame;
     private World GameWorld;
     private int playerX, playerZ, playerY;
     private Random random=new Random();
+public GUIController screenManager=new GUIController();
+public ActionEvent event=new ActionEvent();
 
-    //Method that creates player coordinates
     public boolean playerLocation(int x, int y, int z){
         if(z==playerZ){
             return (x==playerX&&y==playerY);
         }else{
-            return false;
+         return false;
         }
     }
-
-    //method that sets the player coordinates
     public void setPlayerLocation(int x, int y, int z){
         this.playerX=x;
         this.playerY=y;
@@ -28,15 +34,37 @@ public class Manager {
     }
 
 
-    //Method called manager that controls the game function
+    public void setGameLoop(Character enemy) {
+        for(int i=0;i<GameLoop.length;i++){
+            if((GameLoop[i].getX()==enemy.getX())&&(GameLoop[i].getY()==enemy.getY())&&(GameLoop[i].getZ()==enemy.getZ())){
+                GameLoop[i].setAlive(false);
+            }
+        }
+    }
+
     Manager(){
+
         turn=0;
         continueGame=true;
         this.GameLoop = new Character[0];
         //this.GameWorld = generatePreCreatedWorld();
     }
+    Manager(GUIController ScreenManager){
+        turn=0;
+        continueGame=true;
+        this.GameLoop = new Character[0];
 
-    //Method that finds a valid place for an object
+        //this.GameWorld = generatePreCreatedWorld();
+    }
+    Manager(World Map){
+        continueGame = true;
+        turn=0;
+        this.GameLoop = new Character[0];
+        this.GameWorld=Map;
+
+    }
+
+
     public void findValidPlacement(int zFloor, Entity placeObject){
         int pickX, pickY, bail=0;
         boolean sheaching=true;
@@ -57,7 +85,7 @@ public class Manager {
         //System.out.print("placement try's ="+bail);
     }
 
-    // Random world generator used for Wild West
+
     public void generateRandomWorld(){
         int floorNumber = random(2,5), maxFloorSize=40, minFloorSize=20, maxRoomsPerFloor=6, minRoomsPerFloor=3;
         Floor[] Level = new Floor[floorNumber];
@@ -67,14 +95,11 @@ public class Manager {
             Level[loop].autoFillFloor(random(minRoomsPerFloor,maxRoomsPerFloor));
 
         }
-        //Initializing new random world
         World randomWorld = new World(Level);
         this.GameWorld = randomWorld;
         this.autoRandomStairs();
         this.autoGenerateEnemys();
     }
-
-    //Automatic generation of enemies for the world
     private void autoGenerateEnemys(){
         for(int floorNumber =0;floorNumber < GameWorld.getLevel().length;floorNumber++) {
             int enemyNumber = random(3, 15);
@@ -84,7 +109,6 @@ public class Manager {
         }
     }
 
-    //Automatic generation of the random stairs
     private void autoRandomStairs(){
         int pickXOne, pickYOne, pickXTwo,pickYTwo, bail;
         boolean sheaching;
@@ -132,7 +156,7 @@ public class Manager {
         }
     }
 
-    //Print Map function
+
     public void printMapWide(boolean printOnes, int drawDistance) {
         for(int loopY=playerY+drawDistance;loopY>playerY+((drawDistance*-1)-1);loopY--){
             System.out.print("\n");
@@ -152,61 +176,61 @@ public class Manager {
         }
     }
 
-    //Method to Build the 2D array map
-    public int[][] buildMap(int size){
 
-        int Map[][] = new int[size+1][size+1];
+    public int[][] buildMap(int size)  {
 
-        for(int loopY=(size*2);loopY>=0;loopY--){
-            System.out.print("\n");
-            for(int loopX=0;loopX<((size*2)+1);loopX++){
-                if(GameWorld.getTile(playerZ,playerX-size+loopX,playerY-size+loopY).getWall()) {
-                    System.out.print("0");
-                    Map[loopY][loopX]=0;
+    int Map[][] = new int[(size * 2) + 1][(size * 2) + 1];
 
-                }else{
-                    if(GameWorld.getTile(playerZ, playerX-size+loopX, playerY-size+loopY).getEnemyLocation()==0){
-                        System.out.print("1");
-                        Map[loopY][loopX]=1;
-                    }else{
-                        //System.out.print(GameWorld.getTile(playerZ, loopX, loopY).getEnemyLocation());
-                        Map[loopY][loopX]=GameLoop[GameWorld.getTile(playerZ,playerX-size+loopX,playerY-size+loopY).getEnemyLocation()-1].getType();
-                        System.out.print(GameLoop[GameWorld.getTile(playerZ,playerX-size+loopX,playerY-size+loopY).getEnemyLocation()-1].getType());
-                    }
+
+
+    for (int loopY = (size * 2); loopY >= 0; loopY--) {
+        //System.out.print("\n");
+        for (int loopX = 0; loopX < ((size * 2) + 1); loopX++) {
+            if (GameWorld.getTile(playerZ, playerX - size + loopX, playerY - size + loopY).getWall()) {
+                //System.out.print("0");
+                Map[loopY][loopX] = 0;
+
+            } else {
+                if (GameWorld.getTile(playerZ, playerX - size + loopX, playerY - size + loopY).getEnemyLocation() == 0) {
+                    //System.out.print("1");
+                    Map[loopY][loopX] = 1;
+                } else {
+                    //System.out.print(GameWorld.getTile(playerZ, loopX, loopY).getEnemyLocation());
+                    Map[loopY][loopX] = GameLoop[GameWorld.getTile(playerZ, playerX - size + loopX, playerY - size + loopY).getEnemyLocation() - 1].getType();
+                    //System.out.print(GameLoop[GameWorld.getTile(playerZ,playerX-size+loopX,playerY-size+loopY).getEnemyLocation()-1].getType());
                 }
             }
         }
-        System.out.print("\n");
-        return Map;
     }
+    System.out.print("\n");
+    //System.out.print();
 
-    //Pre created world generation
+    //ScreenManager.move(0);
+ return(Map);
+
+        //ScreenManager.move(2);
+    }
     public World generatePreCreatedWorld(){
         this.GameWorld = new World(4);
 
-        //First room size
         Floor RoomOne= new Floor(9,9);
         RoomOne.buildRectangle(7,7,1,1);
 
-        //Enemies in first room
         Enemy Slime = generateEnemy(0);
         Slime.teleport(1,4,0);
         Enemy AnotherSlime = generateEnemy(0);
         AnotherSlime.teleport(7,4,0);
 
-        //Initializing them
         this.addEntity(Slime);
         this.addEntity(AnotherSlime);
         this.generateStairs(4,7,0,1,1,1);
 
-        //Creating second floor
         Floor RoomTwo=new Floor(11,11);
         RoomTwo.buildRectangle(3,9,1,1);
         RoomTwo.buildRectangle(9,3,1,1);
         RoomTwo.buildRectangle(9,3,1,7);
         RoomTwo.buildRectangle(3,9,7,1);
 
-        //Enemies in second room
         Enemy Zombie = generateEnemy(5);
         Zombie.teleport(1,9,1);
         Enemy AnotherZombie = generateEnemy(5);
@@ -216,14 +240,12 @@ public class Manager {
         Enemy AnotherGoblin = generateEnemy(3);
         AnotherGoblin.teleport(3,8,1);
 
-        //Initializing them
         this.addEntity(Zombie);
         this.addEntity(AnotherZombie);
         this.addEntity(Goblin);
         this.addEntity(AnotherGoblin);
         this.generateStairs(9,9,1,1,6,2);
 
-        //Creating third floor
         Floor RoomThree= new Floor(13,13);
         RoomThree.buildRectangle(2,10,1,1);
         RoomThree.buildRectangle(11,2,1,1);
@@ -231,7 +253,6 @@ public class Manager {
         RoomThree.buildRectangle(11,2,1,10);
         RoomThree.buildRectangle(2,10,10,1);
 
-        //Enemies in third room
         Enemy Bear1 = generateEnemy(7);
         Bear1.teleport(3,2,2);
         Enemy Bear2 = generateEnemy(7);
@@ -249,7 +270,6 @@ public class Manager {
         Enemy Bear8 = generateEnemy(7);
         Bear8.teleport(8,10,2);
 
-        //Initializing them
         this.addEntity(Bear1);
         this.addEntity(Bear2);
         this.addEntity(Bear3);
@@ -260,13 +280,13 @@ public class Manager {
         this.addEntity(Bear8);
         this.generateStairs(11,6,2,5,1,3);
 
-        //Creating third floor
+
+
         Floor RoomFour = new Floor(11,13);
         RoomFour.buildRectangle(9,3,1,1);
         RoomFour.buildRectangle(9,6,1,6);
         RoomFour.buildRectangle(3,2,4,4);
 
-        //Enemies in fourth room
         Enemy Ghost1 = generateEnemy(4);
         Enemy Ghost2 = generateEnemy(4);
         Enemy Ghost3 = generateEnemy(4);
@@ -280,7 +300,7 @@ public class Manager {
         Demon.teleport(4,10,3);
         Vampire.teleport(6,10,3);
 
-        //Applying conditions above to rooms
+
         GameWorld.customFloor(RoomOne,0);
         GameWorld.customFloor(RoomTwo,1);
         GameWorld.customFloor(RoomThree,2);
@@ -288,8 +308,6 @@ public class Manager {
 
         return GameWorld;
     }
-
-    //Declaring all types of enemies using switch
     public Enemy generateEnemy(int selected){
         switch (selected){
             case 0:
@@ -314,12 +332,10 @@ public class Manager {
                 return new Vampire("Vampire",0,0,0,this,8,1,generateWeapon(7));
             case 10:
                 return new Enemy("Demon",0,0,0,13,this,15,1,generateWeapon(8));
-            default:
-                return new Enemy("Error Type Enemy Not Found",0,0,0,15,this,1000,0,generateWeapon(0));
+                default:
+                    return new Enemy("Error Type Enemy Not Found",0,0,0,15,this,1000,0,generateWeapon(0));
         }
     }
-
-    //Declaring all types of Consumables using switch
     public Consumable generateConsumable(int selected){
         switch (selected){
             case 0:
@@ -332,8 +348,6 @@ public class Manager {
                 return new Consumable(0,"Error potion");
         }
     }
-
-    //Declaring selected consumables using switch
     public int selectedConsumable(Consumable selected){
         switch (selected.getName()){
             case ("Band_Aid"):
@@ -346,8 +360,6 @@ public class Manager {
                 return -1;
         }
     }
-
-    //Declaring all types of weapons using switch
     public Weapon generateWeapon(int selected){
         switch(selected){
             case 0:
@@ -374,8 +386,6 @@ public class Manager {
                 return new Weapon(false,0,"Error Weapon Failed to find Weapon");
         }
     }
-
-    //Declaring all types of weapons using switch
     public int selectedWeapon(Weapon selected){
         switch(selected.getName()){
             case "Bite" :
@@ -402,17 +412,15 @@ public class Manager {
                 return -1;
         }
     }
-
-    //Method that adds new  entities
     public void addEntity(Character Neo){
         Character[] NewGameLoop = new Character[GameLoop.length+1];
         System.arraycopy(GameLoop,0,NewGameLoop,0,GameLoop.length);
         NewGameLoop[NewGameLoop.length-1]= Neo;
         this.GameLoop = NewGameLoop;
+        Neo.placement=GameLoop.length-1;
         GameWorld.getTile(Neo.getZ(),Neo.getX(),Neo.getY()).setEnemyLocation(NewGameLoop.length);
-    }
 
-    //Print function
+    }
     public void printFull(){
         for (int loop=0;loop<=GameLoop.length-1;loop++){
             GameLoop[loop].print();
@@ -420,25 +428,28 @@ public class Manager {
         GameWorld.printWorld();
 
     }
-
-    //Run game function to start the game
-    public void RunGame(){
+    public int RunGame(){
+        int array=0;
+        //ScreenManager.loadScene("SceneBuilder.GUI.fxml");
         do{
             //System.out.print(turn);
+
             if(GameLoop[turn].getZ()==playerZ) {
                 if (GameLoop[turn].getAlive()) {
                     GameLoop[turn].startTurn();
-                } //else {
-                // GameLoop[turn] = null;
+                    //System.out.print();
+
+                }
+                //else {
+                   // GameLoop[turn] = null;
             }
             //}
             //when you have a memory leak error tell me becouse you will
             iterateTurn();
         }while(continueGame);
+        return(array);
         //loops thought GameLoop running RunTurn until exitGame is Called
     }
-
-    //Method that allows you to always have a turn
     private void iterateTurn(){
         //System.out.print("("+turn+"/"+getGameLoop().length+")");
         if(turn>=getGameLoop().length-1){
@@ -448,26 +459,14 @@ public class Manager {
             turn++;
         }
     }
-
-    //Getter for GameWorld
     public World getGameWorld() {
         return GameWorld;
     }
-
-    //Getter for game loop within entity
     public Entity[] getGameLoop() {
         return GameLoop;
     }
-
-    //Exit game function
-    public void exitGame(Player person){
+    public void exitGame(Player person,int check){
         try{
-            Scanner sc = new Scanner(System.in);
-            int check=0;
-            System.out.println("Please enter what save file you wish to save to: (1,2,3)");
-            while((check!=1)&&(check!=2)&&(check!=3)) {
-                check = sc.nextInt();
-            }
 
             Connection conn = DriverManager.getConnection("jdbc:sqlite:save1.db");
             Statement statement = conn.createStatement();
@@ -484,9 +483,9 @@ public class Manager {
                     "\t\"Exp\"\tINTEGER,\n" +
                     "\t\"Level\"\tINTEGER\n" +
                     ")");
-            statement.execute( "CREATE UNIQUE INDEX IF NOT EXISTS idx_Character_IDNumber ON Character (IDNumber)");
+           statement.execute( "CREATE UNIQUE INDEX IF NOT EXISTS idx_Character_IDNumber ON Character (IDNumber)");
             statement.execute("INSERT OR REPLACE INTO Character (IDNumber,Name, Health, Weapon1, Weapon2, Consumable1, Consumable2, Consumable3, Exp, Level) " +
-                    "VALUES ('"+check+"','"+person.getName()+"','"+person.getCurrentHealth()+"','"+ selectedWeapon(person.getWeaponBackpack(0))+"','"+ selectedWeapon(person.getWeaponBackpack(1))+
+                    "VALUES ('"+check+"','"+person.getName()+"','"+person.getMaxHealth()+"','"+ selectedWeapon(person.getWeaponBackpack(0))+"','"+ selectedWeapon(person.getWeaponBackpack(1))+
                     "','"+selectedConsumable(person.getConsumiblePocket(0))+"','"+ selectedConsumable(person.getConsumiblePocket(1))+"','"+selectedConsumable(person.getConsumiblePocket(2))+
                     "','"+person.getExperance()+"','"+person.getLevel()+"')");
 
@@ -500,8 +499,6 @@ public class Manager {
 
         continueGame=false;
     }
-
-    //moves charcator based
     public boolean teleport(int newZ, int newX, int newY, int currentZ,int currentX,int currentY){
         if(!GameWorld.getTile(newZ,newX,newY).getWall()) {//if your walling into a wall
             if (GameWorld.getTile(newZ, newX, newY).getEnemyLocation() == 0) {//if a enemy is standing there
@@ -522,18 +519,15 @@ public class Manager {
             //System.out.print("invalid Move");
             return false;}//there is a wall
     }
-
-    //Function to get enemy locations
     public void stillHere(int z,int x,int y){
         if(GameWorld.getTile(z, x, y).getEnemyLocation() == 0){
             getGameWorld().getTile(z, x, y).setEnemyLocation(turn+1);
+
         }
     }
 
-    // public void reMove Character(Character killed){
-
-    //Method for combat for who wins and loses
-    public boolean combat(Character Attacker,Character Defender){//return true is attacker wins
+   // public void reMove Character(Character killed){
+    public boolean combat(Character Attacker, Character Defender){//return true is attacker wins
         do{
             Attacker.printSimpleCombat();
             Defender.printSimpleCombat();
@@ -554,7 +548,6 @@ public class Manager {
         return true;
     }
 
-    //Method to create a stairs
     public void generateStairs(int x, int y, int z, int x2, int y2, int z2){
         Stairs Down = new Stairs(x,y,z,x2,y2,z2,this,2);
         Stairs Up = new Stairs(x2,y2,z2,x,y,z,this,14);
@@ -563,13 +556,10 @@ public class Manager {
 
     }
 
-    //Combat method for players defence
-    public boolean combat(Character Attacker,Weapon Spike){
+    public boolean combat(Character Attacker, Weapon Spike){
         Attacker.defence(Spike.getDamage(),Spike.getDamageType());
         return true;
     }
-
-    //Method used for Random Int.
     private int random(int low,int high){
         if(high<low) {
             return (high + random.nextInt((low - high)));

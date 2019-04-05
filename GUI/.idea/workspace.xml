@@ -2,29 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4161f775-1a18-4e47-b419-78673e4561d0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Entity/.idea/libraries/hamcrest_core_1_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/.idea/libraries/junit_4_13_beta_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/.idea/libraries/junit_4_13_beta_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/.idea/libraries/sqlite_jdbc_3_27_2_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Entity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Entity/Entity.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/Entity.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Entity/out/production/Entity/Character.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/out/production/Entity/Character.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Entity/out/production/Entity/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/out/production/Entity/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Entity/out/production/Entity/META-INF/Entity.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Entity/out/production/Entity/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/out/production/Entity/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Entity/out/production/Entity/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/out/production/Entity/Manager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Entity/out/production/Entity/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/out/production/Entity/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Entity/out/production/Entity/World.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/out/production/Entity/World.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Entity/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/src/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Entity/src/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/src/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Entity/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Entity/src/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/src/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Entity/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Entity/src/Stairs.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/src/Stairs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Entity/src/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/src/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Entity/src/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/src/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/save1.db" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/save1.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/src/JUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/src/JUnitTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUIDriver/GUIController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUIDriver/GUIController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUIDriver/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUIDriver/Manager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUIDriver/Trap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Trap.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -223,11 +211,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="582" />
-    <option name="y" value="90" />
-    <option name="width" value="1281" />
-    <option name="height" value="761" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="width" value="1614" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -267,7 +254,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554504430156" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Entity" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -329,7 +316,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21619433" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />

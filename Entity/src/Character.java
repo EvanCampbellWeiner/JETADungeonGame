@@ -11,18 +11,17 @@ public abstract class Character extends Entity {
     private boolean friendly;
     private boolean player=false;
     private final int type;
+    Scanner scanner = new Scanner(System.in);
 
 
-    @Override
+    @Override//When Collison With Anything
     public void interact(Character Attacker) {
         if(!(Attacker.getfriendly()&&this.friendly)) {
             getMyManager().combat(Attacker, this);
         }//prevents enemy's from attacking each other
     }
 
-    Scanner scanner = new Scanner(System.in);
-
-
+    //used by Stairs
     Character(String Name, int x, int y, int z, int type,Manager Management,int health, int armor) {
         super(x, y, z, Management);
         this.Sheath=new Weapon[0];
@@ -36,7 +35,7 @@ public abstract class Character extends Entity {
         this.type=type;
     }
 
-
+    //used by Enemy
     Character(String Name, int x, int y, int z, int type, Manager Management,int health,int armor, Weapon Sword) {
         super(x, y, z, Management);
         this.Sheath = new Weapon[0];
@@ -50,14 +49,22 @@ public abstract class Character extends Entity {
         this.type=type;
     }
 
-    public int getArmor() {
-        return armor;
+    //used by new Player
+    Character(String Name, int x, int y, int z, int type, Manager Management, int health, int armor, Weapon Sword, Consumable Potion){
+        super(x,y,z,Management);
+        this.armor=armor;
+        this.maxHealth=health;
+        this.currentHealth=health;
+        this.Name=Name;
+        this.type=type;
+
+        this.potionSlot = new Consumable[0];
+        this.Sheath= new Weapon[0];
+        this.pickUpNewWeapon(Sword);
+        this.pickUpNewConsumible(Potion);
     }
 
-    public void setArmor(int armor) {
-        this.armor = armor;
-    }
-
+    //use when load existing Player
     Character(String Name, int x, int y, int z, int type , Manager Management, int health, int armor, Weapon[] Swords, Consumable[] Potions){
         super(x,y,z,Management);
         this.armor=armor;
@@ -84,20 +91,7 @@ public abstract class Character extends Entity {
 
     }
 
-
-    Character(String Name, int x, int y, int z, int type, Manager Management, int health, int armor, Weapon Sword, Consumable Potion){
-        super(x,y,z,Management);
-        this.armor=armor;
-        this.maxHealth=health;
-        this.currentHealth=health;
-        this.Name=Name;
-        this.type=type;
-
-        this.potionSlot = new Consumable[0];
-        this.Sheath= new Weapon[0];
-        this.pickUpNewWeapon(Sword);
-        this.pickUpNewConsumible(Potion);
-    }
+    //MoveTo (x,y) don't use Relitive
     public boolean Move(int toX,int toY) {
         unmoved=true;
         if((getMyManager().teleport(getZ(),toX,toY,getZ(),getX(),getY()))){
@@ -111,7 +105,8 @@ public abstract class Character extends Entity {
             return false;
         }
     }
-    //}//move might work "untested" // can't find enemy to attack it's a scoping problem */
+
+    //Use Potion then remove it
     public void Consume(int potion) {
         if (potion <= 0 || potion >= potionSlot.length) {
             upCurrentHealth(potionSlot[potion].use());
@@ -120,8 +115,9 @@ public abstract class Character extends Entity {
             System.out.print("Error no potion found // can't be used");
         }
 
-    }//also untested but with will most likely work
+    }
 
+    //If getting Attacked
     public void defence(int damage, boolean type) {
         if (type) {
             upCurrentHealth(damage * -1);
@@ -133,14 +129,16 @@ public abstract class Character extends Entity {
         if(currentHealth<=0){gameOver();}
     }
 
+    //When you Attacking
     public void attack(Weapon Sword, Character Target) {
         Target.defence((Sword.getDamage()), (Sword.getDamageType()));
     }
 
+    //Abstracts
     public abstract Weapon pickWeapon();
-
     public abstract void takeLoot(Weapon Looted);
 
+    //Change Current Health by Update
     public void upCurrentHealth(int update) {
         currentHealth += update;
         if (currentHealth <= 0) {
@@ -148,10 +146,13 @@ public abstract class Character extends Entity {
         }
     }
 
+    //Small Print
     public void printSimpleCombat(){
         System.out.print(Name+" ("+currentHealth+"/"+maxHealth+")\n");
         Sheath[0].printWeapon();
     }
+
+    //Full Print
     @Override
     public void print() {
         System.out.print(" " + Name + " ("+getX()+","+getY()+","+getZ()+")\n Hp(" + currentHealth + "\\" + maxHealth + ")\n");
@@ -169,6 +170,8 @@ public abstract class Character extends Entity {
         }
         System.out.print("\n");
     }
+
+    //pick Attacking Weapon
     public void printWeapon(){
         for (int loop = 0; loop <= Sheath.length - 1; loop++) {
             //System.out.print(loop);
@@ -177,6 +180,7 @@ public abstract class Character extends Entity {
         }
     }
 
+    //pick Infintory Item
     public boolean openInfintoryUsePotion(){
         int select;
         System.out.print("0: Exit Inventory\n");
@@ -194,7 +198,7 @@ public abstract class Character extends Entity {
             return false;
         }
     }
-    public String getName() { return Name; }
+
     public Weapon getWeaponBackpack(int selected) {
         if(selected>=0&&selected<=Sheath.length-1){
             return Sheath[selected];
@@ -211,18 +215,22 @@ public abstract class Character extends Entity {
             return new Consumable(0,"Error Consumible Error// Failed to pick item");
         }
     }
+
+    //Add new Weapon to Array
     public void pickUpNewWeapon(Weapon Sword){
         Weapon[] NewWeaponArray = new Weapon[Sheath.length+1];
         System.arraycopy(Sheath,0,NewWeaponArray,0,Sheath.length);
         NewWeaponArray[NewWeaponArray.length-1]=Sword;
         this.Sheath=NewWeaponArray;
     }
+    //Add new Consumible
     public void pickUpNewConsumible(Consumable Postion){
         Consumable[] NewConsumible = new Consumable[potionSlot.length+1];
         System.arraycopy(potionSlot,0,NewConsumible,0,potionSlot.length);
         NewConsumible[NewConsumible.length-1]=Postion;
         this.potionSlot=NewConsumible;
     }
+    //Remove Weapon from Array
     public void removeWeapon(int toRemove){
         //System.out.print("="+Sheath.length+"\n\n");
         Weapon[] newWeaponArray = new Weapon[Sheath.length-1];
@@ -238,6 +246,7 @@ public abstract class Character extends Entity {
 
 
     }
+    //Remove Consumible
     public void removeConsumible(int toRemove){
        Consumable[] newPoshionSlot = new Consumable[potionSlot.length-1];
        for(int loop=0;loop<=newPoshionSlot.length-1;loop++){
@@ -249,29 +258,33 @@ public abstract class Character extends Entity {
        }
         this.potionSlot=newPoshionSlot;
     }
+
+    public String getName() { return Name; }
     public void setUnmoved(boolean unmoved){
         this.unmoved=unmoved;
     }
     public int getType(){
         return type;
     }
-
     public int getMaxHealth() {
         return maxHealth;
     }
-
     public int getCurrentHealth() {
         return currentHealth;
     }
-
     public void setMaxHealth(int maxHealth) {
         this.maxHealth = maxHealth;
     }
-
     public boolean getfriendly(){return friendly;}
     public void setfriendly(boolean friendly){
         this.friendly = friendly;
     }
     public boolean getplayer(){return player;}
     public void setplayer(boolean player){this.player=player;}
+    public int getArmor() {
+        return armor;
+    }
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
 }

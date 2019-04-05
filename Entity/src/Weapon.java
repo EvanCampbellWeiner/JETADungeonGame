@@ -1,6 +1,6 @@
 public class Weapon extends Item{
     private int damage;
-    private boolean damageType;
+    private boolean damageType;//if true pirce damage
 
     Weapon(boolean type, int damage,String Name){
         super(Name);
@@ -8,7 +8,7 @@ public class Weapon extends Item{
         this.damage = damage;
     }
 
-
+    //use by print full && attack loop
     public void printWeapon(){
         if(damageType) {
             System.out.print("  > "+getName()+" pierce "+damage+"\n");

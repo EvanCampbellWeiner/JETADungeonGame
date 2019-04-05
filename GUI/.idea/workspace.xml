@@ -2,14 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4161f775-1a18-4e47-b419-78673e4561d0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Entity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/Entity.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/Entity.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/out/production/Entity/Character.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/out/production/Entity/Character.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/out/production/Entity/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/out/production/Entity/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/out/production/Entity/META-INF/Entity.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/out/production/Entity/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/out/production/Entity/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/out/production/Entity/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/out/production/Entity/Manager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/out/production/Entity/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/out/production/Entity/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/out/production/Entity/World.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/out/production/Entity/World.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/src/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/src/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/src/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/src/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/src/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/src/Stairs.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/src/Stairs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/src/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/src/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entity/src/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entity/src/World.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUIDriver/Character.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUIDriver/Character.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GUIDriver/GUIController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUIDriver/GUIController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUIDriver/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUIDriver/Manager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GUIDriver/Trap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUIController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SceneBuilderGUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/SceneBuilderGUI.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Trap.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -24,8 +38,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUIController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="389" selection-start-line="389" selection-end-line="389" />
+            <state relative-caret-position="5083">
+              <caret line="307" selection-start-line="307" selection-end-line="307" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#11763#11764#0" expanded="true" />
@@ -40,6 +54,7 @@
                 <element signature="e#12568#12569#0" expanded="true" />
                 <element signature="e#13175#13176#0" expanded="true" />
                 <element signature="e#13218#13219#0" expanded="true" />
+                <element signature="e#13852#13853#0" expanded="true" />
                 <element signature="e#13902#13903#0" expanded="true" />
                 <element signature="e#15536#15537#0" expanded="true" />
                 <element signature="e#15586#15587#0" expanded="true" />
@@ -63,7 +78,7 @@
         <entry file="file://$PROJECT_DIR$/src/SceneBuilderGUI.fxml">
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="213">
+            <state relative-caret-position="646">
               <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
             </state>
           </provider>
@@ -98,7 +113,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Character.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
+            <state relative-caret-position="1955">
               <caret line="119" column="30" selection-start-line="119" selection-start-column="30" selection-end-line="119" selection-end-column="30" />
             </state>
           </provider>
@@ -107,8 +122,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Manager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="436" selection-start-line="436" selection-end-line="436" />
+            <state relative-caret-position="2771">
+              <caret line="301" column="6" selection-start-line="301" selection-start-column="6" selection-end-line="301" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#setGameLoop#0;class#Manager#0" />
@@ -119,7 +134,6 @@
                 <element signature="method#printMapWide#0;class#Manager#0" />
                 <element signature="method#buildMap#0;class#Manager#0" />
                 <element signature="e#6836#7832#1" />
-                <element signature="method#generatePreCreatedWorld#0;class#Manager#0" />
                 <element signature="method#generateEnemy#0;class#Manager#0" />
                 <element signature="method#generateConsumable#0;class#Manager#0" />
                 <element signature="method#selectedConsumable#0;class#Manager#0" />
@@ -140,7 +154,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Enemy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="34">
               <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
               <folding>
                 <element signature="method#Enemy#0;class#Enemy#0" />
@@ -156,7 +170,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
+            <state relative-caret-position="663">
               <caret line="94" selection-start-line="94" selection-end-line="94" />
               <folding>
                 <element signature="method#Player#0;class#Player#0" />
@@ -209,10 +223,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="width" value="1614" />
-    <option name="height" value="876" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="582" />
+    <option name="y" value="90" />
+    <option name="width" value="1281" />
+    <option name="height" value="761" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -220,7 +235,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -247,11 +261,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554501136244" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554504430156" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
@@ -314,9 +329,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2097166" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21619433" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -324,9 +339,9 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.27175844" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49959514" visible="true" weight="0.43161634" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3285968" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27175844" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49959514" weight="0.43161634" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3285968" />
@@ -472,13 +487,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="1777" selection-start-line="1777" selection-end-line="1777" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WorldSelectionMenu.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
@@ -534,10 +542,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Trap.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="1768" selection-start-line="1768" selection-end-line="1768" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5083">
+          <caret line="307" selection-start-line="307" selection-end-line="307" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#11763#11764#0" expanded="true" />
+            <element signature="e#11816#11817#0" expanded="true" />
+            <element signature="e#11903#11904#0" expanded="true" />
+            <element signature="e#11961#11962#0" expanded="true" />
+            <element signature="e#12017#12018#0" expanded="true" />
+            <element signature="e#12076#12077#0" expanded="true" />
+            <element signature="e#12128#12129#0" expanded="true" />
+            <element signature="e#12183#12184#0" expanded="true" />
+            <element signature="e#12518#12519#0" expanded="true" />
+            <element signature="e#12568#12569#0" expanded="true" />
+            <element signature="e#13175#13176#0" expanded="true" />
+            <element signature="e#13218#13219#0" expanded="true" />
+            <element signature="e#13852#13853#0" expanded="true" />
+            <element signature="e#13902#13903#0" expanded="true" />
+            <element signature="e#15536#15537#0" expanded="true" />
+            <element signature="e#15586#15587#0" expanded="true" />
+            <element signature="e#15646#15647#0" expanded="true" />
+            <element signature="e#15677#15678#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/World.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SceneBuilderGUI.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EntityMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -556,23 +615,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Trap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Character.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
+        <state relative-caret-position="1955">
           <caret line="119" column="30" selection-start-line="119" selection-start-column="30" selection-end-line="119" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Enemy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="34">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding>
             <element signature="method#Enemy#0;class#Enemy#0" />
@@ -584,51 +636,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SceneBuilderGUI.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EntityMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUIController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="389" selection-start-line="389" selection-end-line="389" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#11763#11764#0" expanded="true" />
-            <element signature="e#11816#11817#0" expanded="true" />
-            <element signature="e#11903#11904#0" expanded="true" />
-            <element signature="e#11961#11962#0" expanded="true" />
-            <element signature="e#12017#12018#0" expanded="true" />
-            <element signature="e#12076#12077#0" expanded="true" />
-            <element signature="e#12128#12129#0" expanded="true" />
-            <element signature="e#12183#12184#0" expanded="true" />
-            <element signature="e#12518#12519#0" expanded="true" />
-            <element signature="e#12568#12569#0" expanded="true" />
-            <element signature="e#13175#13176#0" expanded="true" />
-            <element signature="e#13218#13219#0" expanded="true" />
-            <element signature="e#13902#13903#0" expanded="true" />
-            <element signature="e#15536#15537#0" expanded="true" />
-            <element signature="e#15586#15587#0" expanded="true" />
-            <element signature="e#15646#15647#0" expanded="true" />
-            <element signature="e#15677#15678#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
+        <state relative-caret-position="663">
           <caret line="94" selection-start-line="94" selection-end-line="94" />
           <folding>
             <element signature="method#Player#0;class#Player#0" />
@@ -644,8 +654,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Manager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="436" selection-start-line="436" selection-end-line="436" />
+        <state relative-caret-position="2771">
+          <caret line="301" column="6" selection-start-line="301" selection-start-column="6" selection-end-line="301" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#setGameLoop#0;class#Manager#0" />
@@ -656,7 +666,6 @@
             <element signature="method#printMapWide#0;class#Manager#0" />
             <element signature="method#buildMap#0;class#Manager#0" />
             <element signature="e#6836#7832#1" />
-            <element signature="method#generatePreCreatedWorld#0;class#Manager#0" />
             <element signature="method#generateEnemy#0;class#Manager#0" />
             <element signature="method#generateConsumable#0;class#Manager#0" />
             <element signature="method#selectedConsumable#0;class#Manager#0" />

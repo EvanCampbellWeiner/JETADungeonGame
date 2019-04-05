@@ -5,8 +5,9 @@ public class Player extends Character {
     Scanner scanner = new Scanner(System.in);
     private int level;
     private int experance;
-    private final int infintorySize = 2;
+    private final int infintorySize = 2;//we only saves your first two items,
 
+    //Full Creator
     Player(String Name, int x, int y, int z, Manager Management, int health, int armor, Weapon[] Swords, Consumable[] Potions, int exp, int level) {
         super(Name, x, y, z, -1, Management, health, armor, Swords, Potions);
         this.experance = exp;
@@ -14,6 +15,8 @@ public class Player extends Character {
         setfriendly(false);
         getMyManager().playerLocation(x, y, z);
     }
+
+    //load New Save
     Player(String Name, int x, int y, int z, Manager Management, Weapon Sword, Consumable Potion) {
         super(Name, x, y, z, -1, Management, 10, 1, Sword, Potion);
         this.level = 0;
@@ -22,45 +25,40 @@ public class Player extends Character {
         getMyManager().playerLocation(x, y, z);
     }
 
-    public int getLevel() {
-        return level;
-    }
-
-    public int getExperance() {
-        return experance;
-    }
-
+    //increase Max health // reset Epx
     private void levelUp() {
         this.experance = 0;
         level++;
         setMaxHealth(getMaxHealth() + 2);
     }
 
-    @Override
+    @Override//when killed
     public void gameOver() {
         System.out.print("You Were killed");
         setAlive(false);
         getMyManager().exitGame(Player.this);
-        //calls game manager to kill this case or respawn
+        //Exit Game Saves, yes we do save Even on death
     }
 
-    @Override
+    @Override//increase Exp
     public void attack(Weapon Sword, Character Target) {
         super.attack(Sword, Target);
         experance++;
     }
 
-    @Override
+    @Override//Take loot May need to discard if infintory full
     public void takeLoot(Weapon Looted) {
         int pick;
         Looted.printWeapon();
         System.out.print("\nWould you like to take this Weapon?'\n0: No\n1: Yes");
         pick = scanner.nextInt();
 
-        if (pick == 1) {
+        if (pick == 1) {//Yes, i Want it.
             if (getSheath().length < infintorySize) {
+                //Just Take it
                 pickUpNewWeapon(Looted);
             } else {
+                //To much Stuff
                 System.out.print("Discard a Weapon\n");
                 printWeapon();
                 System.out.print(getSheath().length + " ");
@@ -75,7 +73,7 @@ public class Player extends Character {
         }
     }
 
-    @Override
+    @Override//Pick Weapon to Attack With
     public Weapon pickWeapon() {
         System.out.print("\n");
         printWeapon();
@@ -86,7 +84,7 @@ public class Player extends Character {
         return getWeaponBackpack(pick);
     }
 
-    @Override
+    @Override//Waiting State Chart,
     public void startTurn() {
         int pick;
         boolean validator = true;
@@ -139,10 +137,17 @@ public class Player extends Character {
         getMyManager().setPlayerLocation(getX(), getY(), getZ());
     }
 
-    @Override
+    @Override//update placement in Manager
     public void teleport(int x, int y, int z) {
         super.teleport(x, y, z);
         getMyManager().setPlayerLocation(getX(), getY(), getZ());
+    }
+
+    public int getLevel() {
+        return level;
+    }
+    public int getExperance() {
+        return experance;
     }
 }
 

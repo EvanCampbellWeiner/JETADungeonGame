@@ -11,35 +11,22 @@ public class World {
         this.Level=Level;
     }
 
+    //used by full print
     public void printWorld(){
         for(int loop=0;loop<=Level.length-1;loop++){
             System.out.print("lv_"+loop+"\n");
             Level[loop].printFloor();
         }
     }
+
     public Floor getFloor(int z){
         return Level[z];
     }
-
-    public void printFloor(int z){
-        Level[z].printFloor();
-    }
-
-    public void addFloor(Floor NewFloor){
-        Floor[] NewLevel = new Floor[Level.length+1];
-        System.arraycopy(Level,0,NewLevel,0,Level.length);
-        NewLevel[NewLevel.length-1]=NewFloor;
-        this.Level=NewLevel;
-
-
-        /*System.arraycopy(Sheath,0,NewWeaponArray,0,Sheath.length);
-        NewWeaponArray[NewWeaponArray.length-1]=Sword;
-        this.Sheath=NewWeaponArray;*/
-    }
-
+    
     public void customFloor(Floor Floor,int placement) {
         Level[placement] = Floor;
     }
+
 
     public Tile getTile(int z,int x,int y){
         return (Level[z].GetTile(x,y));

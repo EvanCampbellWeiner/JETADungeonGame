@@ -299,7 +299,7 @@ public ActionEvent event=new ActionEvent();
         Ghost4.teleport(9,1,3);
         Demon.teleport(4,10,3);
         Vampire.teleport(6,10,3);
-
+        this.addEntity(GUIController.Neo);
 
         GameWorld.customFloor(RoomOne,0);
         GameWorld.customFloor(RoomTwo,1);

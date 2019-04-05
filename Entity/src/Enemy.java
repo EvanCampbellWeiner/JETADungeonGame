@@ -12,7 +12,7 @@ public class Enemy extends Character{
         getMyManager().addEntity(this);
     }
 
-    @Override
+    @Override//enemys don't loot
     public void takeLoot(Weapon Looted) {
         //enemy's don't loot
     }
@@ -21,7 +21,7 @@ public class Enemy extends Character{
     public void gameOver() {
         setAlive(false);
         //call game manager to kill
-    }
+    }//set get alive false
 
     @Override
     public Weapon pickWeapon() {
@@ -43,7 +43,7 @@ public class Enemy extends Character{
 
         do{
             attemptedMoves++;
-            System.out.print("Move "+getName()+", "+attemptedMoves);
+            //System.out.print("Move "+getName()+", "+attemptedMoves);
             if(lookStraight(1,0)){
                 hasMoved =Move(getX()+1,getY());
                 lastSeen=1;
@@ -122,6 +122,7 @@ public class Enemy extends Character{
         }
     }
 
+    //looks in a direction returns true if it sees player
     private boolean lookStraight(int xChange, int yChange){
         boolean searching=false;
         int xCheak=0,yCheak=0;

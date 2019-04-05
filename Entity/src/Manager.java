@@ -6,7 +6,7 @@ public class Manager {
 
     private Character[] GameLoop;
     private int turn;
-    private boolean continueGame;
+    private boolean continueGame;//While Player is not Dead True
     private World GameWorld;
     private int playerX, playerZ, playerY;
     private Random random=new Random();
@@ -17,29 +17,23 @@ public class Manager {
         }else{
          return false;
         }
-    }
+    }//Used by Enemy Pathfinding
     public void setPlayerLocation(int x, int y, int z){
         this.playerX=x;
         this.playerY=y;
         this.playerZ=z;
-    }
+    }//Track Player
 
 
-
+    //REQUIRES a World Load before RunGame
     Manager(){
         turn=0;
         continueGame=true;
         this.GameLoop = new Character[0];
-        //this.GameWorld = generatePreCreatedWorld();
-    }
-    Manager(World Map){
-        continueGame = true;
-        turn=0;
-        this.GameLoop = new Character[0];
-        this.GameWorld=Map;
     }
 
 
+    //Trile and Error to find a valid Squaire on Random Worlds
     public void findValidPlacement(int zFloor, Entity placeObject){
         int pickX, pickY, bail=0;
         boolean sheaching=true;
@@ -60,7 +54,7 @@ public class Manager {
         //System.out.print("placement try's ="+bail);
     }
 
-
+    //Loads Random World OR the WildWest
     public void generateRandomWorld(){
         int floorNumber = random(2,5), maxFloorSize=40, minFloorSize=20, maxRoomsPerFloor=6, minRoomsPerFloor=3;
         Floor[] Level = new Floor[floorNumber];
@@ -75,6 +69,8 @@ public class Manager {
         this.autoRandomStairs();
         this.autoGenerateEnemys();
     }
+
+    //Randomly Place Enemys
     private void autoGenerateEnemys(){
         for(int floorNumber =0;floorNumber < GameWorld.getLevel().length;floorNumber++) {
             int enemyNumber = random(3, 15);
@@ -84,6 +80,8 @@ public class Manager {
         }
     }
 
+
+    //load Random Strirs in Pairs
     private void autoRandomStairs(){
         int pickXOne, pickYOne, pickXTwo,pickYTwo, bail;
         boolean sheaching;
@@ -131,7 +129,7 @@ public class Manager {
         }
     }
 
-
+    //Prints Map Relitive To Player
     public void printMapWide(boolean printOnes, int drawDistance) {
         for(int loopY=playerY+drawDistance;loopY>playerY+((drawDistance*-1)-1);loopY--){
             System.out.print("\n");
@@ -152,8 +150,9 @@ public class Manager {
     }
 
 
+    //Pass to GUI Manager
     public int[][] buildMap(int size){
-
+        //varible size array to we can upgrade to 12by12 extra
         int Map[][] = new int[size+1][size+1];
 
         for(int loopY=(size*2);loopY>=0;loopY--){
@@ -178,6 +177,8 @@ public class Manager {
         System.out.print("\n");
         return Map;
     }
+
+    //Load World One // PreCreated World
     public World generatePreCreatedWorld(){
         this.GameWorld = new World(4);
 
@@ -276,9 +277,11 @@ public class Manager {
 
         return GameWorld;
     }
+
+    //Creates Enemys from List
     public Enemy generateEnemy(int selected){
         switch (selected){
-            case 0:
+            case 0://wish we got graphics working ~jared this would be so much cooler
                 return new Enemy("Slime", 0,0 ,0 ,3,this, 2,0,generateWeapon(1));
             case 1:
                 return new Enemy("Spider",0,0,0,4,this,3,1,generateWeapon(0));
@@ -304,6 +307,8 @@ public class Manager {
                     return new Enemy("Error Type Enemy Not Found",0,0,0,15,this,1000,0,generateWeapon(0));
         }
     }
+
+    //used to creat Consumible
     public Consumable generateConsumable(int selected){
         switch (selected){
             case 0:
@@ -316,6 +321,8 @@ public class Manager {
                 return new Consumable(0,"Error potion");
         }
     }
+
+    //used to Save Consumibles
     public int selectedConsumable(Consumable selected){
         switch (selected.getName()){
             case ("Band_Aid"):
@@ -328,6 +335,8 @@ public class Manager {
                 return -1;
         }
     }
+
+    //used To Creat Weapon
     public Weapon generateWeapon(int selected){
         switch(selected){
             case 0:
@@ -354,6 +363,8 @@ public class Manager {
                 return new Weapon(false,0,"Error Weapon Failed to find Weapon");
         }
     }
+
+    //used To Save Weapon
     public int selectedWeapon(Weapon selected){
         switch(selected.getName()){
             case "Bite" :
@@ -380,6 +391,8 @@ public class Manager {
                 return -1;
         }
     }
+
+    //Add Entity To GameLoop
     public void addEntity(Character Neo){
         Character[] NewGameLoop = new Character[GameLoop.length+1];
         System.arraycopy(GameLoop,0,NewGameLoop,0,GameLoop.length);
@@ -387,6 +400,8 @@ public class Manager {
         this.GameLoop = NewGameLoop;
         GameWorld.getTile(Neo.getZ(),Neo.getX(),Neo.getY()).setEnemyLocation(NewGameLoop.length);
     }
+
+    //Prints EveryThing
     public void printFull(){
         for (int loop=0;loop<=GameLoop.length-1;loop++){
             GameLoop[loop].print();
@@ -394,21 +409,24 @@ public class Manager {
         GameWorld.printWorld();
 
     }
+
+    //Everything in GameLoop StartsTurn till there dead or quit
     public void RunGame(){
         do{
-            //System.out.print(turn);
-            if(GameLoop[turn].getZ()==playerZ) {
-                if (GameLoop[turn].getAlive()) {
+
+            if(GameLoop[turn].getZ()==playerZ) {//limit lag but only running enemys on the same floor
+                if (GameLoop[turn].getAlive()) {//if alive
                     GameLoop[turn].startTurn();
-                } //else {
-                   // GameLoop[turn] = null;
+                }
+
             }
-            //}
-            //when you have a memory leak error tell me becouse you will
+
+
             iterateTurn();
         }while(continueGame);
-        //loops thought GameLoop running RunTurn until exitGame is Called
     }
+
+    //Change Turns Even if Someone Dies // is removed
     private void iterateTurn(){
         //System.out.print("("+turn+"/"+getGameLoop().length+")");
         if(turn>=getGameLoop().length-1){
@@ -418,20 +436,24 @@ public class Manager {
             turn++;
         }
     }
+
+
     public World getGameWorld() {
         return GameWorld;
     }
     public Entity[] getGameLoop() {
         return GameLoop;
     }
+
+    //Exit And Save
     public void exitGame(Player person){
         try{
             Scanner sc = new Scanner(System.in);
-            int check=0;
-            System.out.println("Please enter what save file you wish to save to: (1,2,3)");
-            while((check!=1)&&(check!=2)&&(check!=3)) {
-                check = sc.nextInt();
-            }
+            //int check=0;
+            //System.out.println("Please enter what save file you wish to save to: (1,2,3)");
+            //while((check!=1)&&(check!=2)&&(check!=3)) {
+                int check =1;
+            //}
 
             Connection conn = DriverManager.getConnection("jdbc:sqlite:save1.db");
             Statement statement = conn.createStatement();
@@ -450,7 +472,7 @@ public class Manager {
                     ")");
            statement.execute( "CREATE UNIQUE INDEX IF NOT EXISTS idx_Character_IDNumber ON Character (IDNumber)");
             statement.execute("INSERT OR REPLACE INTO Character (IDNumber,Name, Health, Weapon1, Weapon2, Consumable1, Consumable2, Consumable3, Exp, Level) " +
-                    "VALUES ('"+check+"','"+person.getName()+"','"+person.getCurrentHealth()+"','"+ selectedWeapon(person.getWeaponBackpack(0))+"','"+ selectedWeapon(person.getWeaponBackpack(1))+
+                    "VALUES ('"+check+"','"+person.getName()+"','"+person.getMaxHealth()+"','"+ selectedWeapon(person.getWeaponBackpack(0))+"','"+ selectedWeapon(person.getWeaponBackpack(1))+
                     "','"+selectedConsumable(person.getConsumiblePocket(0))+"','"+ selectedConsumable(person.getConsumiblePocket(1))+"','"+selectedConsumable(person.getConsumiblePocket(2))+
                     "','"+person.getExperance()+"','"+person.getLevel()+"')");
 
@@ -464,6 +486,8 @@ public class Manager {
 
         continueGame=false;
     }
+
+    //used By too look for Colishion
     public boolean teleport(int newZ, int newX, int newY, int currentZ,int currentX,int currentY){
         if(!GameWorld.getTile(newZ,newX,newY).getWall()) {//if your walling into a wall
             if (GameWorld.getTile(newZ, newX, newY).getEnemyLocation() == 0) {//if a enemy is standing there
@@ -484,6 +508,8 @@ public class Manager {
             //System.out.print("invalid Move");
             return false;}//there is a wall
     }
+
+    //Displays A Object Which Won't Move
     public void stillHere(int z,int x,int y){
         if(GameWorld.getTile(z, x, y).getEnemyLocation() == 0){
             getGameWorld().getTile(z, x, y).setEnemyLocation(turn+1);
@@ -491,7 +517,7 @@ public class Manager {
         }
     }
 
-   // public void reMove Character(Character killed){
+   //Manage Combat
     public boolean combat(Character Attacker,Character Defender){//return true is attacker wins
         do{
             Attacker.printSimpleCombat();
@@ -513,6 +539,7 @@ public class Manager {
         return true;
     }
 
+    //creats two sets of Stairs Which Lead into each Other
     public void generateStairs(int x, int y, int z, int x2, int y2, int z2){
         Stairs Down = new Stairs(x,y,z,x2,y2,z2,this,2);
         Stairs Up = new Stairs(x2,y2,z2,x,y,z,this,14);
@@ -521,6 +548,7 @@ public class Manager {
 
     }
 
+    //Combat Single Attack
     public boolean combat(Character Attacker,Weapon Spike){
         Attacker.defence(Spike.getDamage(),Spike.getDamageType());
         return true;
